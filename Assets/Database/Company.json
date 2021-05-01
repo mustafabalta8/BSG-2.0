@@ -1,0 +1,23 @@
+{
+    "employees":
+    [
+      {
+        "employeeId": 1000,
+        "employeeName": "John Test 1",
+        "employeeSalary": 1000,
+        "employeePower" : 100
+      },
+      {
+        "employeeId": 2000,
+        "employeeName": "Jack Test 2",
+        "employeeSalary": 2000,
+        "employeePower" : 200
+      },
+      {
+        "employeeId": 3000,
+        "employeeName": "Mustafa Test 3",
+        "employeeSalary": 3000,
+        "employeePower" : 300
+      }
+    ]
+  }
