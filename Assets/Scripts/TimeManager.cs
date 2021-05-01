@@ -10,7 +10,7 @@ public class TimeManager : MonoBehaviour
     public float elapsedTime = 1;
     public Text TimeText;
     public int displayTime;
-    double actualTime = 1;
+    [SerializeField]double actualTime = 1;
     News news;
     private static int kills = 0;
 
@@ -36,7 +36,7 @@ public class TimeManager : MonoBehaviour
     void Update()
     {
         elapsedTime += Time.deltaTime;
-        actualTime = (elapsedTime / 10);
+       // actualTime = (elapsedTime / 10);
         displayTime = (int)actualTime + 1;
         if ((int)elapsedTime % 5 == 0)
         {
