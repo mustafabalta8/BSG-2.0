@@ -7,55 +7,29 @@ public class TimeManager : MonoBehaviour
 {
     //todo: save time to be continued by on the next launch
 
-    public float elapsedTime = 1;
+    public double elapsedTime;
     public Text TimeText;
     public int displayTime;
-    [SerializeField]double actualTime = 1;
-    News news;
-    private static int kills = 0;
 
-    public static int Kills //how to reach Kills from another class. timeManager.Kills error??
+    private void Start()
     {
-        get
-        {
-            return kills;
-        }
-        set
-        {
-            kills = value;
-            OnVarChange();
-        }
-    }
-    void Start()
-    {
-
-        news = FindObjectOfType<News>();
+        showTime(); // todo: show saved time from last save
     }
 
-
-    void Update()
+    private void Update()
     {
         elapsedTime += Time.deltaTime;
-       // actualTime = (elapsedTime / 10);
-        displayTime = (int)actualTime + 1;
-        if ((int)elapsedTime % 5 == 0)
+
+        if((int)elapsedTime % 10 == 0)
         {
-            Debug.Log("actual time:" + actualTime);
-            actualTime++;
-            kills++;
-            elapsedTime = 1;
-            news.DestroyNews();
-            news.CreateNews();
+            showTime();
         }
 
-
-        displayTime = (int)actualTime;
-        TimeText.text = displayTime.ToString();
     }
 
-    public static void OnVarChange()
+    private void showTime()
     {
-
-        Debug.Log("Kills:" + kills);
+        displayTime = (int)(elapsedTime / 10) + 1;
+        TimeText.text = displayTime.ToString();
     }
 }

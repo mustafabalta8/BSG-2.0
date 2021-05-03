@@ -1,54 +1,79 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class News : MonoBehaviour
 {
-    TimeManager timeManager;
-    int currentTime;
+    DbManager dbManager;
 
     // [SerializeField] Text newsText;
     [SerializeField] GameObject newsPanel;
     [SerializeField] GameObject newsObj;
-    string[] newsSt = { "Merhabaagh Merhabaagh Merhabaagh Merhabaagh Merhabaagh", "sad" ,"new 1","new 2"};
 
-    int i = 0;
-    // Start is called before the first frame update
+    int interval = 1;
+    List<int> news_ids = new List<int>();
+
     void Start()
     {
-        timeManager = FindObjectOfType<TimeManager>();
-        CreateNews();
-      //  currentTime = timeManager.displayTime;
+        dbManager = FindObjectOfType<DbManager>();
 
+        StartCoroutine(StartNewsFeed());
     }
 
-   public void CreateNews()
+    IEnumerator StartNewsFeed()
     {
-        int turn = i;
-        while (i < newsSt.Length)
+        int news_this_round = 0;
+        while (true)
         {
-            
-            GameObject CreateNews = Instantiate(newsObj);
-            CreateNews.transform.SetParent(newsPanel.transform);
-            //CreateNews.name = i.ToString();
 
-            CreateNews.transform.Find("NewsText").GetComponent<Text>().text = newsSt[i];
-            i++;
-            if (turn + 2 == i)
-                break;
-        }
-        
-    }
-    public void DestroyNews()
-    {
-        int count = 0;
-        while (count<6)
+            news_ids.ForEach(delegate (int news_id) {
+                DestroyNews(news_id);
+            });
+
+            news_ids.Clear();
+
+        string query = string.Format("SELECT * FROM news ORDER BY RANDOM()");
+        IDataReader reader = dbManager.ReadRecords(query);
+
+        while (reader.Read())
         {
-            //string obsName = count.ToString();
-            Destroy(newsPanel.transform.Find("NewsObj(Clone)").gameObject);//why count.ToString() not work in Find()
-            count++;
+            int news_id = reader.GetInt32(0);
+            string title = reader.GetString(1);
+            string news = reader.GetString(2);
+            string newsPaper = reader.GetString(3);
+
+            if (!news_ids.Contains(news_id))
+            {
+                news_ids.Add(news_id);
+
+                GameObject CreateNews = Instantiate(newsObj);
+                CreateNews.transform.SetParent(newsPanel.transform);
+
+                CreateNews.transform.Find("NewsTitle").GetComponent<Text>().text = title;
+                CreateNews.transform.Find("NewsText").GetComponent<Text>().text = news;
+                CreateNews.transform.Find("NewsPaper").GetComponent<Text>().text = newsPaper;
+
+                CreateNews.name = string.Format("[{0}]",news_id);
+
+                news_this_round++;
+
+                    if (news_this_round >= 2)
+                    {
+                        break;
+                    }
+            }
         }
+        dbManager.CloseConnection();
         
+        news_this_round = 0;
+
+        yield return new WaitForSeconds(interval*10);
+        }
+    }
+    public void DestroyNews(int news_id)
+    {
+        Destroy(newsPanel.transform.Find(string.Format("[{0}]", news_id)).gameObject);
     }
 }
