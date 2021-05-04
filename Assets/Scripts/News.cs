@@ -4,6 +4,8 @@ using System.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
+// mustafa branch deðþiklikleri
+
 public class News : MonoBehaviour
 {
     DbManager dbManager;
