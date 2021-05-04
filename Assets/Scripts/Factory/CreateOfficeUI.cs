@@ -35,20 +35,37 @@ public class CreateOfficeUI : MonoBehaviour
     }
     void CreateFurnitureUI()
     {
-            //  WORK TABLE CREATION
-            GameObject newDesk = Instantiate(furnitureUI);
-            newDesk.transform.SetParent(furnitureUIPanel.transform);
+        //  WORK TABLE CREATION
+        CreateSingleFurniture("WorkTable", 2, 120);
+        CreateSingleFurniture("OfficeChair", 1, 80);
+        /*
+            GameObject newFurniture = Instantiate(furnitureUI);
+            newFurniture.transform.SetParent(furnitureUIPanel.transform);
 
-            FurnitureUI furniture = newDesk.GetComponent<FurnitureUI>();
+            FurnitureUI furniture = newFurniture.GetComponent<FurnitureUI>();
             furniture.name = "WorkTable";
             furniture.furnitureName = "WorkTable";
             furniture.motivationIncrease = 2;
             furniture.price = 150;
-            newDesk.transform.Find("name").GetComponent<TextMeshProUGUI>().text = "Work Table";
-            newDesk.transform.Find("motivation").GetComponent<TextMeshProUGUI>().text = "Motivation:"+2;
-        
+            newFurniture.transform.Find("name").GetComponent<TextMeshProUGUI>().text = "Work Table";
+            newFurniture.transform.Find("motivation").GetComponent<TextMeshProUGUI>().text = "Motivation:"+2;*/
 
 
 
+
+    }
+    void CreateSingleFurniture(string FurName,int motivation,int price)
+    {
+        GameObject newFurniture = Instantiate(furnitureUI);
+        newFurniture.transform.SetParent(furnitureUIPanel.transform);
+        FurnitureUI furniture = newFurniture.GetComponent<FurnitureUI>();
+
+        furniture.name = FurName;
+        furniture.furnitureName = FurName;
+        furniture.motivationIncrease = motivation;
+        furniture.price = price;
+        newFurniture.transform.Find("name").GetComponent<TextMeshProUGUI>().text = FurName;
+        newFurniture.transform.Find("motivation").GetComponent<TextMeshProUGUI>().text = "Motivation:" + motivation;
+        newFurniture.transform.Find("price").GetComponent<TextMeshProUGUI>().text = "Price:" + price;
     }
 }

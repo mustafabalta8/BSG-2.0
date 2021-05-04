@@ -27,7 +27,14 @@ public class FurnitureUI : MonoBehaviour
 
         while (reader.Read())
         {
-            amount = reader.GetInt32(3);
+            if (furnitureName == "WorkTable")
+            {
+                amount = reader.GetInt32(3);
+            }else if (furnitureName == "OfficeChair")
+            {
+                amount = reader.GetInt32(4);
+            }
+            
         }
         dbManager.CloseConnection();
         transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount:" + amount;
@@ -39,7 +46,14 @@ public class FurnitureUI : MonoBehaviour
 
         while (reader.Read())
         {
-            amount = reader.GetInt32(3);
+            if (furnitureName == "WorkTable")
+            {
+                amount = reader.GetInt32(3);
+            }
+            else if (furnitureName == "OfficeChair")
+            {
+                amount = reader.GetInt32(4);
+            }
             capacity = reader.GetInt32(1);
         }
         
@@ -48,12 +62,21 @@ public class FurnitureUI : MonoBehaviour
             amount += 1;
             string query02 = string.Format("UPDATE office SET workTable='" + amount + "' WHERE id ='1'");
             dbManager.InsertRecords(query02);
-            dbManager.CloseConnection();
 
             transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount:" + amount;
-            transform.Find("price").GetComponent<TextMeshProUGUI>().text = "Price:" + price;
+            
             Debug.Log("workTable increased");
+        }else if(furnitureName == "OfficeChair" && amount <= capacity)
+        {
+            amount += 1;
+            string query02 = string.Format("UPDATE office SET seat='" + amount + "' WHERE id ='1'");
+            dbManager.InsertRecords(query02);
+
+            transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount:" + amount;
+
+            Debug.Log("chair increased");
         }
+
         dbManager.CloseConnection();
 
         moneyManager.changeMoney(-price);
@@ -67,7 +90,14 @@ public class FurnitureUI : MonoBehaviour
 
         while (reader.Read())
         {
-            amount = reader.GetInt32(3);
+            if (furnitureName == "WorkTable")
+            {
+                amount = reader.GetInt32(3);
+            }
+            else if (furnitureName == "OfficeChair")
+            {
+                amount = reader.GetInt32(4);
+            }
             capacity = reader.GetInt32(1);
 
         }
@@ -80,6 +110,16 @@ public class FurnitureUI : MonoBehaviour
 
             Debug.Log("workTable decreased");
 
+        }
+        else if (furnitureName == "OfficeChair" && amount <= capacity)
+        {
+            amount -= 1;
+            string query02 = string.Format("UPDATE office SET seat='" + amount + "' WHERE id ='1'");
+            dbManager.InsertRecords(query02);
+
+            transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount:" + amount;
+
+            Debug.Log("chair dec..");
         }
 
         dbManager.CloseConnection();
