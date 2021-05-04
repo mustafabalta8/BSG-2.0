@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class News : MonoBehaviour
 {
-    DbManager dbManager;
+    DbManager dbManager; //dbmanager
 
     [SerializeField] GameObject newsPanel;
     [SerializeField] GameObject newsObj;
