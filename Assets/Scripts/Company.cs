@@ -37,7 +37,7 @@ public class Company : MonoBehaviour
         employeeFactory = FindObjectOfType<CreateEmployee>(); //get the employee script
 
         getEmployeesFromDatabase(employeeFactory);
-        getCompanyDataFromDatabase();
+        getCompanyDataFromDatabase(); //company name
 
         employeeFactory.createRandomEmployee(5); //create X random employees
 
@@ -82,7 +82,7 @@ public class Company : MonoBehaviour
 
             this.companyPower = companyPower + employeePower;
 
-            employeeFactory.createEmployee(employeeId, employeeName, employeeSalary, employeePower, code, art, design);
+            //employeeFactory.createEmployee(employeeId, employeeName, employeeSalary, employeePower, code, art, design);
 
 
             GameObject createdEmployee = Instantiate(MyEmployee);

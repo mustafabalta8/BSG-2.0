@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MoneyManager : MonoBehaviour
 {
-    public int money = 1000000; //initial money
+    public int money; //initial money
     [SerializeField] Text moneyText; //define text field to show the amount of money
 
     Company company;
@@ -21,7 +21,7 @@ public class MoneyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((time.displayTime) % 3 == 0)
+       /* if((time.displayTime) % 3 == 0)
         {
             if (money > company.totalSalary)
                 changeMoney(-(company.totalSalary));
@@ -29,7 +29,7 @@ public class MoneyManager : MonoBehaviour
             {
                 //Debug.Log("bankrupt!");
             }
-        }
+        }*/
     }
 
     public void changeMoney(int amount) //method to dynamicly change amount of money, takes a integer as parameter which adds up to the current amount of money, then updates the current money text field that the user sees
