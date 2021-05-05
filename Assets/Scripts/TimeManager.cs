@@ -17,6 +17,8 @@ public class TimeManager : MonoBehaviour
     //TODO: progress bar
 
 
+    // deðiþikler
+
     public double elapsedTime;
     public Text TimeText;
     public int displayTime;
