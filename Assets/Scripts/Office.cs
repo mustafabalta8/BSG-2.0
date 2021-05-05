@@ -33,12 +33,10 @@ public class Office : MonoBehaviour
         string query = string.Format("UPDATE office SET rent='{0}',capacity='{1}' WHERE id ='1'", rent, officeCapacity);
 
         dbManager.InsertRecords(query);
-            dbManager.CloseConnection();
+        dbManager.CloseConnection();
         Debug.Log("Rented");
 
-        company.ShowUpdateOnOfficeValues();
-           // transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount:" + amount;
-           // transform.Find("price").GetComponent<TextMeshProUGUI>().text = "Price:" + price;       
+        company.ShowUpdateOnOfficeValues();     
 
     }
 

@@ -22,7 +22,9 @@ public class FurnitureUI : MonoBehaviour
         moneyManager = FindObjectOfType<MoneyManager>();
         company = FindObjectOfType<Company>();
 
-        string query01 = "SELECT * FROM office";
+        amount= GetDataFromDB(amount);
+
+        /*string query01 = "SELECT * FROM office";
         IDataReader reader = dbManager.ReadRecords(query01);
 
         while (reader.Read())
@@ -36,10 +38,10 @@ public class FurnitureUI : MonoBehaviour
             }
             
         }
-        dbManager.CloseConnection();
+        dbManager.CloseConnection();*/
         transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount:" + amount;
     }
-    public void BuyButton()
+    private int GetDataFromDB(int amount01)
     {
         string query01 = "SELECT * FROM office";
         IDataReader reader = dbManager.ReadRecords(query01);
@@ -48,84 +50,114 @@ public class FurnitureUI : MonoBehaviour
         {
             if (furnitureName == "WorkTable")
             {
-                amount = reader.GetInt32(3);
+                amount01 = reader.GetInt32(3);
             }
             else if (furnitureName == "OfficeChair")
             {
-                amount = reader.GetInt32(4);
+                amount01 = reader.GetInt32(4);
             }
-            capacity = reader.GetInt32(1);
+
         }
         
-        if (furnitureName== "WorkTable"&& amount<=capacity)
-        {
-            amount += 1;
-            string query02 = string.Format("UPDATE office SET workTable='" + amount + "' WHERE id ='1'");
-            dbManager.InsertRecords(query02);
-
-            transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount:" + amount;
-            
-            Debug.Log("workTable increased");
-        }else if(furnitureName == "OfficeChair" && amount <= capacity)
-        {
-            amount += 1;
-            string query02 = string.Format("UPDATE office SET seat='" + amount + "' WHERE id ='1'");
-            dbManager.InsertRecords(query02);
-
-            transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount:" + amount;
-
-            Debug.Log("chair increased");
-        }
-
         dbManager.CloseConnection();
+        return amount01;
+    }
+    public void BuyButton()
+    {
+        if ((moneyManager.money - price) >= 0)
+        {
+            string query01 = "SELECT * FROM office";
+            IDataReader reader = dbManager.ReadRecords(query01);
 
-        moneyManager.changeMoney(-price);
-        company.ShowUpdateOnOfficeValues();
+            while (reader.Read())
+            {
+                if (furnitureName == "WorkTable")
+                {
+                    amount = reader.GetInt32(3);
+                }
+                else if (furnitureName == "OfficeChair")
+                {
+                    amount = reader.GetInt32(4);
+                }
+                capacity = reader.GetInt32(1);
+            }
+
+            if (furnitureName == "WorkTable" && amount <= capacity)
+            {
+                amount += 1;
+                string query02 = string.Format("UPDATE office SET workTable='" + amount + "' WHERE id ='1'");
+                dbManager.InsertRecords(query02);
+
+                transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount:" + amount;
+
+                Debug.Log("workTable increased");
+            }
+            else if (furnitureName == "OfficeChair" && amount <= capacity)
+            {
+                amount += 1;
+                string query02 = string.Format("UPDATE office SET seat='" + amount + "' WHERE id ='1'");
+                dbManager.InsertRecords(query02);
+
+                transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount:" + amount;
+
+                Debug.Log("chair increased");
+            }
+
+            dbManager.CloseConnection();
+
+            moneyManager.changeMoney(-price);
+            company.ShowUpdateOnOfficeValues();
+        }
+        
     }
 
     public void SellButton()
     {
-        string query01 = "SELECT * FROM office";
-        IDataReader reader = dbManager.ReadRecords(query01);
-
-        while (reader.Read())
+        if(amount > 0)
         {
+            string query01 = "SELECT * FROM office";
+            IDataReader reader = dbManager.ReadRecords(query01);
+
+            while (reader.Read())
+            {
+                if (furnitureName == "WorkTable")
+                {
+                    amount = reader.GetInt32(3);
+                }
+                else if (furnitureName == "OfficeChair")
+                {
+                    amount = reader.GetInt32(4);
+                }
+                capacity = reader.GetInt32(1);
+
+            }
             if (furnitureName == "WorkTable")
             {
-                amount = reader.GetInt32(3);
+                amount -= 1;
+                string query02 = string.Format("UPDATE office SET workTable='" + amount + "' WHERE id ='1'");
+                dbManager.InsertRecords(query02);
+                transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount:" + amount;
+
+                Debug.Log("workTable decreased");
+
             }
             else if (furnitureName == "OfficeChair")
             {
-                amount = reader.GetInt32(4);
+                amount -= 1;
+                string query02 = string.Format("UPDATE office SET seat='" + amount + "' WHERE id ='1'");
+                dbManager.InsertRecords(query02);
+
+                transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount:" + amount;
+
+                Debug.Log("chair dec..");
             }
-            capacity = reader.GetInt32(1);
 
+            dbManager.CloseConnection();
+
+            moneyManager.changeMoney(price / 2);
+            company.ShowUpdateOnOfficeValues();
         }
-        if (furnitureName == "WorkTable")
-        {
-            amount -= 1;
-            string query02 = string.Format("UPDATE office SET workTable='" + amount + "' WHERE id ='1'");
-            dbManager.InsertRecords(query02);
-            transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount:" + amount;
-
-            Debug.Log("workTable decreased");
-
-        }
-        else if (furnitureName == "OfficeChair" && amount <= capacity)
-        {
-            amount -= 1;
-            string query02 = string.Format("UPDATE office SET seat='" + amount + "' WHERE id ='1'");
-            dbManager.InsertRecords(query02);
-
-            transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount:" + amount;
-
-            Debug.Log("chair dec..");
-        }
-
-        dbManager.CloseConnection();
-
-        moneyManager.changeMoney(price/2);
-        company.ShowUpdateOnOfficeValues();
+        
     }
 
 

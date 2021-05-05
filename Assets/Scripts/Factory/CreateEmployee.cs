@@ -24,7 +24,7 @@ public class CreateEmployee : MonoBehaviour
 
     DbManager dbManager;
 
-    public GameObject Employee;
+    public GameObject ApplicantEmployee;
     private void Start()
     {
         dbManager = FindObjectOfType<DbManager>();
@@ -32,7 +32,7 @@ public class CreateEmployee : MonoBehaviour
 
     public Employee createEmployee(int Id, string Name, int salary, int power, int code, int art, int design, bool applicant = false)
     {
-        GameObject createdEmployee = Instantiate(Employee);
+        GameObject createdEmployee = Instantiate(ApplicantEmployee);
 
         if (applicant)
         {
