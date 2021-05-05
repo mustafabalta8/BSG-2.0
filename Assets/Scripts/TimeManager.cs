@@ -16,6 +16,7 @@ public class TimeManager : MonoBehaviour
     //TODO: add time speed change Time.timeScale
     //TODO: progress bar
 
+    //test test
 
     // deðiþikler
 
