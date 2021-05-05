@@ -4,13 +4,13 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Data;
+using System;
 
 public class Office : MonoBehaviour
 {
 
     public int officeCapacity;
     public int rent;
-
 
     Company company;
     DbManager dbManager;
@@ -29,8 +29,10 @@ public class Office : MonoBehaviour
         company.OurOfficeCapacity = officeCapacity;
         company.OurOfficeRent = rent;
 
-            string query = string.Format("UPDATE office SET rent='" + rent + "',capacity='"+officeCapacity+"' WHERE id ='1'");
-            dbManager.InsertRecords(query);
+        //string query = string.Format("UPDATE office SET rent='" + rent + "',capacity='"+officeCapacity+"' WHERE id ='1'");
+        string query = string.Format("UPDATE office SET rent='{0}',capacity='{1}' WHERE id ='1'", rent, officeCapacity);
+
+        dbManager.InsertRecords(query);
             dbManager.CloseConnection();
         Debug.Log("Rented");
 

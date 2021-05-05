@@ -12,6 +12,11 @@ public class TimeManager : MonoBehaviour
     //basically everything that has anything to do with the newsfeed logic is moved into the news script to ease debugging and maintenance in the future
     //i believe that the sole reason of this scripts' existence should remain with time related issues
 
+
+    //TODO: add time speed change Time.timeScale
+    //TODO: progress bar
+
+
     public double elapsedTime;
     public Text TimeText;
     public int displayTime;
@@ -21,6 +26,7 @@ public class TimeManager : MonoBehaviour
     private void Start()
     {
         showTime(); // todo: show saved time from last save
+     
     }
 
     private void Update()

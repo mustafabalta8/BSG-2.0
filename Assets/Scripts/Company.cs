@@ -42,8 +42,6 @@ public class Company : MonoBehaviour
         employeeFactory.createRandomEmployee(5); //create X random employees
 
         ShowUpdateOnOfficeValues();
-
-
     }
     public void ShowUpdateOnOfficeValues()
     {
