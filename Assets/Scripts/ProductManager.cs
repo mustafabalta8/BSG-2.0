@@ -67,9 +67,11 @@ public class ProductManager : MonoBehaviour
     Company Company;
     TimeManager timeManager;
 
+
+    [SerializeField] GameObject placeHolder;
+
     public void Start()
     {
-
         dbManager = FindObjectOfType<DbManager>();
         Company = FindObjectOfType<Company>();
         timeManager = FindObjectOfType<TimeManager>();
@@ -122,6 +124,11 @@ public class ProductManager : MonoBehaviour
 
         getProducts();
 
+
+        productDropDown.onValueChanged.AddListener(delegate {
+            placeHolder.SetActive(false);
+        });
+
     }
 
     private void Update()
@@ -130,6 +137,7 @@ public class ProductManager : MonoBehaviour
         {
             checkIfFinished(product);
         }
+
     }
     public void createProduct()
     {

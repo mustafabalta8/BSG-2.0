@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject FixBugsPanel;
     [SerializeField] GameObject AddNewFeaturePanel;
     [SerializeField] GameObject PortToNewOSPanel;
+    [SerializeField] GameObject AdvertisementPanel;
 
 
     // Start is called before the first frame update
