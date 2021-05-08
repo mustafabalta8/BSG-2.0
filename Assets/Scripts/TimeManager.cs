@@ -60,6 +60,7 @@ public class TimeManager : MonoBehaviour
     {
         timeStopped = !timeStopped;
         if (timeStopped) startStopButtonText.text = "Start"; else startStopButtonText.text = "Stop";
+        Time.timeScale = 1.0f;
     }
 
     public void speedUp(int timeScale)
