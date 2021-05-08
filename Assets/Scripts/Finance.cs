@@ -11,9 +11,9 @@ public class Finance : MonoBehaviour
      * credibility rating:
      * 0 - 2 -> unacceptable -> reject
      * 2 - 4 -> questionable -> up to 1x bank balance, 0.10 interest rate
-     * 4 - 6 -> good -> up to 2x  bank balance, 0.7 interest rate
-     * 6 - 8 -> very good -> up to 4x  bank balance, , 0.5 interest rate
-     * 8 - 10 -> excellent -> unlimited, , 0.3 interest rate
+     * 4 - 6 -> good -> up to 2x  bank balance, 0.07 interest rate
+     * 6 - 8 -> very good -> up to 4x  bank balance, , 0.05 interest rate
+     * 8 - 10 -> excellent -> unlimited, , 0.03 interest rate
      */
 
 
