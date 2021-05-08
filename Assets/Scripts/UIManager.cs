@@ -5,22 +5,9 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] GameObject HirePanel;
-    [SerializeField] GameObject MyEmpPanel;
-    [SerializeField] GameObject ButtonsPanel;
+    //just one serialize field is enough
 
-
-    [SerializeField] GameObject FixBugsPanel;
-    [SerializeField] GameObject AddNewFeaturePanel;
-    [SerializeField] GameObject PortToNewOSPanel;
-    [SerializeField] GameObject AdvertisementPanel;
-
-
-    // Start is called before the first frame update
-    private void Start()
-    {
-        
-    }
+    [SerializeField] GameObject panel;
 
     public void OpenPanel()
     {
@@ -30,6 +17,7 @@ public class UIManager : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
     public void ClosePanel()
     {
         gameObject.SetActive(false);

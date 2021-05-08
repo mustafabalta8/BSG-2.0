@@ -21,6 +21,7 @@ public class Company : MonoBehaviour
     public string companyName;
     public int companyPower = 0;
     public int totalSalary = 0;
+    public int credibility = 10;
     public List<Employee> employees = new List<Employee>();
 
     public KeyValuePair<string, int> skill = new KeyValuePair<string, int>();
@@ -31,6 +32,10 @@ public class Company : MonoBehaviour
     [Header("Employee Related")]
     [SerializeField] GameObject MyEmployeeHolder;
     [SerializeField] GameObject MyEmployee;
+
+    [Header("Bank")]
+    public int balance;
+
     void Start()
     {
         dbManager = FindObjectOfType<DbManager>();
@@ -109,17 +114,21 @@ public class Company : MonoBehaviour
         dbManager.CloseConnection();
     }
 
-    void getCompanyDataFromDatabase()
+    public void getCompanyDataFromDatabase()
     {
+        dbManager = FindObjectOfType<DbManager>();
         string query = "SELECT * FROM company";
         IDataReader reader = dbManager.ReadRecords(query);
 
         while (reader.Read())
         {
             string companyName = reader.GetString(0);
+            int balance = reader.GetInt32(1);
+            int credibility = reader.GetInt32(2);
 
             this.companyName = companyName;
-
+            this.balance = balance;
+            this.credibility = credibility;
         }
 
         dbManager.CloseConnection();
