@@ -41,17 +41,18 @@ public class MoneyManager : MonoBehaviour
 
     public void changeMoney(int amount) //method to dynamicly change amount of money, takes a integer as parameter which adds up to the current amount of money, then updates the current money text field that the user sees
     {
+        saveTransaction(amount);
+
         money = money + amount; //add parameter value to the money amount
         moneyText.text = "$" + money.ToString(); //update text field
 
-        saveTransaction(amount);
 
         company.balance = money;
     }
 
     public void saveTransaction(int transaction)
     {
-        string query = $"INSERT INTO bank_transactions VALUES ({money+transaction},{transaction},{time.displayTime})";
+        string query = $"INSERT INTO bank_transactions VALUES ({money},{transaction},{time.displayTime})";
         dbManager.ReadRecords(query);
         dbManager.CloseConnection();
     }
