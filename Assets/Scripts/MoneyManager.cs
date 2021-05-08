@@ -1,19 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MoneyManager : MonoBehaviour
 {
-    public int money; //initial money
     [SerializeField] Text moneyText; //define text field to show the amount of money
 
     Company company;
     TimeManager time;
+    DbManager dbManager;
+
+    public int money; //initial money
+
     void Start()
     {
         company = FindObjectOfType<Company>(); //get the company script
         time = FindObjectOfType<TimeManager>(); //get the time script
+        dbManager = FindObjectOfType<DbManager>(); //get the db manager script
+
+        money = getBalance();
 
         moneyText.text = "$" + money.ToString(); // show the money at startup
     }
@@ -36,5 +43,34 @@ public class MoneyManager : MonoBehaviour
     {
         money = money + amount; //add parameter value to the money amount
         moneyText.text = "$" + money.ToString(); //update text field
+
+        saveTransaction(amount);
+
+        company.balance = money;
     }
+
+    public void saveTransaction(int transaction)
+    {
+        string query = $"INSERT INTO bank_transactions VALUES ({money+transaction},{transaction},{time.displayTime})";
+        dbManager.ReadRecords(query);
+        dbManager.CloseConnection();
+    }
+
+    public int getBalance()
+    {
+        int balance = 0;
+
+        string query = "SELECT * FROM company";
+        IDataReader reader = dbManager.ReadRecords(query);
+
+        while (reader.Read())
+        {
+            balance = reader.GetInt32(1);
+        }
+
+        dbManager.CloseConnection();
+
+        return balance;
+    }
+
 }
