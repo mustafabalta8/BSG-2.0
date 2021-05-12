@@ -106,7 +106,7 @@ public class Company : MonoBehaviour
 
             totalSalary = totalSalary + EmployeeObj.employeeSalary;
 
-            EmployeeObj.transform.Find("empName").GetComponent<TextMeshProUGUI>().text = employeeName;
+            //EmployeeObj.transform.Find("empName").GetComponent<TextMeshProUGUI>().text = employeeName;
 
         }
 
