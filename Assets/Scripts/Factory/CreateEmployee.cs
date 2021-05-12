@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using LitJson;
 using UnityEngine.UI;
 using System;
 using System.Data;

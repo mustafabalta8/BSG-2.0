@@ -1,6 +1,5 @@
 using System.IO;
 using UnityEngine;
-using LitJson;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -107,7 +106,7 @@ public class Company : MonoBehaviour
 
             totalSalary = totalSalary + EmployeeObj.employeeSalary;
 
-            EmployeeObj.transform.Find("EmployeeName").GetComponent<Text>().text = employeeName;
+            EmployeeObj.transform.Find("empName").GetComponent<TextMeshProUGUI>().text = employeeName;
 
         }
 
