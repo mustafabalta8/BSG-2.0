@@ -11,7 +11,6 @@ public class ListProduct : MonoBehaviour
     [SerializeField] GameObject ProductUI;
     [SerializeField] GameObject ProductUIPanel;
 
-    public string companyName = "Microsoft";
     public List<Product> Products = new List<Product>();
     // Start is called before the first frame update
     void Start()
