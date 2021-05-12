@@ -10,7 +10,12 @@ public class Contract : MonoBehaviour
     [SerializeField] double deadLine = 10;
     [SerializeField] double contractValue = 100;
     [SerializeField] bool completed = false;
-    
+
+    public string platform;
+    public string sofType;
+    public string companyName;
+    public int duration;
+    public int offer;
 
     double employeePower;
     double whenItShouldBeDone = 0;
@@ -37,6 +42,10 @@ public class Contract : MonoBehaviour
         acceptedTime = time.displayTime; // get in-game time
     }
 
+    public void SelectedContract()
+    {
+        //
+    }
     private void Update()
     {
         checkContractStatus(whenItShouldBeDone); //check contract status continuously
