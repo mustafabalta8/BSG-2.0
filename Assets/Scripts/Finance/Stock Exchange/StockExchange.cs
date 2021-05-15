@@ -119,7 +119,7 @@ public class StockExchange : MonoBehaviour
 
         company.updateCompany();
 
-        moneyManager.changeMoney(-(company.price));
+        moneyManager.changeMoney(-(company.price),"Stock exchange");
 
         clearList();
         getCompanies();

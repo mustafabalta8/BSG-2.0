@@ -182,4 +182,10 @@ public class Company : MonoBehaviour
         dbManager.CloseConnection();
         getEmployeesFromDatabase(employeeFactory);
     }
+
+    public void saveCompanyData()
+    {
+        string query = string.Format($"UPDATE company SET companyName = \"{companyName}\", bank = {balance}, credibility = {credibility}"); dbManager.InsertRecords(query);
+        dbManager.CloseConnection();
+    }
 }

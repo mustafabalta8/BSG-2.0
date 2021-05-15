@@ -158,8 +158,8 @@ public class Finance : MonoBehaviour
     public void takeCredit()
     {
         creditTaken = true;
+        moneyManager.changeMoney(int.Parse(creaditAmount.text), "Credit");
 
-
+        company.saveCompanyData();
     }
-
 }
