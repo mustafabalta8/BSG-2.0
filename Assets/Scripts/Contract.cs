@@ -66,7 +66,7 @@ public class Contract : MonoBehaviour
         {
             if (timeNow == whenItShouldBeDone) // if the time that the contract should be completed matches the current in-game time, than finish contract
             {
-                moneyManager.changeMoney((int)contractValue); //add the contract amount to the in-game money through the money managers' change money method
+                moneyManager.changeMoney((int)contractValue,"Contract"); //add the contract amount to the in-game money through the money managers' change money method
 
                 Debug.Log("Ýþ tamamlandý");
                 completed = true; //complete the contract

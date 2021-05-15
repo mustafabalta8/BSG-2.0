@@ -105,7 +105,7 @@ public class FurnitureUI : MonoBehaviour
 
             dbManager.CloseConnection();
 
-            moneyManager.changeMoney(-price);
+            moneyManager.changeMoney(-price,"Inventory");
             company.ShowUpdateOnOfficeValues();
         }
         
@@ -154,7 +154,7 @@ public class FurnitureUI : MonoBehaviour
 
             dbManager.CloseConnection();
 
-            moneyManager.changeMoney(price / 2);
+            moneyManager.changeMoney(price / 2,"Inventory");
             company.ShowUpdateOnOfficeValues();
         }
         

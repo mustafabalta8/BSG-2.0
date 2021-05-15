@@ -59,7 +59,7 @@ public class Ads : MonoBehaviour
         duration = (int)durationSlider.value;
         budget = (int)budgetSlider.value;
 
-        moneyManager.changeMoney(budget * -1);
+        moneyManager.changeMoney(budget * -1,"Ads");
 
         startTime = timeManager.displayTime;
 

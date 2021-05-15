@@ -19,7 +19,7 @@ public class TimeManager : MonoBehaviour
 
     public double elapsedTime;
     public Text TimeText;
-    public int displayTime;
+    public int displayTime = 1;
 
     [SerializeField] int secondsPerTurn = 10; // how many seconds do we want to pass before going to the next round?
 
