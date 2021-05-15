@@ -8,7 +8,7 @@ public class CreateContract : MonoBehaviour
 {
     [SerializeField] string[] platform = { "Desktop","Mobile","Console" };
     [SerializeField] string[] type = { "Game", "App", "Web" };
-    string companyName= "Fahrettin";
+    //string companyName= "Fahrettin";
 
     DbManager dbManager;
     [SerializeField] GameObject ContractObj;
@@ -37,18 +37,23 @@ public class CreateContract : MonoBehaviour
             Contracts.Add(contractObj);
 
             //contractObj.productId = ;
-            contractObj.companyName = companyName;
+            //contractObj.companyName = companyName;
             contractObj.platform = platform[Random.Range(0, 2)];
             contractObj.sofType = type[Random.Range(0, 2)];
             contractObj.duration = Random.Range(5, 18);
             contractObj.offer = contractObj.duration * 125;
+            contractObj.code = contractObj.duration * Random.Range(8, 13);
+            contractObj.art = contractObj.duration * Random.Range(8, 13);
+            contractObj.design = contractObj.duration * Random.Range(8, 13);
 
-            contractObj.transform.Find("company").GetComponent<TextMeshProUGUI>().text = companyName;
-            contractObj.transform.Find("type").GetComponent<TextMeshProUGUI>().text = contractObj.sofType;
-            contractObj.transform.Find("platform").GetComponent<TextMeshProUGUI>().text = contractObj.platform;
-            contractObj.transform.Find("duration").GetComponent<TextMeshProUGUI>().text = contractObj.duration.ToString();
-            contractObj.transform.Find("offer").GetComponent<TextMeshProUGUI>().text = contractObj.offer.ToString();
-
+            //contractObj.transform.Find("company").GetComponent<TextMeshProUGUI>().text = companyName;
+            contractObj.transform.Find("TopPart/type").GetComponent<TextMeshProUGUI>().text = contractObj.sofType;
+            contractObj.transform.Find("TopPart/platform").GetComponent<TextMeshProUGUI>().text = contractObj.platform;
+            contractObj.transform.Find("TopPart/duration").GetComponent<TextMeshProUGUI>().text = contractObj.duration.ToString();
+            contractObj.transform.Find("TopPart/offer").GetComponent<TextMeshProUGUI>().text = contractObj.offer.ToString();
+            contractObj.transform.Find("workforce/code").GetComponent<TextMeshProUGUI>().text = "Code:"+ contractObj.code.ToString();
+            contractObj.transform.Find("workforce/design").GetComponent<TextMeshProUGUI>().text = "Design:" + contractObj.design.ToString();
+            contractObj.transform.Find("workforce/art").GetComponent<TextMeshProUGUI>().text = "Art:" + contractObj.art.ToString();
             i++;
         }
         

@@ -11,11 +11,15 @@ public class Contract : MonoBehaviour
     [SerializeField] double contractValue = 100;
     [SerializeField] bool completed = false;
 
+    [Header("Presented Variables")]
     public string platform;
     public string sofType;
-    public string companyName;
+   // public string companyName;
     public int duration;
     public int offer;
+    public int code;
+    public int art;
+    public int design;
 
     double employeePower;
     double whenItShouldBeDone = 0;
@@ -26,29 +30,37 @@ public class Contract : MonoBehaviour
     Employee employee; 
     TimeManager time;
     MoneyManager moneyManager;
+    AcceptContract acceptContract0;
     // define necesarry scripts to be used later
 
 
     private void Start()
     {
         // define necesarry scripts to be used later
-        employee = FindObjectOfType<Employee>();
+       
         time = FindObjectOfType<TimeManager>();
         moneyManager = FindObjectOfType<MoneyManager>();
+        acceptContract0 = FindObjectOfType<AcceptContract>();
         // define necesarry scripts to be used later
 
         //TODO: change to company structure, now it only reads ONE employee's power
-        employeePower = employee.employeePower; //get employee power
+       
         acceptedTime = time.displayTime; // get in-game time
     }
 
     public void SelectedContract()
     {
-        //
+        acceptContract0.platform = platform;
+        acceptContract0.sofType = sofType;
+        acceptContract0.duration = duration;
+        acceptContract0.offer = offer;
+        acceptContract0.code = code;
+        acceptContract0.art = art;
+        acceptContract0.design = design;
     }
     private void Update()
     {
-        checkContractStatus(whenItShouldBeDone); //check contract status continuously
+       // checkContractStatus(whenItShouldBeDone); //check contract status continuously
     }
 
 
