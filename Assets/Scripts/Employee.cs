@@ -39,4 +39,8 @@ public class Employee : MonoBehaviour
         company.FireEmployee(this);
         Destroy(gameObject);
     }
+    public void assignEmployee()
+    {
+        
+    }
 }
