@@ -26,6 +26,10 @@ public class TimeManager : MonoBehaviour
     [SerializeField] Button startStopButton;
     [SerializeField] TextMeshProUGUI startStopButtonText;
 
+    [SerializeField] Sprite OffSprite;
+    [SerializeField] Sprite OnSprite;
+
+
     public Text timeScaleText;
 
     public bool timeStopped = false;
@@ -59,7 +63,14 @@ public class TimeManager : MonoBehaviour
     public void startStopTime()
     {
         timeStopped = !timeStopped;
-        if (timeStopped) startStopButtonText.text = "Start"; else startStopButtonText.text = "Stop";
+        if (timeStopped)
+        {
+            startStopButton.image.sprite = OnSprite;
+        }
+        else
+        {
+            startStopButton.image.sprite = OffSprite;
+        }
         Time.timeScale = 1.0f;
     }
 
