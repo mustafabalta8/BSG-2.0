@@ -32,14 +32,11 @@ public class AcceptContract : MonoBehaviour
         createContract = FindObjectOfType<CreateContract>();
         ShowEmployeesInAssignPanel();
 
-   
-        
-
     }
     public void ShowEmployeesInAssignPanel()
     {
 
-            string query = "SELECT * FROM employees WHERE hired = 1";
+            string query = "SELECT * FROM employees WHERE hired = 1 AND busy=0";
             IDataReader reader = dbManager.ReadRecords(query);
 
             while (reader.Read())
@@ -67,11 +64,10 @@ public class AcceptContract : MonoBehaviour
 
             EmployeeObj.name = employeeName.ToString();             
             
-            EmployeeObj.transform.Find("empName").GetComponent<TextMeshProUGUI>().text = employeeName;
-            EmployeeObj.transform.Find("empName").GetComponent<TextMeshProUGUI>().text = employeeName;
-            EmployeeObj.transform.Find("Coding skill").GetComponent<TextMeshProUGUI>().text = code.ToString();
-            EmployeeObj.transform.Find("Art skill").GetComponent<TextMeshProUGUI>().text = art.ToString();
-            EmployeeObj.transform.Find("Design skill").GetComponent<TextMeshProUGUI>().text = design.ToString();
+            EmployeeObj.transform.Find("empName").GetComponent<TextMeshProUGUI>().text = "Name :"+employeeName;
+            EmployeeObj.transform.Find("CodeSkill").GetComponent<TextMeshProUGUI>().text = "Coding :" + code.ToString();
+            EmployeeObj.transform.Find("ArtSkill").GetComponent<TextMeshProUGUI>().text = "Art :" + art.ToString();
+            EmployeeObj.transform.Find("DesignSkill").GetComponent<TextMeshProUGUI>().text = "Design :" + design.ToString();
         }
 
             dbManager.CloseConnection();
@@ -84,12 +80,25 @@ public class AcceptContract : MonoBehaviour
         contractObj.platform = platform;
         contractObj.sofType = sofType;
         contractObj.duration = duration;
+        
         contractObj.offer = offer;
         contractObj.code = code;
         contractObj.art = art;
         contractObj.design = design;
-
+        if (contractObj.code <= 0)
+        {
+            contractObj.transform.Find("workforce/code").GetComponent<TextMeshProUGUI>().color = Color.green;
+        }
+        if (contractObj.art <= 0)
+        {
+            contractObj.transform.Find("workforce/art").GetComponent<TextMeshProUGUI>().color = Color.green;
+        }
+        if (contractObj.design <= 0)
+        {
+            contractObj.transform.Find("workforce/design").GetComponent<TextMeshProUGUI>().color = Color.green;
+        }
         createContract.CreateContractUI(contractObj);
     }
+
     
 }

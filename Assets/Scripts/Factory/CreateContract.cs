@@ -53,15 +53,16 @@ public class CreateContract : MonoBehaviour
     public void CreateContractUI(Contract contractObj)
     {
         
-
-        //contractObj.transform.Find("company").GetComponent<TextMeshProUGUI>().text = companyName;
         contractObj.transform.Find("TopPart/type").GetComponent<TextMeshProUGUI>().text = "Type:" + contractObj.sofType;
         contractObj.transform.Find("TopPart/platform").GetComponent<TextMeshProUGUI>().text = "Platform:" + contractObj.platform;
         contractObj.transform.Find("TopPart/duration").GetComponent<TextMeshProUGUI>().text = "Duration:" + contractObj.duration.ToString();
         contractObj.transform.Find("TopPart/offer").GetComponent<TextMeshProUGUI>().text = "Offer:" + contractObj.offer.ToString();
+        
         contractObj.transform.Find("workforce/code").GetComponent<TextMeshProUGUI>().text = "Code:" + contractObj.code.ToString();
         contractObj.transform.Find("workforce/design").GetComponent<TextMeshProUGUI>().text = "Design:" + contractObj.design.ToString();
         contractObj.transform.Find("workforce/art").GetComponent<TextMeshProUGUI>().text = "Art:" + contractObj.art.ToString();
+
+
     }
 
 }
