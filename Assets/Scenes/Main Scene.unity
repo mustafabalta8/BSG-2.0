@@ -478,7 +478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6559935695945974252, guid: 43fdacbf7e37a0845adf6745e962a76e, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6559935695945974252, guid: 43fdacbf7e37a0845adf6745e962a76e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1397,8 +1397,8 @@ RectTransform:
   - {fileID: 459617409}
   - {fileID: 917717321}
   - {fileID: 928152260}
-  - {fileID: 402455054}
   - {fileID: 1075243840}
+  - {fileID: 402455054}
   - {fileID: 1620669969}
   - {fileID: 311998088}
   m_Father: {fileID: 0}
@@ -1591,7 +1591,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1277571639318687963, guid: f8d072315020eef43bac42ee97c22fbf, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1277571639318687963, guid: f8d072315020eef43bac42ee97c22fbf, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3596,7 +3596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.9071852}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.009765625, y: -23.590958}
+  m_AnchoredPosition: {x: -0.009765625, y: -23.591064}
   m_SizeDelta: {x: 0, y: -2.9800034}
   m_Pivot: {x: 0.22402589, y: 8.915207}
 --- !u!114 &583486212
@@ -5207,7 +5207,7 @@ RectTransform:
   - {fileID: 1759995187}
   - {fileID: 7468293620064653841}
   m_Father: {fileID: 306258924}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7161,7 +7161,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7876,7 +7876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3729002627223079866, guid: d101bdc0f9a3b5e4ab06dc5de376d672, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3729002627223079866, guid: d101bdc0f9a3b5e4ab06dc5de376d672, type: 3}
       propertyPath: m_AnchorMax.x

@@ -70,8 +70,10 @@ public class TimeManager : MonoBehaviour
         else
         {
             startStopButton.image.sprite = OffSprite;
+            Time.timeScale = 1.0f;
+
+            timeScaleText.text = $"{Time.timeScale}x";
         }
-        Time.timeScale = 1.0f;
     }
 
     public void speedUp(int timeScale)
