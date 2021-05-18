@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System.Data;
 using TMPro;
@@ -10,7 +8,7 @@ public class StockExchange : MonoBehaviour
     DbManager dbManager;
     TimeManager timeManager;
     MoneyManager moneyManager;
-
+    BoughtShares boughtShares;
 
     [SerializeField] GameObject SEUi;
     [SerializeField] GameObject SECompanyObj;
@@ -21,7 +19,7 @@ public class StockExchange : MonoBehaviour
         dbManager = FindObjectOfType<DbManager>();
         timeManager = FindObjectOfType<TimeManager>();
         moneyManager = FindObjectOfType<MoneyManager>();
-
+        boughtShares = FindObjectOfType<BoughtShares>();
 
         getCompanies();
     }
@@ -106,6 +104,11 @@ public class StockExchange : MonoBehaviour
         if(company.brandValue != 100)
         {
             company.brandValue++;
+            company.budget += company.price;
+        }
+        else
+        {
+            company.budget += company.price;
         }
 
         if (company.shares > 0)
@@ -125,5 +128,7 @@ public class StockExchange : MonoBehaviour
         getCompanies();
 
         Debug.Log($"1 {company.companyName} share bought at {company.price}");
+
+        boughtShares.getAllBoughtShares();
     }
 }
