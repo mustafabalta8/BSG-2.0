@@ -58,7 +58,9 @@ public class News : MonoBehaviour
                 //TODO: ok, this part is quite buggy, needs some unity black magic
                 CreateNews.transform.Find("NewsTitle").GetComponent<Text>().text = title; //print the news title
                 CreateNews.transform.Find("NewsText").GetComponent<Text>().text = news; //print the news
-                CreateNews.transform.Find("NewsPaper").GetComponent<Text>().text = newsPaper; //print the newspaper name
+                CreateNews.transform.Find("newspaperName").GetComponent<Text>().text = newsPaper; //print the newspaper name
+                CreateNews.transform.Find("readersText").GetComponent<Text>().text = Random.Range(100,10000).ToString(); //print readers 
+
 
                 CreateNews.name = string.Format("[{0}]",news_id); // change the name of the news object created to its id, makes it much easier to manage and destroy in the future
 
