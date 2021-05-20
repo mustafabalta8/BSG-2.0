@@ -23,11 +23,6 @@ public class CreateContract : MonoBehaviour
 
         CreateContracts();
     }
-    public void DestroyContract(int ContID)
-    {
-       // Destroy(ContractPanel.transform.Find(ContID.ToString()));
-        
-    }
     void CreateContracts()
     {
         Contracts.Clear();
@@ -50,7 +45,6 @@ public class CreateContract : MonoBehaviour
             contractObj.code = contractObj.duration * Random.Range(8, 13);
             contractObj.art = contractObj.duration * Random.Range(8, 13);
             contractObj.design = contractObj.duration * Random.Range(8, 13);
-            contractObj.ContID = i * 2;
 
             CreateContractUI(contractObj);
             i++;

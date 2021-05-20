@@ -20,7 +20,6 @@ public class Contract : MonoBehaviour
     public int code;
     public int art;
     public int design;
-    public int ContID;
 
     double employeePower;
     double whenItShouldBeDone = 0;
@@ -37,7 +36,6 @@ public class Contract : MonoBehaviour
 
     private void Start()
     {
-        gameObject.name = ContID.ToString();
         // define necesarry scripts to be used later
        
         time = FindObjectOfType<TimeManager>();
@@ -59,7 +57,43 @@ public class Contract : MonoBehaviour
         acceptContract0.code = code;
         acceptContract0.art = art;
         acceptContract0.design = design;
-        acceptContract0.ContID = ContID;
+    }
+    private void Update()
+    {
+       // checkContractStatus(whenItShouldBeDone); //check contract status continuously
+    }
+
+
+    public void acceptContract() //button trigger method to accept a contract
+    {
+        int requiredTimeForWorker = (int)((requiredPower / employeePower) + 0.5f); //get the required time a worker should take to finished the given job
+        if (requiredTimeForWorker <= deadLine) //if the worker DOES NOT takes longer than the deadline, go ahead and accept the contract
+        {
+            double timeNow = time.displayTime;
+            whenItShouldBeDone = timeNow + requiredTimeForWorker;
+            Debug.Log(deadLine + " hafta sürmesi gereken iþi " + employeePower + " gücünüz ile " + requiredTimeForWorker + " haftada tamamlamak üzere alýndýnýz. Bu iþ "+ whenItShouldBeDone +". hafta bitecektir");
+        }
+        else //if the worker DOES takes longer than the deadline, refuse contract
+        {
+            Debug.Log("Gücünüz, " + deadLine + " hafta sürecek iþi bitirmek için yetersiz. (Bu iþ gücünüz ile " + requiredTimeForWorker + " sürecektir)");
+        }
     }
     
+    public void checkContractStatus(double whenItShouldBeDone) //method to check contract status, runs only if there is a contract taken at the moment
+    {
+        double timeNow = time.displayTime; //get in-game time
+
+        if (!completed) //if the contract is NOT completed
+        {
+            if (timeNow == whenItShouldBeDone) // if the time that the contract should be completed matches the current in-game time, than finish contract
+            {
+                //moneyManager.changeMoney((int)contractValue); //add the contract amount to the in-game money through the money managers' change money method
+
+                Debug.Log("Ýþ tamamlandý");
+                completed = true; //complete the contract
+                return;
+            }
+        }
+
+    }
 }

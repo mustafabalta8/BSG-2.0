@@ -21,7 +21,7 @@ public class TimeManager : MonoBehaviour
     public Text TimeText;
     public int displayTime = 1;
 
-    public int secondsPerTurn = 10; // how many seconds do we want to pass before going to the next round?
+    [SerializeField] int secondsPerTurn = 10; // how many seconds do we want to pass before going to the next round?
 
     [SerializeField] Button startStopButton;
     [SerializeField] TextMeshProUGUI startStopButtonText;
