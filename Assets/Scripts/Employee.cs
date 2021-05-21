@@ -47,11 +47,13 @@ public class Employee : MonoBehaviour
     {
         if (ButttonText.GetComponent<TextMeshProUGUI>().text == "Assign")
         {
-            string query = string.Format("UPDATE employees SET busy='1' WHERE employeeId = '" + employeeId + "'");
+            string query = string.Format("UPDATE employees SET busy='1' WHERE employeeId = '" + employeeId + "' ");
+
             dbManager.InsertRecords(query);
             dbManager.CloseConnection();
             ButttonText.GetComponent<TextMeshProUGUI>().text = "Dissmiss";
 
+            acceptContract.AssignedEmployees.Add(employeeId);
             acceptContract.code -= code;
             acceptContract.art -= art;
             acceptContract.design -= design;
@@ -65,6 +67,7 @@ public class Employee : MonoBehaviour
             dbManager.CloseConnection();
             ButttonText.GetComponent<TextMeshProUGUI>().text = "Assign";
 
+            acceptContract.AssignedEmployees.Remove(employeeId);
             acceptContract.code += code;
             acceptContract.art += art;
             acceptContract.design += design;

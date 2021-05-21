@@ -38,19 +38,6 @@ public class CreateOfficeUI : MonoBehaviour
         //  WORK TABLE CREATION
         CreateSingleFurniture("WorkTable", 2, 120);
         CreateSingleFurniture("OfficeChair", 1, 80);
-        /*
-            GameObject newFurniture = Instantiate(furnitureUI);
-            newFurniture.transform.SetParent(furnitureUIPanel.transform);
-
-            FurnitureUI furniture = newFurniture.GetComponent<FurnitureUI>();
-            furniture.name = "WorkTable";
-            furniture.furnitureName = "WorkTable";
-            furniture.motivationIncrease = 2;
-            furniture.price = 150;
-            newFurniture.transform.Find("name").GetComponent<TextMeshProUGUI>().text = "Work Table";
-            newFurniture.transform.Find("motivation").GetComponent<TextMeshProUGUI>().text = "Motivation:"+2;*/
-
-
 
 
     }
