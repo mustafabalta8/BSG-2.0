@@ -10,9 +10,12 @@ public class BoughtShares : MonoBehaviour
     TimeManager timeManager;
     MoneyManager moneyManager;
     SC_Company SC_company;
+    BoughtSharesDetails details;
 
     [SerializeField] GameObject BoughtSharesUI;
     [SerializeField] GameObject BoughtSharesCompanyObject;
+
+    int sharePrice;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,7 @@ public class BoughtShares : MonoBehaviour
         timeManager = FindObjectOfType<TimeManager>();
         moneyManager = FindObjectOfType<MoneyManager>();
         SC_company = FindObjectOfType<SC_Company>();
+        details = FindObjectOfType<BoughtSharesDetails>();
 
         getAllBoughtShares();
     }
@@ -46,7 +50,9 @@ public class BoughtShares : MonoBehaviour
 
             SC_Company createdBoughtCompany = new SC_Company(companyName);
 
+
             int price_now = createdBoughtCompany.getStockPrice();
+            sharePrice = price_now;
 
             double change = Math.Round(((price_now - avgBuyPrice) / avgBuyPrice)*100,2);
 
@@ -71,7 +77,7 @@ public class BoughtShares : MonoBehaviour
 
     public void getDetails(SC_Company selectedCompany)
     {
-        Debug.Log(selectedCompany.companyName);
+        details.getShares(selectedCompany.companyName);
     }
 
     public void clearList(GameObject list)
