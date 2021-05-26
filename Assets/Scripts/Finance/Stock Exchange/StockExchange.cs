@@ -24,7 +24,9 @@ public class StockExchange : MonoBehaviour
         getCompanies();
     }
     public void getCompanies()
-    { 
+    {
+        clearList();
+
         string query = string.Format("SELECT * FROM all_companies ORDER BY brandValue DESC");//where company=companyName;
         IDataReader reader = dbManager.ReadRecords(query);
 
@@ -97,7 +99,7 @@ public class StockExchange : MonoBehaviour
 
     public void buyShares(SC_Company company)
     {
-        string query = $"INSERT INTO bought_shares VALUES (\"{company.companyName}\",{timeManager.displayTime},{company.price})";
+        string query = $"INSERT INTO bought_shares VALUES (null,\"{company.companyName}\",{timeManager.displayTime},{company.price})";
         dbManager.ReadRecords(query);
         dbManager.CloseConnection();
 
