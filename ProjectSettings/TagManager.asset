@@ -41,3 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Zemin Kisim
+    uniqueID: 3806010773
+    locked: 0
+  - name: Arka Kisim
+    uniqueID: 2574162343
+    locked: 0
+  - name: On Kisim
+    uniqueID: 3042057099
+    locked: 0
+  - name: Daha da On Kisim
+    uniqueID: 4088175385
+    locked: 0
+  - name: 'En On Kisim '
+    uniqueID: 2322699331
+    locked: 0

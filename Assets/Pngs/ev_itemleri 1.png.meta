@@ -1,0 +1,1222 @@
+fileFormatVersion: 2
+guid: f0d1f94e66029de4799573d639e38cfb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6332882755348065345
+    second: ev_itemleri 1_0
+  - first:
+      213: 1092461261963542583
+    second: ev_itemleri 1_1
+  - first:
+      213: -2683830122171504689
+    second: ev_itemleri 1_2
+  - first:
+      213: -2639357598843738807
+    second: ev_itemleri 1_3
+  - first:
+      213: -4776812837158871205
+    second: ev_itemleri 1_4
+  - first:
+      213: -6110645745328702341
+    second: ev_itemleri 1_5
+  - first:
+      213: 782827309281629139
+    second: ev_itemleri 1_6
+  - first:
+      213: 816151138957503145
+    second: ev_itemleri 1_7
+  - first:
+      213: 8359925466287292430
+    second: ev_itemleri 1_8
+  - first:
+      213: -5256899395362026672
+    second: ev_itemleri 1_9
+  - first:
+      213: 3526207267948150353
+    second: ev_itemleri 1_10
+  - first:
+      213: -6300140302491659092
+    second: ev_itemleri 1_11
+  - first:
+      213: -2180249924952607868
+    second: ev_itemleri 1_12
+  - first:
+      213: 3941831275310137688
+    second: ev_itemleri 1_13
+  - first:
+      213: 4237537541902229893
+    second: ev_itemleri 1_14
+  - first:
+      213: -8764747616580294770
+    second: ev_itemleri 1_15
+  - first:
+      213: -5253200482589088776
+    second: ev_itemleri 1_16
+  - first:
+      213: -434696739478120491
+    second: ev_itemleri 1_17
+  - first:
+      213: 399027233327003001
+    second: ev_itemleri 1_18
+  - first:
+      213: 1280509734774750831
+    second: ev_itemleri 1_19
+  - first:
+      213: 4248643945630859210
+    second: ev_itemleri 1_20
+  - first:
+      213: -7665718502771823984
+    second: ev_itemleri 1_21
+  - first:
+      213: 2538777184130008251
+    second: ev_itemleri 1_22
+  - first:
+      213: -6806391083375517111
+    second: ev_itemleri 1_23
+  - first:
+      213: -1840853308262911311
+    second: ev_itemleri 1_24
+  - first:
+      213: -8702351782343669640
+    second: ev_itemleri 1_25
+  - first:
+      213: 8220674653437070704
+    second: ev_itemleri 1_26
+  - first:
+      213: 2572425105672805944
+    second: ev_itemleri 1_27
+  - first:
+      213: -4091561288189653193
+    second: ev_itemleri 1_28
+  - first:
+      213: -6953255579126008616
+    second: ev_itemleri 1_29
+  - first:
+      213: 872784689334957389
+    second: ev_itemleri 1_30
+  - first:
+      213: 4856865959455037611
+    second: ev_itemleri 1_31
+  - first:
+      213: -8044371236363619170
+    second: ev_itemleri 1_32
+  - first:
+      213: -1119478065177320757
+    second: ev_itemleri 1_33
+  - first:
+      213: 2416663845418682216
+    second: ev_itemleri 1_34
+  - first:
+      213: -4460016240916341427
+    second: ev_itemleri 1_35
+  - first:
+      213: 1373100525279789389
+    second: ev_itemleri 1_36
+  - first:
+      213: 3820438811612040184
+    second: ev_itemleri 1_37
+  - first:
+      213: -5354425355110296475
+    second: ev_itemleri 1_38
+  - first:
+      213: -2324781909028030152
+    second: ev_itemleri 1_39
+  - first:
+      213: 2399951669764748904
+    second: ev_itemleri 1_40
+  - first:
+      213: 453916729709422233
+    second: ev_itemleri 1_41
+  - first:
+      213: 5734149381802415950
+    second: ev_itemleri 1_42
+  - first:
+      213: -7363845275918514490
+    second: ev_itemleri 1_43
+  - first:
+      213: -8414132818307654433
+    second: ev_itemleri 1_44
+  - first:
+      213: 4744910156051092330
+    second: ev_itemleri 1_45
+  - first:
+      213: -6012512622085525743
+    second: ev_itemleri 1_46
+  - first:
+      213: -7383237339118985249
+    second: ev_itemleri 1_47
+  - first:
+      213: -8529641754594464668
+    second: ev_itemleri 1_48
+  - first:
+      213: 4633179957939261619
+    second: ev_itemleri 1_49
+  - first:
+      213: 257888444856011147
+    second: ev_itemleri 1_50
+  - first:
+      213: 5482813834064951360
+    second: ev_itemleri 1_51
+  - first:
+      213: 3368191003724172153
+    second: ev_itemleri 1_52
+  - first:
+      213: -7035551964595182381
+    second: ev_itemleri 1_53
+  - first:
+      213: 7213493317032296326
+    second: ev_itemleri 1_54
+  - first:
+      213: -7858912244502013181
+    second: ev_itemleri 1_55
+  - first:
+      213: 3133098316136989878
+    second: ev_itemleri 1_56
+  - first:
+      213: -85304881760058212
+    second: ev_itemleri 1_57
+  - first:
+      213: 5126116121167990265
+    second: ev_itemleri 1_58
+  - first:
+      213: -767639440028477973
+    second: ev_itemleri 1_59
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ev_itemleri 1_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14ce7bc105be2e750800000000000000
+      internalID: 6332882755348065345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_5
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7c3e69f110a23ba0800000000000000
+      internalID: -6110645745328702341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_7
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aaa790032d835b00800000000000000
+      internalID: 816151138957503145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_8
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 142
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e00cbc63beb640470800000000000000
+      internalID: 8359925466287292430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_12
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 142
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 483b0a5ae323eb1e0800000000000000
+      internalID: -2180249924952607868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_14
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 142
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 581e67361f1ceca30800000000000000
+      internalID: 4237537541902229893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_15
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 142
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e87a7c7fa7c5d5680800000000000000
+      internalID: -8764747616580294770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_16
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 124
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f3ed556ef1e817b0800000000000000
+      internalID: -5253200482589088776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_20
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 124
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acff074882736fa30800000000000000
+      internalID: 4248643945630859210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_22
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 124
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb48fefd56c8b3320800000000000000
+      internalID: 2538777184130008251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_23
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 116
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94224091f57da81a0800000000000000
+      internalID: -6806391083375517111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_24
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 106
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b2f26d5ba9f376e0800000000000000
+      internalID: -1840853308262911311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_28
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 114
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73f47b8bfaad737c0800000000000000
+      internalID: -4091561288189653193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_29
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 103
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d4f0b504e2118f90800000000000000
+      internalID: -6953255579126008616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_30
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 81
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d45b53dfc01cc1c00800000000000000
+      internalID: 872784689334957389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_31
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 82
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba8110b7bdd076340800000000000000
+      internalID: 4856865959455037611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_32
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 81
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e943d2f3bf6ac5090800000000000000
+      internalID: -8044371236363619170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_33
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 93
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc2a34781a0d670f0800000000000000
+      internalID: -1119478065177320757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_34
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 85
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 867c5bf96f6b98120800000000000000
+      internalID: 2416663845418682216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_35
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 61
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4d55bbebd6da12c0800000000000000
+      internalID: -4460016240916341427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_36
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 61
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d41443a17ab3e0310800000000000000
+      internalID: 1373100525279789389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_37
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 76
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fb404c8bdce40530800000000000000
+      internalID: 3820438811612040184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_38
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 67
+        width: 4
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5645e4c228241b5b0800000000000000
+      internalID: -5354425355110296475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_39
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 73
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8393124cb27bcbfd0800000000000000
+      internalID: -2324781909028030152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_40
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 52
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 866fe6204575e4120800000000000000
+      internalID: 2399951669764748904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_41
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 52
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 996efe75cd2ac4600800000000000000
+      internalID: 453916729709422233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_42
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 52
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e47db5f5b7ac39f40800000000000000
+      internalID: 5734149381802415950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_43
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 59
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c640f3acbd5ec990800000000000000
+      internalID: -7363845275918514490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_44
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 49
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdcd0df18cefa3b80800000000000000
+      internalID: -8414132818307654433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_45
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 43
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a639196b5ae49d140800000000000000
+      internalID: 4744910156051092330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_46
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 43
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11f2a0930a34f8ca0800000000000000
+      internalID: -6012512622085525743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_47
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 35
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdf996512c8798990800000000000000
+      internalID: -7383237339118985249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_48
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 35
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46cae042400a0a980800000000000000
+      internalID: -8529641754594464668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_49
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 35
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b0dd65cf9c5c4040800000000000000
+      internalID: 4633179957939261619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_50
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 22
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b89025b9c24349300800000000000000
+      internalID: 257888444856011147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_51
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 17
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 048f905022ed61c40800000000000000
+      internalID: 5482813834064951360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_52
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 17
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97b45a85fd73ebe20800000000000000
+      internalID: 3368191003724172153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_53
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 17
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d4a08f93c2bc5e90800000000000000
+      internalID: -7035551964595182381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_54
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 24
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68f3d5ff3f97b1460800000000000000
+      internalID: 7213493317032296326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_55
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 24
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30b5d71b3f88fe290800000000000000
+      internalID: -7858912244502013181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b448b391500b7b20800000000000000
+      internalID: 3133098316136989878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_57
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c94c51979afe0def0800000000000000
+      internalID: -85304881760058212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_58
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 7
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fd0f9fe37f932740800000000000000
+      internalID: 5126116121167990265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ev_itemleri 1_59
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 7
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be5d5851ffbc855f0800000000000000
+      internalID: -767639440028477973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
