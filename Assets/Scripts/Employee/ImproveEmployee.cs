@@ -44,15 +44,15 @@ public class ImproveEmployee : MonoBehaviour
 
             employee.transform.Find("nameText").GetComponent<TextMeshProUGUI>().text = employee.employeeName;
             employee.transform.Find("positionText").GetComponent<TextMeshProUGUI>().text = employee.position;
-            employee.transform.Find("potentialText").GetComponent<TextMeshProUGUI>().text = "5";
+            employee.transform.Find("potentialText").GetComponent<TextMeshProUGUI>().text = calculatePotential(employee.age).ToString();
 
             employee.transform.Find("codeSkillText").GetComponent<TextMeshProUGUI>().text = $"{employee.code/10}/10";
             employee.transform.Find("artSkillText").GetComponent<TextMeshProUGUI>().text = $"{employee.art/10}/10";
             employee.transform.Find("designSkillText").GetComponent<TextMeshProUGUI>().text = $"{employee.design/10}/10";
 
-            employee.transform.Find("codeButton").GetComponentInChildren<TextMeshProUGUI>().text = $"${calculateNewSkillPrice(employee.code)}/{calculateNewSkillPrice(employee.code+10) / 100}D";
-            employee.transform.Find("artButton").GetComponentInChildren<TextMeshProUGUI>().text = $"${calculateNewSkillPrice(employee.art)}/{calculateNewSkillPrice(employee.art) / 100}D";
-            employee.transform.Find("designButton").GetComponentInChildren<TextMeshProUGUI>().text = $"${calculateNewSkillPrice(employee.design)}/{calculateNewSkillPrice(employee.design) / 100}D";
+            employee.transform.Find("codeButton").GetComponentInChildren<TextMeshProUGUI>().text = $"${calculateNewSkillPrice(employee.code, employee.age)}/{calculateNewSkillPrice(employee.code+10, employee.age) / 100}D";
+            employee.transform.Find("artButton").GetComponentInChildren<TextMeshProUGUI>().text = $"${calculateNewSkillPrice(employee.art, employee.age)}/{calculateNewSkillPrice(employee.art, employee.age) / 100}D";
+            employee.transform.Find("designButton").GetComponentInChildren<TextMeshProUGUI>().text = $"${calculateNewSkillPrice(employee.design, employee.age)}/{calculateNewSkillPrice(employee.design, employee.age) / 100}D";
 
             if (employee.busy)
             {
@@ -84,7 +84,39 @@ public class ImproveEmployee : MonoBehaviour
         dbManager.CloseConnection();
     }
 
-    int calculateNewSkillPrice(int skill)
+    int calculatePotential(int age)
+    {
+        int potential;
+
+        if (age <= 20)
+        {
+            potential = 100;
+        }
+        else if (age >= 21 && age <= 25)
+        {
+            potential = 90;
+        }
+        else if (age >= 26 && age <= 30)
+        {
+            potential = 70;
+        }
+        else if (age >= 31 && age <= 40)
+        {
+            potential = 50;
+        }
+        else if (age >= 41 && age <= 50)
+        {
+            potential = 40;
+        }
+        else
+        {
+            potential = 30;
+        }
+
+        return potential;
+    }
+
+    int calculateNewSkillPrice(int skill, int potential)
     {
         int price;
 
@@ -110,6 +142,27 @@ public class ImproveEmployee : MonoBehaviour
             price = 1000;
         }
 
+
+        if (potential == 90)
+        {
+            price += 10;
+        }
+        else if (potential == 70)
+        {
+            price += 50;
+        }
+        else if (potential == 50)
+        {
+            price += 70;
+        }
+        else if (potential == 40)
+        {
+            price += 90;
+        }
+        else
+        {
+            price += 150;
+        }
         return price;
     }
 
@@ -188,19 +241,19 @@ public class ImproveEmployee : MonoBehaviour
         if(skillType == "code")
         {
             employee.code += 10;
-            employee.skillUpgragePrice = calculateNewSkillPrice(employee.code);
+            employee.skillUpgragePrice = calculateNewSkillPrice(employee.code, employee.age);
             employee.skillDuration = employee.skillUpgragePrice / 100;
         }
         else if(skillType == "art")
         {
             employee.art += 10;
-            employee.skillUpgragePrice = calculateNewSkillPrice(employee.art);
+            employee.skillUpgragePrice = calculateNewSkillPrice(employee.art, employee.age);
             employee.skillDuration = employee.skillUpgragePrice / 100;
         }
         else
         {
             employee.design += 10;
-            employee.skillUpgragePrice = calculateNewSkillPrice(employee.design);
+            employee.skillUpgragePrice = calculateNewSkillPrice(employee.design, employee.age);
             employee.skillDuration = employee.skillUpgragePrice / 100;
         }
 
