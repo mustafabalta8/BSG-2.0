@@ -6,7 +6,7 @@ using System.Collections;
 
 public class Employee : MonoBehaviour
 {
-    public int employeeId, employeeSalary, employeePower, code, art, design, morale;
+    public int employeeId, employeeSalary, employeePower, code, art, design, morale, age;
     public string employeeName, position;
     public bool busy;
 
@@ -57,8 +57,9 @@ public class Employee : MonoBehaviour
             art = reader.GetInt32(5);
             design = reader.GetInt32(6);
 
+            age = reader.GetInt32(7);
 
-            if(reader.GetInt32(8) == 1)
+            if (reader.GetInt32(8) == 1)
             {
                 busy = true;
             }
@@ -149,7 +150,7 @@ public class Employee : MonoBehaviour
     {
         bool busy = false;
 
-        Debug.Log($"Training started, will wait for {(skillDuration-1)*timeManager.secondsPerTurn} seconds (duration: {(skillDuration-1)})");
+        Debug.Log($"Training started, will wait for {(skillDuration - 1) * timeManager.secondsPerTurn} seconds (duration: {(skillDuration - 1)})");
 
         codeButton.interactable = false;
         artButton.interactable = false;
@@ -196,7 +197,7 @@ public class Employee : MonoBehaviour
         artButton.interactable = true;
         designButton.interactable = true;
         trainButton.interactable = true;
-        
+
         codeButton.GetComponent<Image>().color = Color.yellow;
         artButton.GetComponent<Image>().color = Color.yellow;
         designButton.GetComponent<Image>().color = Color.yellow;
@@ -215,8 +216,6 @@ public class Employee : MonoBehaviour
 
         Debug.Log("Training finished");
     }
-
-
 
     public void improveMorale()
     {
@@ -263,7 +262,7 @@ public class Employee : MonoBehaviour
 
         yield return new WaitForSeconds((vacationDuration - 1) * timeManager.secondsPerTurn);
 
-        query = string.Format($"UPDATE employees SET morale={morale+10} WHERE employeeName = \"{employeeName}\"");
+        query = string.Format($"UPDATE employees SET morale={morale + 10} WHERE employeeName = \"{employeeName}\"");
         dbManager.InsertRecords(query);
         dbManager.CloseConnection();
 
@@ -286,7 +285,7 @@ public class Employee : MonoBehaviour
 
         improve.getEmployees();
 
-        Debug.Log($"Vacation finished, new morale: {morale+10}");
+        Debug.Log($"Vacation finished, new morale: {morale + 10}");
     }
 
 }
