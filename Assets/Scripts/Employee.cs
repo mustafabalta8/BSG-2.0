@@ -6,7 +6,7 @@ using System.Collections;
 
 public class Employee : MonoBehaviour
 {
-    public int employeeId, employeeSalary, employeePower, code, art, design, morale, age;
+    public int employeeId, employeeSalary, employeePower, code, art, design, morale;
     public string employeeName, position;
     public bool busy;
 
@@ -57,7 +57,6 @@ public class Employee : MonoBehaviour
             art = reader.GetInt32(5);
             design = reader.GetInt32(6);
 
-            age = reader.GetInt32(7);
 
             if(reader.GetInt32(8) == 1)
             {
@@ -216,6 +215,8 @@ public class Employee : MonoBehaviour
 
         Debug.Log("Training finished");
     }
+
+
 
     public void improveMorale()
     {
