@@ -69,7 +69,7 @@ public class AcceptContract : MonoBehaviour
     IEnumerator EndProduction(int ContID,List<int> EmpId)
     {
         Debug.Log("Coroutine Started");
-        yield return new WaitForSeconds(duration * timeManager.secondsPerTurn);
+        yield return new WaitForSeconds(duration* timeManager.secondsPerTurn);
         // dismiss employees  / earn money / 
         moneyManager.changeMoney(offer,"Contract");
 
