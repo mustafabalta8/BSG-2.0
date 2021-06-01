@@ -65,7 +65,7 @@ public class ProductManager : MonoBehaviour
     DbManager dbManager;
     Company Company;
     TimeManager timeManager;
-
+    AssignEmp assignEmp;
 
     [SerializeField] GameObject placeHolder;
 
@@ -74,6 +74,7 @@ public class ProductManager : MonoBehaviour
         dbManager = FindObjectOfType<DbManager>();
         Company = FindObjectOfType<Company>();
         timeManager = FindObjectOfType<TimeManager>();
+        assignEmp = FindObjectOfType<AssignEmp>();
 
         req_coding_skill.text = "0";
         req_art_skill.text = "0";
@@ -110,6 +111,11 @@ public class ProductManager : MonoBehaviour
             art_dif += getDifficulty("platform", selectedValue)["art_dif"];
             des_dif += getDifficulty("platform", selectedValue)["des_dif"];
 
+            assignEmp.code = code_dif;
+            assignEmp.art = art_dif;
+            assignEmp.design = des_dif;
+            assignEmp.ProdID = GetID();
+
             showRequiredSkills();
 
             checkButton();
@@ -129,7 +135,21 @@ public class ProductManager : MonoBehaviour
         });
 
     }
+    int GetID()
+    {
+        int id = 0;
+        string query = "SELECT * FROM products";
+        IDataReader reader = dbManager.ReadRecords(query);
 
+        while (reader.Read())
+        {
+            id = reader.GetInt32(0);
+
+        }
+        dbManager.CloseConnection();
+
+        return id + 1;
+    }
     private void Update()
     {
         if (creationStarted || updateStarted)
@@ -297,6 +317,8 @@ public class ProductManager : MonoBehaviour
             estimated_time = (code_dif + art_dif + des_dif) / 10;
 
             est_time.text = string.Format("{0} weeks", estimated_time);
+
+        assignEmp.duration = estimated_time;
     }
 
     public void checkButton()

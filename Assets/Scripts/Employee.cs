@@ -30,8 +30,10 @@ public class Employee : MonoBehaviour
     AcceptContract acceptContract;
     ImproveEmployee improve;
     TimeManager timeManager;
+    AssignEmp assignEmp;
     public void Start()
     {
+        assignEmp = FindObjectOfType<AssignEmp>();
         acceptContract = FindObjectOfType<AcceptContract>();
         company = FindObjectOfType<Company>();
         dbManager = FindObjectOfType<DbManager>();
@@ -117,6 +119,14 @@ public class Employee : MonoBehaviour
             acceptContract.design -= design;
 
             acceptContract.ShowSelectedContract();
+
+            assignEmp.AssignedEmployees.Add(employeeId);
+            assignEmp.code -= code;
+            assignEmp.art -= art;
+            assignEmp.design -= design;
+            assignEmp.ShowSelectedProduct();
+
+
         }
         else
         {
@@ -131,6 +141,13 @@ public class Employee : MonoBehaviour
             acceptContract.design += design;
 
             acceptContract.ShowSelectedContract();
+
+            assignEmp.AssignedEmployees.Remove(employeeId);
+            assignEmp.code += code;
+            assignEmp.art += art;
+            assignEmp.design += design;
+
+            assignEmp.ShowSelectedProduct();
         }
 
     }

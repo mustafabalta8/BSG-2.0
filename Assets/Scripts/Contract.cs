@@ -22,8 +22,6 @@ public class Contract : MonoBehaviour
     public int design;
     public int ContID;
 
-    double employeePower;
-    double whenItShouldBeDone = 0;
     //necesarry contract object variables
 
     

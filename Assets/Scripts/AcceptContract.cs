@@ -40,7 +40,7 @@ public class AcceptContract : MonoBehaviour
         createContract = FindObjectOfType<CreateContract>();
         moneyManager = FindObjectOfType<MoneyManager>();
         timeManager = FindObjectOfType<TimeManager>();
-        ShowEmployeesInAssignPanel();
+        //ShowEmployeesInAssignPanel();
 
     }
     public void TakeContract()
@@ -85,6 +85,33 @@ public class AcceptContract : MonoBehaviour
         Debug.Log("Contract Deleted/Finished");
 
     }
+    public void ShowSelectedContract()
+    {
+        Contract contractObj = SelectedContractObj.GetComponent<Contract>();
+
+        contractObj.platform = platform;
+        contractObj.sofType = sofType;
+        contractObj.duration = duration;
+
+        contractObj.offer = offer;
+        contractObj.code = code;
+        contractObj.art = art;
+        contractObj.design = design;
+        if (contractObj.code <= 0)
+        {
+            contractObj.transform.Find("workforce/code").GetComponent<TextMeshProUGUI>().color = Color.green;
+        }
+        if (contractObj.art <= 0)
+        {
+            contractObj.transform.Find("workforce/art").GetComponent<TextMeshProUGUI>().color = Color.green;
+        }
+        if (contractObj.design <= 0)
+        {
+            contractObj.transform.Find("workforce/design").GetComponent<TextMeshProUGUI>().color = Color.green;
+        }
+        createContract.CreateContractUI(contractObj);
+    }
+    /*
     public void ShowEmployeesInAssignPanel()
     {
 
@@ -124,35 +151,10 @@ public class AcceptContract : MonoBehaviour
 
             dbManager.CloseConnection();
         
-    }
-    public void ShowSelectedContract()
-    {
-        Contract contractObj = SelectedContractObj.GetComponent<Contract>();
-
-        contractObj.platform = platform;
-        contractObj.sofType = sofType;
-        contractObj.duration = duration;
-        
-        contractObj.offer = offer;
-        contractObj.code = code;
-        contractObj.art = art;
-        contractObj.design = design;
-        if (contractObj.code <= 0)
-        {
-            contractObj.transform.Find("workforce/code").GetComponent<TextMeshProUGUI>().color = Color.green;
-        }
-        if (contractObj.art <= 0)
-        {
-            contractObj.transform.Find("workforce/art").GetComponent<TextMeshProUGUI>().color = Color.green;
-        }
-        if (contractObj.design <= 0)
-        {
-            contractObj.transform.Find("workforce/design").GetComponent<TextMeshProUGUI>().color = Color.green;
-        }
-        createContract.CreateContractUI(contractObj);
-    }
+    }*/
 
 
 
-    
+
+
 }

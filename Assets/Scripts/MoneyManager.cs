@@ -28,15 +28,7 @@ public class MoneyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       /* if((time.displayTime) % 3 == 0)
-        {
-            if (money > company.totalSalary)
-                changeMoney(-(company.totalSalary));
-            else
-            {
-                //Debug.Log("bankrupt!");
-            }
-        }*/
+       
     }
 
     public void changeMoney(int amount, string type) //method to dynamicly change amount of money, takes a integer as parameter which adds up to the current amount of money, then updates the current money text field that the user sees

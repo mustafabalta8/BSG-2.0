@@ -36,7 +36,7 @@ public class SkillTreeOperator : MonoBehaviour
 
 
     }
-    void arrangeSkillsToLevel1()//not for game
+    void arrangeSkillsToLevel1()//for restart
     {
         
 
