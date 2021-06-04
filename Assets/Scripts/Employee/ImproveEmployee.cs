@@ -16,6 +16,8 @@ public class ImproveEmployee : MonoBehaviour
 
     [SerializeField] Sprite green, green_half, red;
 
+    [SerializeField] Sprite employee_woman1, employee_woman3, employee_woman2, employee_woman4, employee_woman5, employee_woman6, employee_woman7, employee_woman8, employee_woman9, employee_man1, employee_man2, employee_man3, employee_man4, employee_man5, employee_man6, employee_man7, employee_man8, employee_man9;
+
 
     void Start()
     {
@@ -65,7 +67,6 @@ public class ImproveEmployee : MonoBehaviour
             employee.vacationDuration = calculateVacationPrice(employee.morale) / 1000;
             employee.vacationPrice = calculateVacationPrice(employee.morale);
 
-
             employee.transform.Find("sendToVacationButton").GetComponentInChildren<TextMeshProUGUI>().text = $"Vacation\n${calculateVacationPrice(employee.morale)}/{calculateVacationPrice(employee.morale) / 1000}D";
 
             int codeSkill, artSkill, designSkill;
@@ -75,11 +76,9 @@ public class ImproveEmployee : MonoBehaviour
             paintSprite("code", codeSkill, employee.transform);
             paintSprite("art", artSkill, employee.transform);
             paintSprite("design", designSkill, employee.transform);
-            //break;
-        }
 
-        //RectTransform panelRect = (RectTransform)EmployeesUI.transform;
-        //Debug.Log("Width: " + panelRect.rect.height);
+            changeProfilePicture(employee.transform, employee.profile_pic);
+        }
 
         dbManager.CloseConnection();
     }
@@ -385,4 +384,83 @@ public class ImproveEmployee : MonoBehaviour
         }
     }
 
+    public void changeProfilePicture(Transform gameObject, string employee_pic)
+    {
+        Sprite sprite;
+        if (employee_pic == "employee_woman1")
+        {
+            sprite = employee_woman1;
+        }
+        else if (employee_pic == "employee_woman2")
+        {
+            sprite = employee_woman2;
+        }
+        else if (employee_pic == "employee_woman3")
+        {
+            sprite = employee_woman3;
+        }
+        else if (employee_pic == "employee_woman4")
+        {
+            sprite = employee_woman4;
+        }
+        else if (employee_pic == "employee_woman5")
+        {
+            sprite = employee_woman5;
+        }
+        else if (employee_pic == "employee_woman6")
+        {
+            sprite = employee_woman6;
+        }
+        else if (employee_pic == "employee_woman7")
+        {
+            sprite = employee_woman7;
+        }
+        else if (employee_pic == "employee_woman8")
+        {
+            sprite = employee_woman8;
+        }
+        else if (employee_pic == "employee_woman9")
+        {
+            sprite = employee_woman9;
+        }
+        else if (employee_pic == "employee_man1")
+        {
+            sprite = employee_man1;
+        }
+        else if (employee_pic == "employee_man2")
+        {
+            sprite = employee_man2;
+        }
+        else if (employee_pic == "employee_man3")
+        {
+            sprite = employee_man3;
+        }
+        else if (employee_pic == "employee_man4")
+        {
+            sprite = employee_man4;
+        }
+        else if (employee_pic == "employee_man5")
+        {
+            sprite = employee_man5;
+        }
+        else if (employee_pic == "employee_man6")
+        {
+            sprite = employee_man6;
+        }
+        else if (employee_pic == "employee_man7")
+        {
+            sprite = employee_man7;
+        }
+        else if (employee_pic == "employee_man8")
+        {
+            sprite = employee_man8;
+        }
+        else
+        {
+            sprite = employee_man9;
+        }
+
+        gameObject.Search("employeePhoto").GetComponent<Image>().sprite = sprite;
+
+    }
 }

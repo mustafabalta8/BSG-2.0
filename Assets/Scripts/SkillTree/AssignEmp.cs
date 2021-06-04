@@ -29,6 +29,10 @@ public class AssignEmp : MonoBehaviour
     public int design;
     public int ContID;
     public int ProdID;
+
+    [SerializeField] Sprite employee_woman1, employee_woman3, employee_woman2, employee_woman4, employee_woman5, employee_woman6, employee_woman7, employee_woman8, employee_woman9, employee_man1, employee_man2, employee_man3, employee_man4, employee_man5, employee_man6, employee_man7, employee_man8, employee_man9;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -99,6 +103,7 @@ public class AssignEmp : MonoBehaviour
             int art = reader.GetInt32(5);
             int design = reader.GetInt32(6);
 
+            string profile_pic = reader.GetString(11);
 
             GameObject createdEmployee = Instantiate(AssignEmpObj);
             createdEmployee.transform.SetParent(AssignEmpPanel.transform);
@@ -111,7 +116,7 @@ public class AssignEmp : MonoBehaviour
             EmployeeObj.art = art;
             EmployeeObj.design = design;
 
-
+            changeProfilePicture(EmployeeObj.transform, profile_pic);
 
             EmployeeObj.name = employeeName.ToString();
 
@@ -151,5 +156,83 @@ public class AssignEmp : MonoBehaviour
         createContract.CreateContractUI(contractObj);
     }
 
+    public void changeProfilePicture(Transform gameObject, string employee_pic)
+    {
+        Sprite sprite;
+        if (employee_pic == "employee_woman1")
+        {
+            sprite = employee_woman1;
+        }
+        else if (employee_pic == "employee_woman2")
+        {
+            sprite = employee_woman2;
+        }
+        else if (employee_pic == "employee_woman3")
+        {
+            sprite = employee_woman3;
+        }
+        else if (employee_pic == "employee_woman4")
+        {
+            sprite = employee_woman4;
+        }
+        else if (employee_pic == "employee_woman5")
+        {
+            sprite = employee_woman5;
+        }
+        else if (employee_pic == "employee_woman6")
+        {
+            sprite = employee_woman6;
+        }
+        else if (employee_pic == "employee_woman7")
+        {
+            sprite = employee_woman7;
+        }
+        else if (employee_pic == "employee_woman8")
+        {
+            sprite = employee_woman8;
+        }
+        else if (employee_pic == "employee_woman9")
+        {
+            sprite = employee_woman9;
+        }
+        else if (employee_pic == "employee_man1")
+        {
+            sprite = employee_man1;
+        }
+        else if (employee_pic == "employee_man2")
+        {
+            sprite = employee_man2;
+        }
+        else if (employee_pic == "employee_man3")
+        {
+            sprite = employee_man3;
+        }
+        else if (employee_pic == "employee_man4")
+        {
+            sprite = employee_man4;
+        }
+        else if (employee_pic == "employee_man5")
+        {
+            sprite = employee_man5;
+        }
+        else if (employee_pic == "employee_man6")
+        {
+            sprite = employee_man6;
+        }
+        else if (employee_pic == "employee_man7")
+        {
+            sprite = employee_man7;
+        }
+        else if (employee_pic == "employee_man8")
+        {
+            sprite = employee_man8;
+        }
+        else
+        {
+            sprite = employee_man9;
+        }
 
+        gameObject.Search("Employee Photo").GetComponent<Image>().sprite = sprite;
+
+    }
 }

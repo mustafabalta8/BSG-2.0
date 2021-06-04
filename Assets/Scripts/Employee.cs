@@ -7,7 +7,7 @@ using System.Collections;
 public class Employee : MonoBehaviour
 {
     public int employeeId, employeeSalary, employeePower, code, art, design, morale, age;
-    public string employeeName, position;
+    public string employeeName, position, profile_pic;
     public bool busy;
 
     public int skillDuration, skillUpgragePrice, vacationDuration, vacationPrice;
@@ -61,7 +61,7 @@ public class Employee : MonoBehaviour
 
             age = reader.GetInt32(7);
 
-            if (reader.GetInt32(8) == 1)
+            if (reader.GetInt32(9) == 1)
             {
                 busy = true;
             }
@@ -86,7 +86,8 @@ public class Employee : MonoBehaviour
             else
                 position = "Designer";
 
-            morale = reader.GetInt32(9);
+            morale = reader.GetInt32(10);
+            profile_pic = reader.GetString(11);
         }
 
         dbManager.CloseConnection();

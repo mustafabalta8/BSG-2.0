@@ -41,7 +41,7 @@ public class Company : MonoBehaviour
         employeeFactory = FindObjectOfType<CreateEmployee>(); //get the employee script
 
         getEmployeesFromDatabase(employeeFactory);
-        getCompanyDataFromDatabase(); //company name
+        getCompanyDataFromDatabase();
 
         employeeFactory.createRandomEmployee(5); //create X random employees
 
@@ -84,9 +84,10 @@ public class Company : MonoBehaviour
             int art = reader.GetInt32(5);
             int design = reader.GetInt32(6);
 
-            this.companyPower = companyPower + employeePower;
+            int morale = reader.GetInt32(10);
+            string profile_pic = reader.GetString(11);
 
-            //employeeFactory.createEmployee(employeeId, employeeName, employeeSalary, employeePower, code, art, design);
+            this.companyPower = companyPower + employeePower;
 
 
             GameObject createdEmployee = Instantiate(MyEmployee);
@@ -100,13 +101,12 @@ public class Company : MonoBehaviour
             EmployeeObj.employeeName = employeeName;
             EmployeeObj.employeePower = employeeSalary;
             EmployeeObj.employeeSalary = employeePower;
+            EmployeeObj.morale = morale;
+            EmployeeObj.profile_pic = profile_pic;
 
             EmployeeObj.name = employeeName.ToString();
 
-
             totalSalary = totalSalary + EmployeeObj.employeeSalary;
-
-            //EmployeeObj.transform.Find("empName").GetComponent<TextMeshProUGUI>().text = employeeName;
 
         }
 

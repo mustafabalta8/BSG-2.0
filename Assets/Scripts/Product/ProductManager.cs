@@ -325,7 +325,7 @@ public class ProductManager : MonoBehaviour
     {
         if (typeDropdown.options[typeDropdown.value].text != "Select a type" && platformDropdown.options[platformDropdown.value].text != "Select a platform" && productNameField.text != "")
         {
-            buttonText.text = "Start";
+            buttonText.text = "Assign Employees";
             startButton.interactable = true;
         }
         else
