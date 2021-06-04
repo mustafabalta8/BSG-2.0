@@ -306,4 +306,36 @@ public class Employee : MonoBehaviour
         Debug.Log($"Vacation finished, new morale: {morale + 10}");
     }
 
+    public int calculatePotential()
+    {
+        int potential;
+
+        if (age <= 20)
+        {
+            potential = 100;
+        }
+        else if (age >= 21 && age <= 25)
+        {
+            potential = 90;
+        }
+        else if (age >= 26 && age <= 30)
+        {
+            potential = 70;
+        }
+        else if (age >= 31 && age <= 40)
+        {
+            potential = 50;
+        }
+        else if (age >= 41 && age <= 50)
+        {
+            potential = 40;
+        }
+        else
+        {
+            potential = 30;
+        }
+
+        return potential;
+    }
+
 }

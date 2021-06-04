@@ -76,38 +76,39 @@ public class Company : MonoBehaviour
 
         while (reader.Read())
         {
-            int employeeId = reader.GetInt32(0);
-            string employeeName = reader.GetString(1);
-            int employeeSalary = reader.GetInt32(2);
-            int employeePower = reader.GetInt32(3);
-            int code = reader.GetInt32(4);
-            int art = reader.GetInt32(5);
-            int design = reader.GetInt32(6);
-
-            int morale = reader.GetInt32(10);
-            string profile_pic = reader.GetString(11);
-
-            this.companyPower = companyPower + employeePower;
-
-
             GameObject createdEmployee = Instantiate(MyEmployee);
             createdEmployee.transform.SetParent(MyEmployeeHolder.transform);
 
             Employee EmployeeObj = createdEmployee.GetComponent<Employee>();
 
+            int employeeId = reader.GetInt32(0);
+
+            EmployeeObj.getDetails(employeeId);
+
+
+            this.companyPower = companyPower + EmployeeObj.employeePower;
+
             employees.Add(EmployeeObj);
-
-            EmployeeObj.employeeId = employeeId;
-            EmployeeObj.employeeName = employeeName;
-            EmployeeObj.employeePower = employeeSalary;
-            EmployeeObj.employeeSalary = employeePower;
-            EmployeeObj.morale = morale;
-            EmployeeObj.profile_pic = profile_pic;
-
-            EmployeeObj.name = employeeName.ToString();
 
             totalSalary = totalSalary + EmployeeObj.employeeSalary;
 
+
+            EmployeeObj.transform.Find("empName").GetComponent<TextMeshProUGUI>().text = EmployeeObj.employeeName;
+            EmployeeObj.transform.Find("Employee position").GetComponent<TextMeshProUGUI>().text = EmployeeObj.position;
+            EmployeeObj.transform.Find("Employee potential").GetComponent<TextMeshProUGUI>().text = $"{EmployeeObj.calculatePotential()}%";
+            EmployeeObj.transform.Find("Employee Salary").GetComponent<TextMeshProUGUI>().text = $"${EmployeeObj.employeeSalary}";
+            if (EmployeeObj.busy)
+            {
+                EmployeeObj.transform.Find("Employee status").GetComponent<TextMeshProUGUI>().text = "Busy";
+
+            }
+            else
+            {
+                EmployeeObj.transform.Find("Employee status").GetComponent<TextMeshProUGUI>().text = "Available";
+            }
+            EmployeeObj.transform.Find("Coding skill").GetComponent<TextMeshProUGUI>().text = $"{EmployeeObj.code}";
+            EmployeeObj.transform.Find("Art skill").GetComponent<TextMeshProUGUI>().text = $"{EmployeeObj.art}";
+            EmployeeObj.transform.Find("Design skill").GetComponent<TextMeshProUGUI>().text = $"{EmployeeObj.design}";
         }
 
         dbManager.CloseConnection();
