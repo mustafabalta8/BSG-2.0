@@ -39,7 +39,9 @@ public class FurnitureUI : MonoBehaviour
             
         }
         dbManager.CloseConnection();*/
-        transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount:" + amount;
+
+
+        transform.Find("amount").GetComponent<TextMeshProUGUI>().text =  amount.ToString();
     }
     private int GetDataFromDB(int amount01)
     {
@@ -88,7 +90,7 @@ public class FurnitureUI : MonoBehaviour
                 string query02 = string.Format("UPDATE office SET workTable='" + amount + "' WHERE id ='1'");
                 dbManager.InsertRecords(query02);
 
-                transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount:" + amount;
+                transform.Find("amount").GetComponent<TextMeshProUGUI>().text = amount.ToString();
 
                 Debug.Log("workTable increased");
             }
@@ -98,7 +100,7 @@ public class FurnitureUI : MonoBehaviour
                 string query02 = string.Format("UPDATE office SET seat='" + amount + "' WHERE id ='1'");
                 dbManager.InsertRecords(query02);
 
-                transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount:" + amount;
+                transform.Find("amount").GetComponent<TextMeshProUGUI>().text = amount.ToString();
 
                 Debug.Log("chair increased");
             }
@@ -136,7 +138,7 @@ public class FurnitureUI : MonoBehaviour
                 amount -= 1;
                 string query02 = string.Format("UPDATE office SET workTable='" + amount + "' WHERE id ='1'");
                 dbManager.InsertRecords(query02);
-                transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount:" + amount;
+                transform.Find("amount").GetComponent<TextMeshProUGUI>().text = amount.ToString();
 
                 Debug.Log("workTable decreased");
 
@@ -147,7 +149,7 @@ public class FurnitureUI : MonoBehaviour
                 string query02 = string.Format("UPDATE office SET seat='" + amount + "' WHERE id ='1'");
                 dbManager.InsertRecords(query02);
 
-                transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount:" + amount;
+                transform.Find("amount").GetComponent<TextMeshProUGUI>().text = amount.ToString();
 
                 Debug.Log("chair dec..");
             }
