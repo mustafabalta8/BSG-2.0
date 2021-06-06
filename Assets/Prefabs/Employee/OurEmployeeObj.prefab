@@ -426,7 +426,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6555810575997405639}
   - component: {fileID: 6555810575997405633}
-  - component: {fileID: 6555810575997405632}
+  - component: {fileID: 5279291513252339676}
   m_Layer: 5
   m_Name: Employee Photo
   m_TagString: Untagged
@@ -461,7 +461,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6555810575997405638}
   m_CullTransparentMesh: 1
---- !u!114 &6555810575997405632
+--- !u!114 &5279291513252339676
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -481,7 +481,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9d7047895ab60ec40bf8a130e5af450e, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

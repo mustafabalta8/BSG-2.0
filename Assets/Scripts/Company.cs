@@ -31,6 +31,7 @@ public class Company : MonoBehaviour
     [Header("Employee Related")]
     [SerializeField] GameObject MyEmployeeHolder;
     [SerializeField] GameObject MyEmployee;
+    [SerializeField] Sprite employee_woman1, employee_woman3, employee_woman2, employee_woman4, employee_woman5, employee_woman6, employee_woman7, employee_woman8, employee_woman9, employee_man1, employee_man2, employee_man3, employee_man4, employee_man5, employee_man6, employee_man7, employee_man8, employee_man9;
 
     [Header("Bank")]
     public int balance;
@@ -109,6 +110,9 @@ public class Company : MonoBehaviour
             EmployeeObj.transform.Find("Coding skill").GetComponent<TextMeshProUGUI>().text = $"{EmployeeObj.code}";
             EmployeeObj.transform.Find("Art skill").GetComponent<TextMeshProUGUI>().text = $"{EmployeeObj.art}";
             EmployeeObj.transform.Find("Design skill").GetComponent<TextMeshProUGUI>().text = $"{EmployeeObj.design}";
+
+            changeProfilePicture(EmployeeObj.transform, EmployeeObj.profile_pic);
+
         }
 
         dbManager.CloseConnection();
@@ -189,4 +193,85 @@ public class Company : MonoBehaviour
         string query = string.Format($"UPDATE company SET companyName = \"{companyName}\", bank = {balance}, credibility = {credibility}"); dbManager.InsertRecords(query);
         dbManager.CloseConnection();
     }
+
+    public void changeProfilePicture(Transform gameObject, string employee_pic)
+    {
+        Sprite sprite;
+        if (employee_pic == "employee_woman1")
+        {
+            sprite = employee_woman1;
+        }
+        else if (employee_pic == "employee_woman2")
+        {
+            sprite = employee_woman2;
+        }
+        else if (employee_pic == "employee_woman3")
+        {
+            sprite = employee_woman3;
+        }
+        else if (employee_pic == "employee_woman4")
+        {
+            sprite = employee_woman4;
+        }
+        else if (employee_pic == "employee_woman5")
+        {
+            sprite = employee_woman5;
+        }
+        else if (employee_pic == "employee_woman6")
+        {
+            sprite = employee_woman6;
+        }
+        else if (employee_pic == "employee_woman7")
+        {
+            sprite = employee_woman7;
+        }
+        else if (employee_pic == "employee_woman8")
+        {
+            sprite = employee_woman8;
+        }
+        else if (employee_pic == "employee_woman9")
+        {
+            sprite = employee_woman9;
+        }
+        else if (employee_pic == "employee_man1")
+        {
+            sprite = employee_man1;
+        }
+        else if (employee_pic == "employee_man2")
+        {
+            sprite = employee_man2;
+        }
+        else if (employee_pic == "employee_man3")
+        {
+            sprite = employee_man3;
+        }
+        else if (employee_pic == "employee_man4")
+        {
+            sprite = employee_man4;
+        }
+        else if (employee_pic == "employee_man5")
+        {
+            sprite = employee_man5;
+        }
+        else if (employee_pic == "employee_man6")
+        {
+            sprite = employee_man6;
+        }
+        else if (employee_pic == "employee_man7")
+        {
+            sprite = employee_man7;
+        }
+        else if (employee_pic == "employee_man8")
+        {
+            sprite = employee_man8;
+        }
+        else
+        {
+            sprite = employee_man9;
+        }
+
+        gameObject.Search("Employee Photo").GetComponent<Image>().sprite = sprite;
+
+    }
+
 }
