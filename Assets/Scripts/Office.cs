@@ -17,8 +17,8 @@ public class Office : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.transform.Find("capacity").GetComponent<TextMeshProUGUI>().text = "Office Capacity:"+officeCapacity.ToString();
-        this.transform.Find("rent").GetComponent<TextMeshProUGUI>().text = "Monthly Rent:"+rent.ToString();
+        this.transform.Find("capacity").GetComponent<TextMeshProUGUI>().text = ""+officeCapacity.ToString();
+        this.transform.Find("rent").GetComponent<TextMeshProUGUI>().text = ""+rent.ToString();
         transform.Find("Image").GetComponent<Image>().sprite = Resources.Load<Sprite>("shop");
 
         company = FindObjectOfType<Company>();

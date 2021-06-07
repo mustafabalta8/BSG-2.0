@@ -11,12 +11,18 @@ GameObject:
   - component: {fileID: 5689990397232285848}
   - component: {fileID: 5689990397232285855}
   - component: {fileID: 5689990397232285849}
-  - component: {fileID: 5689990397232285850}
   - component: {fileID: 5689990397232285851}
-  - component: {fileID: 5689990397232285828}
   - component: {fileID: 5689990397232285830}
   - component: {fileID: 5689990397232285829}
   - component: {fileID: 5689990397232285831}
+  - component: {fileID: 797226624}
+  - component: {fileID: 797226625}
+  - component: {fileID: 797226626}
+  - component: {fileID: 797226627}
+  - component: {fileID: 797226628}
+  - component: {fileID: 797226631}
+  - component: {fileID: 797226634}
+  - component: {fileID: 797226636}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -52,7 +58,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elapsedTime: 0
   TimeText: {fileID: 0}
-  displayTime: 0
+  displayTime: 1
+  secondsPerTurn: 60
+  startStopButton: {fileID: 0}
+  startStopButtonText: {fileID: 0}
+  OffSprite: {fileID: 21300000, guid: 3568d049bc08c6f42a14f7d5e74c357f, type: 3}
+  OnSprite: {fileID: 21300000, guid: 8e7a0e44a6e2a7740825105d3a1b8e26, type: 3}
+  timeScaleText: {fileID: 0}
+  timeStopped: 0
 --- !u!114 &5689990397232285849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,26 +78,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9759868e61f01b3469634dfc07b76b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 50
   moneyText: {fileID: 0}
---- !u!114 &5689990397232285850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5689990397232285854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecab0ac040112e0459ff40f0fd72f83a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  companyName: Microsoft
-  requiredPower: 30
-  acceptedTime: 0
-  deadLine: 5
-  contractValue: 100
-  completed: 0
+  money: 1000
 --- !u!114 &5689990397232285851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,33 +94,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerRangeLimit: 40
   salarayRangeLimit: 5000
-  EmployeeHolder: {fileID: 0}
+  ApplicantsHolder: {fileID: 0}
+  OurEmployees: {fileID: 0}
   EmpolyeeName: {fileID: 0}
-  codingSkill: {fileID: 0}
-  artSkill: {fileID: 0}
-  designSkill: {fileID: 0}
-  salary: {fileID: 0}
-  Employee: {fileID: 2375510533794301035, guid: c06597664e662384aaa5c8f82ab76c8f, type: 3}
---- !u!114 &5689990397232285828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5689990397232285854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f905a6f9884edcc4b97ffac14df042c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  employeeId: 0
-  employeeName: 
-  employeeSalary: 0
-  employeePower: 0
-  code: 0
-  art: 0
-  design: 0
-  Hire: {fileID: 0}
+  Code: {fileID: 0}
+  Art: {fileID: 0}
+  Design: {fileID: 0}
+  Salary: {fileID: 0}
+  employee_woman1: {fileID: 21300000, guid: 5f84dc730da5f1645891991ef717cae3, type: 3}
+  employee_woman3: {fileID: 21300000, guid: 4437f484a34705c478bbea1d8132ad00, type: 3}
+  employee_woman2: {fileID: 21300000, guid: bf89349e95cc52a449bd83ff1c8d545d, type: 3}
+  employee_woman4: {fileID: 21300000, guid: 726f081a64854c74aab2b3cc9d080b43, type: 3}
+  employee_woman5: {fileID: 21300000, guid: 2a7e0f45589813b468e6c12c75004271, type: 3}
+  employee_woman6: {fileID: 21300000, guid: a7e90df61c55eac41b4eefc06e5d27c3, type: 3}
+  employee_woman7: {fileID: 21300000, guid: 24b8d845b457fc74f85f24518bb00e57, type: 3}
+  employee_woman8: {fileID: 21300000, guid: cdc5841385f40e1458c22982582b8f74, type: 3}
+  employee_woman9: {fileID: 21300000, guid: 2d633fee6d7427649af211707777a014, type: 3}
+  employee_man1: {fileID: 21300000, guid: 8bf192f19955dad46834772512005062, type: 3}
+  employee_man2: {fileID: 21300000, guid: 232d81bc43a4b784385a630f0657111d, type: 3}
+  employee_man3: {fileID: 21300000, guid: 87989c0e72e14f14294441a33dfdbc87, type: 3}
+  employee_man4: {fileID: 21300000, guid: e3a16a5f6ac532b48864534b58e7815e, type: 3}
+  employee_man5: {fileID: 21300000, guid: 1039f3754c82db44983029f082f0107c, type: 3}
+  employee_man6: {fileID: 21300000, guid: 53917abf04121044db8ae79a7a2935c1, type: 3}
+  employee_man7: {fileID: 21300000, guid: e4820b7c6f472af4da6138f70e0d81df, type: 3}
+  employee_man8: {fileID: 21300000, guid: 94b8fa3438774cc40b31149abb62b81d, type: 3}
+  employee_man9: {fileID: 21300000, guid: 08fff228ef929c84884b2b9ab737b320, type: 3}
+  ApplicantEmployee: {fileID: 1637358046480092753, guid: 57fcf852ea9297346a75d5b52e2e7ff6, type: 3}
 --- !u!114 &5689990397232285830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,11 +135,31 @@ MonoBehaviour:
   productName: 
   softwareType: 
   platform: 
-  productNameField: {fileID: 0}
+  code_dif: 0
+  art_dif: 0
+  des_dif: 0
+  estimated_time: 0
+  quality: 0
+  productId: 0
   softwareTypeField: {fileID: 0}
   platformField: {fileID: 0}
+  req_coding_skill: {fileID: 0}
+  req_art_skill: {fileID: 0}
+  req_des_skill: {fileID: 0}
+  est_time: {fileID: 0}
+  buttonText: {fileID: 0}
+  productNameField: {fileID: 0}
   typeDropdown: {fileID: 0}
   platformDropdown: {fileID: 0}
+  startButton: {fileID: 0}
+  productDropDown: {fileID: 0}
+  fix_bugs_et: {fileID: 0}
+  add_new_feature_et: {fileID: 0}
+  port_to_new_os_et: {fileID: 0}
+  fix_bugs_start: {fileID: 0}
+  add_new_feature_start: {fileID: 0}
+  port_to_new_os_start: {fileID: 0}
+  placeHolder: {fileID: 0}
 --- !u!114 &5689990397232285829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,3 +184,184 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7c777a92ba4ce439b2e8826b662ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &797226624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5689990397232285854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff81cbeb787a554485cbb67c0133ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  officeUI: {fileID: 2626985289779146088, guid: 9c037cb2865f15f498ebacde790e229f, type: 3}
+  officeUIPanel: {fileID: 0}
+  furnitureUI: {fileID: 0}
+  furnitureUIPanel: {fileID: 0}
+  totalOfficeNum: 5
+--- !u!114 &797226625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5689990397232285854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d322a74b821898140aa195fe09bc5b55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productDropDown: {fileID: 0}
+  durationSlider: {fileID: 0}
+  budgetSlider: {fileID: 0}
+  startButton: {fileID: 0}
+  durationText: {fileID: 0}
+  budgetText: {fileID: 0}
+--- !u!114 &797226626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5689990397232285854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11482cd77d39ef645b354ba0b08cb590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assets_cashText: {fileID: 0}
+  assets_contractsText: {fileID: 0}
+  assets_featuresText: {fileID: 0}
+  assets_inventoryText: {fileID: 0}
+  assets_total_current_assetsText: {fileID: 0}
+  assets_totalText: {fileID: 0}
+  liabilities_inventoryText: {fileID: 0}
+  liabilities_adsText: {fileID: 0}
+  liabilities_manText: {fileID: 0}
+  liabilities_trainingText: {fileID: 0}
+  liabilities_taxesText: {fileID: 0}
+  liabilities_totalText: {fileID: 0}
+  turnViewer: {fileID: 0}
+  nextTurnButton: {fileID: 0}
+  previousTurnButton: {fileID: 0}
+--- !u!114 &797226627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5689990397232285854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05179abdee573d54a83fbc143dcfa252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AssignEmpObj: {fileID: 1637358046480092753, guid: a215f1434b5aa5249b057254dadefc30, type: 3}
+  AssignEmpPanel: {fileID: 0}
+  SelectedContractObj: {fileID: 0}
+  AssignedEmployees: 
+  platform: 
+  sofType: 
+  companyName: 
+  duration: 0
+  offer: 0
+  code: 0
+  art: 0
+  design: 0
+  ContID: 0
+  ProdID: 0
+  employee_woman1: {fileID: 21300000, guid: 5f84dc730da5f1645891991ef717cae3, type: 3}
+  employee_woman3: {fileID: 21300000, guid: 4437f484a34705c478bbea1d8132ad00, type: 3}
+  employee_woman2: {fileID: 21300000, guid: bf89349e95cc52a449bd83ff1c8d545d, type: 3}
+  employee_woman4: {fileID: 21300000, guid: 726f081a64854c74aab2b3cc9d080b43, type: 3}
+  employee_woman5: {fileID: 21300000, guid: 2a7e0f45589813b468e6c12c75004271, type: 3}
+  employee_woman6: {fileID: 21300000, guid: a7e90df61c55eac41b4eefc06e5d27c3, type: 3}
+  employee_woman7: {fileID: 21300000, guid: 24b8d845b457fc74f85f24518bb00e57, type: 3}
+  employee_woman8: {fileID: 21300000, guid: cdc5841385f40e1458c22982582b8f74, type: 3}
+  employee_woman9: {fileID: 21300000, guid: 2d633fee6d7427649af211707777a014, type: 3}
+  employee_man1: {fileID: 21300000, guid: 8bf192f19955dad46834772512005062, type: 3}
+  employee_man2: {fileID: 21300000, guid: 232d81bc43a4b784385a630f0657111d, type: 3}
+  employee_man3: {fileID: 21300000, guid: 87989c0e72e14f14294441a33dfdbc87, type: 3}
+  employee_man4: {fileID: 21300000, guid: e3a16a5f6ac532b48864534b58e7815e, type: 3}
+  employee_man5: {fileID: 21300000, guid: 1039f3754c82db44983029f082f0107c, type: 3}
+  employee_man6: {fileID: 21300000, guid: 53917abf04121044db8ae79a7a2935c1, type: 3}
+  employee_man7: {fileID: 21300000, guid: e4820b7c6f472af4da6138f70e0d81df, type: 3}
+  employee_man8: {fileID: 21300000, guid: 94b8fa3438774cc40b31149abb62b81d, type: 3}
+  employee_man9: {fileID: 21300000, guid: 08fff228ef929c84884b2b9ab737b320, type: 3}
+--- !u!114 &797226628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5689990397232285854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c516ae6e9d7554d9c26973caa67ead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &797226631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5689990397232285854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 312189ee59a30a64789e40e72aa3322d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &797226634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5689990397232285854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c4e371e61cd06409929f2d19a80ddb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creaditAmount: {fileID: 0}
+  durationSlider: {fileID: 0}
+  durationText: {fileID: 0}
+  credibilityValue: {fileID: 0}
+  totalAmount: {fileID: 0}
+  paybackAmountPerPeriod: {fileID: 0}
+  amountFeedback: {fileID: 0}
+  durationFeedback: {fileID: 0}
+  interestRate: {fileID: 0}
+  totalPayback: {fileID: 0}
+  approveAmountButton: {fileID: 0}
+  approvePeriodButton: {fileID: 0}
+  takeCreditButton: {fileID: 0}
+--- !u!114 &797226636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5689990397232285854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3122d6bd5a41ace4e8bbe20cc49df432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platform: 
+  sofType: 
+  companyName: 
+  duration: 0
+  offer: 0
+  code: 0
+  art: 0
+  design: 0
+  ContID: 0
+  AssignEmpObj: {fileID: 1637358046480092753, guid: a215f1434b5aa5249b057254dadefc30, type: 3}
+  AssignEmpPanel: {fileID: 0}
+  SelectedContractObj: {fileID: 0}
+  AssignedEmployees: 
+  ProcessSld: {fileID: 0}

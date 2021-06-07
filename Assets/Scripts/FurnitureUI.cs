@@ -24,24 +24,8 @@ public class FurnitureUI : MonoBehaviour
 
         amount= GetDataFromDB(amount);
 
-        /*string query01 = "SELECT * FROM office";
-        IDataReader reader = dbManager.ReadRecords(query01);
 
-        while (reader.Read())
-        {
-            if (furnitureName == "WorkTable")
-            {
-                amount = reader.GetInt32(3);
-            }else if (furnitureName == "OfficeChair")
-            {
-                amount = reader.GetInt32(4);
-            }
-            
-        }
-        dbManager.CloseConnection();*/
-
-
-        transform.Find("amount").GetComponent<TextMeshProUGUI>().text =  amount.ToString();
+        transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount: " + amount;
     }
     private int GetDataFromDB(int amount01)
     {
@@ -90,7 +74,7 @@ public class FurnitureUI : MonoBehaviour
                 string query02 = string.Format("UPDATE office SET workTable='" + amount + "' WHERE id ='1'");
                 dbManager.InsertRecords(query02);
 
-                transform.Find("amount").GetComponent<TextMeshProUGUI>().text = amount.ToString();
+                transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount: " + amount;
 
                 Debug.Log("workTable increased");
             }
@@ -100,7 +84,7 @@ public class FurnitureUI : MonoBehaviour
                 string query02 = string.Format("UPDATE office SET seat='" + amount + "' WHERE id ='1'");
                 dbManager.InsertRecords(query02);
 
-                transform.Find("amount").GetComponent<TextMeshProUGUI>().text = amount.ToString();
+                transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount: " + amount;
 
                 Debug.Log("chair increased");
             }
@@ -149,7 +133,7 @@ public class FurnitureUI : MonoBehaviour
                 string query02 = string.Format("UPDATE office SET seat='" + amount + "' WHERE id ='1'");
                 dbManager.InsertRecords(query02);
 
-                transform.Find("amount").GetComponent<TextMeshProUGUI>().text = amount.ToString();
+                transform.Find("amount").GetComponent<TextMeshProUGUI>().text = "Amount: " + amount;
 
                 Debug.Log("chair dec..");
             }

@@ -29,6 +29,11 @@ public class Company : MonoBehaviour
     CreateEmployee employeeFactory;
 
     [Header("Employee Related")]
+    [SerializeField] List<Emp_Place_Points> emp_Place_Points;
+    List<Transform> Waypoints;
+    [SerializeField] GameObject EmployeeAnm;//calisan1, calisan2, ...
+    [SerializeField] GameObject EmployeeAnmHolder;
+
     [SerializeField] GameObject MyEmployeeHolder;
     [SerializeField] GameObject MyEmployee;
     [SerializeField] Sprite employee_woman1, employee_woman3, employee_woman2, employee_woman4, employee_woman5, employee_woman6, employee_woman7, employee_woman8, employee_woman9, employee_man1, employee_man2, employee_man3, employee_man4, employee_man5, employee_man6, employee_man7, employee_man8, employee_man9;
@@ -38,6 +43,8 @@ public class Company : MonoBehaviour
 
     void Start()
     {
+        Waypoints = emp_Place_Points[0].GetPoints();
+
         dbManager = FindObjectOfType<DbManager>();
         employeeFactory = FindObjectOfType<CreateEmployee>(); //get the employee script
 
@@ -55,9 +62,9 @@ public class Company : MonoBehaviour
 
         while (reader.Read())
         {
-            OurOffice.transform.Find("capacity").GetComponent<TextMeshProUGUI>().text = "Office Capacity:" + reader.GetInt32(1);
-            OurOffice.transform.Find("rent").GetComponent<TextMeshProUGUI>().text = "Rent:" + reader.GetInt32(2);
-            OurOffice.transform.Find("furniture").GetComponent<TextMeshProUGUI>().text = "Total Furniture:" + (reader.GetInt32(3)+ reader.GetInt32(4)+reader.GetInt32(5));
+            OurOffice.transform.Find("capacity").GetComponent<TextMeshProUGUI>().text = "" + reader.GetInt32(1);
+            OurOffice.transform.Find("rent").GetComponent<TextMeshProUGUI>().text = "" + reader.GetInt32(2);
+            OurOffice.transform.Find("furniture").GetComponent<TextMeshProUGUI>().text = "" + (reader.GetInt32(3)+ reader.GetInt32(4)+reader.GetInt32(5));
         }
         dbManager.CloseConnection();
     }
@@ -74,7 +81,7 @@ public class Company : MonoBehaviour
 
         string query = "SELECT * FROM employees WHERE hired = 1";
         IDataReader reader = dbManager.ReadRecords(query);
-
+        int i = 0;
         while (reader.Read())
         {
             GameObject createdEmployee = Instantiate(MyEmployee);
@@ -113,9 +120,31 @@ public class Company : MonoBehaviour
 
             changeProfilePicture(EmployeeObj.transform, EmployeeObj.profile_pic);
 
+
+            //CalisanMasasi1
+            GameObject EmpAnm = Instantiate(EmployeeAnm, Waypoints[i].position, Quaternion.identity);
+            EmpAnm.transform.SetParent(EmployeeAnmHolder.transform);
+            
+            /*
+            if (EmployeeObj.profile_pic == calisan1(EmployeeAnm))
+            {
+                createEmpAnimation(calisan1, i);
+            }else if(EmployeeObj.profile_pic == calisan2(EmployeeAnm))
+            {
+                createEmpAnimation(calisan2, i);
+            }
+            */
+
+            i++;
+
         }
 
         dbManager.CloseConnection();
+    }
+    void createEmpAnimation(GameObject EmployeeAnm, int i)
+    {
+        GameObject EmpAnm = Instantiate(EmployeeAnm, Waypoints[i].position, Quaternion.identity);
+        EmpAnm.transform.SetParent(EmployeeAnmHolder.transform);
     }
 
     public void getCompanyDataFromDatabase()
