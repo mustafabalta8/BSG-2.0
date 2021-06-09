@@ -66,6 +66,7 @@ public class ProductManager : MonoBehaviour
     Company Company;
     TimeManager timeManager;
     AssignEmp assignEmp;
+    Notifications notifications;
 
     [SerializeField] GameObject placeHolder;
 
@@ -75,6 +76,7 @@ public class ProductManager : MonoBehaviour
         Company = FindObjectOfType<Company>();
         timeManager = FindObjectOfType<TimeManager>();
         assignEmp = FindObjectOfType<AssignEmp>();
+        notifications = FindObjectOfType<Notifications>();
 
         req_coding_skill.text = "0";
         req_art_skill.text = "0";
@@ -184,7 +186,7 @@ public class ProductManager : MonoBehaviour
 
         creationStarted = product.startCreation();
 
-        Debug.Log(string.Format("{0} product creation STARTED for {1} platform, duration {2} weeks (Will be finished on {3})", softwareType, platform, estimated_time, (timeManager.displayTime + estimated_time)));
+        notifications.pushNotification($"Development for {productName} is started. It will be completed on {(timeManager.displayTime + estimated_time)}");
         this.product = product;
     }
 
@@ -198,11 +200,11 @@ public class ProductManager : MonoBehaviour
                 product.timeFinished = timeManager.displayTime;
                 product.CreateProduct(dbManager);
 
-                Debug.Log(string.Format("{0} product creation COMPLETED for {1} platform, duration {2} weeks", softwareType, platform, estimated_time));
+                notifications.pushNotification($"{productName} is completed for {platform} platform, duration {estimated_time} weeks");
             }
             else
             {
-                Debug.Log(string.Format("Enhancement done, saved to the DB"));
+                notifications.pushNotification($"Enhancement for {product.productName} is completed.");
                 product.updateProduct(quality_enhancement, estimated_time);
                 updateStarted = false;
             }
@@ -400,8 +402,7 @@ public class ProductManager : MonoBehaviour
 
         string product = productDropDown.options[productDropDown.value].text;
 
-        Debug.Log(string.Format("Product enhancement STARTED for {0} product, duration {1} weeks (Will be finished on {2})", product, estimated_time, (timeManager.displayTime + estimated_time)));
-
+        notifications.pushNotification($"Product enhancement STARTED for {product}, duration {estimated_time} weeks (Will be finished on {(timeManager.displayTime + estimated_time)})");
         updateStarted = true;
     }
 
