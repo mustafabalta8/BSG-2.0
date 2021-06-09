@@ -24,13 +24,7 @@ public class ListProduct : MonoBehaviour
 
         Products.Clear();
 
-      /*  foreach (Transform employee in ProductUIPanel.transform)
-        {
-            GameObject.Destroy(employee.gameObject);
-        }*/
-
-
-        string query = string.Format("SELECT * FROM products ");//where company=companyName;
+        string query = string.Format("SELECT * FROM products ");
         IDataReader reader = dbManager.ReadRecords(query);
 
         while (reader.Read())
@@ -62,6 +56,14 @@ public class ListProduct : MonoBehaviour
             productObj.transform.Find("type").GetComponent<TextMeshProUGUI>().text = type;
             productObj.transform.Find("platform").GetComponent<TextMeshProUGUI>().text = platform;
             productObj.transform.Find("quality").GetComponent<TextMeshProUGUI>().text = quality.ToString();
+
+            string query_ind = string.Format($"SELECT SUM(amountSold) FROM products_sold WHERE productId = {productId}");
+            IDataReader reader_ind = dbManager.ReadRecords(query_ind);
+
+            while (reader_ind.Read())
+            {
+                productObj.transform.Find("sale").GetComponent<TextMeshProUGUI>().text = reader_ind.GetInt32(0).ToString();
+            }
 
         }
 
