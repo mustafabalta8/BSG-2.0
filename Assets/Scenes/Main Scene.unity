@@ -1249,7 +1249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 151807885}
   m_Layer: 0
-  m_Name: Employees
+  m_Name: EmployeesAnimations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5812,7 +5812,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.92751855}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.009765625, y: -6.512085}
+  m_AnchoredPosition: {x: -0.009765625, y: -6.5115967}
   m_SizeDelta: {x: 0, y: -0.8227005}
   m_Pivot: {x: 0.22402589, y: 8.915207}
 --- !u!114 &583486212
@@ -48023,6 +48023,34 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 08fff228ef929c84884b2b9ab737b320, type: 3}
     - target: {fileID: 4158714907804415173, guid: 6a87ff8e50205ce4ab3121b97f9d3432, type: 3}
+      propertyPath: employee_man1A
+      value: 
+      objectReference: {fileID: 401262151930027140, guid: 7a3077d14c303534f8fdade3ca671210, type: 3}
+    - target: {fileID: 4158714907804415173, guid: 6a87ff8e50205ce4ab3121b97f9d3432, type: 3}
+      propertyPath: employee_man2A
+      value: 
+      objectReference: {fileID: 5269037644849779078, guid: d9050b6e4b9ead646b4afce6e1458045, type: 3}
+    - target: {fileID: 4158714907804415173, guid: 6a87ff8e50205ce4ab3121b97f9d3432, type: 3}
+      propertyPath: employee_man3A
+      value: 
+      objectReference: {fileID: 6102716369049099010, guid: ad093fe1a0b34c842bb261c9459a0ad8, type: 3}
+    - target: {fileID: 4158714907804415173, guid: 6a87ff8e50205ce4ab3121b97f9d3432, type: 3}
+      propertyPath: employee_man4A
+      value: 
+      objectReference: {fileID: 1420761757161748689, guid: ccba6300214f6854ab09a1a3c1fe3525, type: 3}
+    - target: {fileID: 4158714907804415173, guid: 6a87ff8e50205ce4ab3121b97f9d3432, type: 3}
+      propertyPath: employee_man5A
+      value: 
+      objectReference: {fileID: 8532545388995728783, guid: 971854d4f856b6e47b7618df7b0d6b48, type: 3}
+    - target: {fileID: 4158714907804415173, guid: 6a87ff8e50205ce4ab3121b97f9d3432, type: 3}
+      propertyPath: employee_man6A
+      value: 
+      objectReference: {fileID: 9124921570355533089, guid: 5194029fb8b687549b4eb47b093768dd, type: 3}
+    - target: {fileID: 4158714907804415173, guid: 6a87ff8e50205ce4ab3121b97f9d3432, type: 3}
+      propertyPath: employee_man8A
+      value: 
+      objectReference: {fileID: 2480484098961792459, guid: 653e57d3ed8bece4cae12273c9aaaf6f, type: 3}
+    - target: {fileID: 4158714907804415173, guid: 6a87ff8e50205ce4ab3121b97f9d3432, type: 3}
       propertyPath: employee_woman1
       value: 
       objectReference: {fileID: 21300000, guid: 5f84dc730da5f1645891991ef717cae3, type: 3}
@@ -48062,6 +48090,22 @@ PrefabInstance:
       propertyPath: MyEmployeeHolder
       value: 
       objectReference: {fileID: 162010709}
+    - target: {fileID: 4158714907804415173, guid: 6a87ff8e50205ce4ab3121b97f9d3432, type: 3}
+      propertyPath: employee_woman1A
+      value: 
+      objectReference: {fileID: 2578928127600356407, guid: 4e22228d4db0c174d942322974e7578d, type: 3}
+    - target: {fileID: 4158714907804415173, guid: 6a87ff8e50205ce4ab3121b97f9d3432, type: 3}
+      propertyPath: employee_woman2A
+      value: 
+      objectReference: {fileID: 55156994288355892, guid: 27322cc63fea6824d9fb8d8b22e74a3c, type: 3}
+    - target: {fileID: 4158714907804415173, guid: 6a87ff8e50205ce4ab3121b97f9d3432, type: 3}
+      propertyPath: employee_woman3A
+      value: 
+      objectReference: {fileID: 8972544224760360132, guid: 7ea6ed089ddf22d47974f9c741111067, type: 3}
+    - target: {fileID: 4158714907804415173, guid: 6a87ff8e50205ce4ab3121b97f9d3432, type: 3}
+      propertyPath: employee_woman8A
+      value: 
+      objectReference: {fileID: 3348161474334577962, guid: fc0fcfcc3ed3a8a40babfd55e6f3e54d, type: 3}
     - target: {fileID: 4158714907804415173, guid: 6a87ff8e50205ce4ab3121b97f9d3432, type: 3}
       propertyPath: EmployeeAnmHolder
       value: 

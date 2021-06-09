@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4045536633570709480}
   - component: {fileID: 4045536633570709481}
   m_Layer: 8
-  m_Name: Calisan2 Onden
+  m_Name: employee_man2_front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

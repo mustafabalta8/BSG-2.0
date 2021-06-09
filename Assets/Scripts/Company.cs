@@ -29,14 +29,15 @@ public class Company : MonoBehaviour
     CreateEmployee employeeFactory;
 
     [Header("Employee Related")]
-    [SerializeField] List<Emp_Place_Points> emp_Place_Points;
-    List<Transform> Waypoints;
-    [SerializeField] GameObject EmployeeAnm;//calisan1, calisan2, ...
-    [SerializeField] GameObject EmployeeAnmHolder;
-
     [SerializeField] GameObject MyEmployeeHolder;
     [SerializeField] GameObject MyEmployee;
     [SerializeField] Sprite employee_woman1, employee_woman3, employee_woman2, employee_woman4, employee_woman5, employee_woman6, employee_woman7, employee_woman8, employee_woman9, employee_man1, employee_man2, employee_man3, employee_man4, employee_man5, employee_man6, employee_man7, employee_man8, employee_man9;
+
+    [Header("Employee Animation")]
+    [SerializeField] List<Emp_Place_Points> emp_Place_Points;
+    List<Transform> Waypoints;
+    [SerializeField] GameObject employee_woman1A, employee_woman2A, employee_woman3A,  employee_woman8A, employee_man1A, employee_man2A, employee_man3A, employee_man4A, employee_man5A, employee_man6A, employee_man8A;//calisan1, calisan2, ...
+    [SerializeField] GameObject EmployeeAnmHolder;
 
     [Header("Bank")]
     public int balance;
@@ -121,19 +122,55 @@ public class Company : MonoBehaviour
             changeProfilePicture(EmployeeObj.transform, EmployeeObj.profile_pic);
 
 
-            //CalisanMasasi1
-            GameObject EmpAnm = Instantiate(EmployeeAnm, Waypoints[i].position, Quaternion.identity);
-            EmpAnm.transform.SetParent(EmployeeAnmHolder.transform);
+           
+            /*GameObject EmpAnm = Instantiate(EmployeeAnm, Waypoints[i].position, Quaternion.identity);
+            EmpAnm.transform.SetParent(EmployeeAnmHolder.transform);*/
             
-            /*
-            if (EmployeeObj.profile_pic == calisan1(EmployeeAnm))
+            
+            if (EmployeeObj.profile_pic == employee_woman1.name)
             {
-                createEmpAnimation(calisan1, i);
-            }else if(EmployeeObj.profile_pic == calisan2(EmployeeAnm))
+                createEmpAnimation(employee_woman1A, i);
+            }else if(EmployeeObj.profile_pic == employee_woman2.name)
             {
-                createEmpAnimation(calisan2, i);
+                createEmpAnimation(employee_woman2A, i);
             }
-            */
+            else if (EmployeeObj.profile_pic == employee_woman3.name)
+            {
+                createEmpAnimation(employee_woman3A, i);
+            }
+            else if (EmployeeObj.profile_pic == employee_woman8.name)
+            {
+                createEmpAnimation(employee_woman8A, i);
+            }
+            else if (EmployeeObj.profile_pic == employee_man1.name)
+            {
+                createEmpAnimation(employee_man1A, i);
+            }
+            else if (EmployeeObj.profile_pic == employee_man2.name)
+            {
+                createEmpAnimation(employee_man2A, i);
+            }
+            else if (EmployeeObj.profile_pic == employee_man3.name)
+            {
+                createEmpAnimation(employee_man3A, i);
+            }
+            else if (EmployeeObj.profile_pic == employee_man4.name)
+            {
+                createEmpAnimation(employee_man4A, i);
+            }
+            else if (EmployeeObj.profile_pic == employee_man5.name)
+            {
+                createEmpAnimation(employee_man5A, i);
+            }
+            else if (EmployeeObj.profile_pic == employee_man6.name)
+            {
+                createEmpAnimation(employee_man6A, i);
+            }
+            else if (EmployeeObj.profile_pic == employee_man8.name)
+            {
+                createEmpAnimation(employee_man8A, i);
+            }
+
 
             i++;
 
