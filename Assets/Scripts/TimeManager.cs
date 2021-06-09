@@ -31,7 +31,7 @@ public class TimeManager : MonoBehaviour
     public Text timeScaleText;
 
     public bool timeStopped = false;
-    private int timeScale = 1;
+    public int timeScale = 1;
 
     private void Start()
     {
