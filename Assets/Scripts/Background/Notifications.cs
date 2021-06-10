@@ -50,8 +50,6 @@ public class Notifications : MonoBehaviour
         int fadeOutTime = 1;
         notificationImage.CrossFadeAlpha(0, fadeOutTime, false);
         StartCoroutine(FadeTextToZeroAlpha(fadeOutTime, notification_text));
-
-        notificatonContainer.SetActive(false);
     }
 
     public IEnumerator FadeTextToFullAlpha(float t, TMP_Text i)
@@ -72,6 +70,8 @@ public class Notifications : MonoBehaviour
             i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a - (Time.deltaTime / t));
             yield return null;
         }
+
+        notificatonContainer.SetActive(false);
     }
 
 }
