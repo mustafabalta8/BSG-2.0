@@ -59,6 +59,7 @@ public class TimeManager : MonoBehaviour
         timeStopped = !timeStopped;
         if (timeStopped)
         {
+            Time.timeScale = 0;
             startStopButton.image.sprite = OnSprite;
         }
         else
