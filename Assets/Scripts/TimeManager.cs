@@ -27,9 +27,6 @@ public class TimeManager : MonoBehaviour
     [SerializeField] Sprite OffSprite;
     [SerializeField] Sprite OnSprite;
 
-
-    public Text timeScaleText;
-
     public bool timeStopped = false;
     public int timeScale = 1;
 
@@ -55,7 +52,6 @@ public class TimeManager : MonoBehaviour
     {
         displayTime = (int)(elapsedTime / secondsPerTurn) + 1;
         TimeText.text = displayTime.ToString();
-        timeScaleText.text = $"{timeScale}x";
     }
 
     public void startStopTime()
@@ -69,8 +65,6 @@ public class TimeManager : MonoBehaviour
         {
             startStopButton.image.sprite = OffSprite;
             Time.timeScale = 1.0f;
-
-            timeScaleText.text = $"{Time.timeScale}x";
         }
     }
 
@@ -90,7 +84,5 @@ public class TimeManager : MonoBehaviour
         {
             Time.timeScale = 1.0f;
         }
-
-        timeScaleText.text = $"{timeScale}x";
     }
 }
