@@ -15,6 +15,9 @@ public class Notifications : MonoBehaviour
 
     void Start()
     {
+
+        notificatonContainer.SetActive(false);
+
         timeManager = FindObjectOfType<TimeManager>();
         notificationImage.canvasRenderer.SetAlpha(0.0f);
 
@@ -23,6 +26,8 @@ public class Notifications : MonoBehaviour
 
     public void pushNotification(string notificationText)
     {
+        notificatonContainer.SetActive(true);
+
         notification_text.text = notificationText;
 
         fadeIn();
@@ -45,6 +50,8 @@ public class Notifications : MonoBehaviour
         int fadeOutTime = 1;
         notificationImage.CrossFadeAlpha(0, fadeOutTime, false);
         StartCoroutine(FadeTextToZeroAlpha(fadeOutTime, notification_text));
+
+        notificatonContainer.SetActive(false);
     }
 
     public IEnumerator FadeTextToFullAlpha(float t, TMP_Text i)
