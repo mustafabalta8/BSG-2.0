@@ -7,14 +7,18 @@ public class BackgroundWorker : MonoBehaviour
     private MoneyManager moneyManager;
     private TimeManager timeManager;
     private DbManager dbManager;
+    private MusicManager soundManager;
 
     int turnNow;
+
+    bool moneyChanged = false;
     // Start is called before the first frame update
     void Start()
     {
         timeManager = FindObjectOfType<TimeManager>();
         moneyManager = FindObjectOfType<MoneyManager>();
         dbManager = FindObjectOfType<DbManager>();
+        soundManager = FindObjectOfType<MusicManager>();
 
         turnNow = timeManager.displayTime;
     }
@@ -51,10 +55,11 @@ public class BackgroundWorker : MonoBehaviour
 
             moneyManager.changeMoney(price * sellAmount, "Product sell");
 
-            Debug.Log(product.productName+" q: "+product.quality+" s: "+product.amountSold+ " selling: "+ sellAmount + " price: "+product.price+" revenue: "+ price * sellAmount);
             totalMoneyMade += price * sellAmount;
         }
 
+
+        if (totalMoneyMade > 0) moneyChanged = true;
         Debug.Log("total money made: " + totalMoneyMade);
     }
 
@@ -71,7 +76,11 @@ public class BackgroundWorker : MonoBehaviour
         }
         dbManager.CloseConnection();
 
-        moneyManager.changeMoney(-totalSalary, "Salary");
+        if (totalSalary > 0)
+        {
+            moneyChanged = true;
+            moneyManager.changeMoney(-totalSalary, "Salary");
+        }
     }
 
     public void officeRenWorker()
@@ -87,7 +96,12 @@ public class BackgroundWorker : MonoBehaviour
         }
         dbManager.CloseConnection();
 
-        moneyManager.changeMoney(-rent, "Rent");
+        if (rent > 0)
+        {
+            moneyChanged = true;
+            moneyManager.changeMoney(-rent, "Rent");
+        }
+
     }
 
     public void startWorkers()
@@ -100,7 +114,19 @@ public class BackgroundWorker : MonoBehaviour
     public void checkWorkers()
     {
         if (turnNow == timeManager.displayTime) return;
-        startWorkers();
-        turnNow = timeManager.displayTime;
+        else
+        {
+            if (timeManager.displayTime % 30 == 0)
+            {
+                startWorkers();
+                turnNow = timeManager.displayTime;
+                if (moneyChanged) soundManager.playSound("money");
+            }
+            else
+            {
+                return;
+            }
+        }
+
     }
 }

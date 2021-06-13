@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,48 +26,37 @@ public class TimeManager : MonoBehaviour
 
     public bool timeStopped = false;
     public int timeScale = 1;
-    public int clockTime;
+    int clockTime = 9;
 
-    public int turn;
     private void Start()
     {
-        showTime(); // todo: show saved time from last save
-
+        StartCoroutine(startClock());
     }
 
     private void Update()
     {
-        if (!timeStopped)
-        {
-            elapsedTime += Time.deltaTime;
-
-            //if ((int)elapsedTime % secondsPerTurn == 0)
-            //{
-            //showTime();
-            //}
-
-            showTime();
-
-        }
+        elapsedTime += Time.deltaTime;
     }
 
-    private void showTime()
-    {
-        displayTime = (int)(elapsedTime / secondsPerTurn) + 1;
-
-        if (clockTime < 24)
+    IEnumerator startClock() 
+    { 
+        if (!timeStopped)
         {
-            clockTime = ((int)elapsedTime / 4) + 9;
+            TimeText.text = $"{clockTime}:00";
+
+            if (clockTime == 17)
+            {
+                clockTime = 9;
+                TimeText.text = $"{clockTime}:00";
+                displayTime += 1;
+            }
+
+            clockTime += 1;
+
+            yield return new WaitForSeconds(secondsPerTurn/7.9f);
+
+            StartCoroutine(startClock());
         }
-        else
-        {
-            clockTime = 0;
-        }
-
-
-        TimeText.text = $"{clockTime}:00";
-
-
     }
 
     public void startStopTime()

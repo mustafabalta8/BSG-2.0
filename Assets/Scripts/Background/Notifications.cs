@@ -12,13 +12,16 @@ public class Notifications : MonoBehaviour
     [SerializeField] TMP_Text notification_text;
 
     TimeManager timeManager;
+    MusicManager soundManager;
 
     void Start()
-    {
-
+    { 
         notificatonContainer.SetActive(false);
 
         timeManager = FindObjectOfType<TimeManager>();
+        soundManager = FindObjectOfType<MusicManager>();
+
+
         notificationImage.canvasRenderer.SetAlpha(0.0f);
     }
 
@@ -37,9 +40,9 @@ public class Notifications : MonoBehaviour
 
     public void fadeIn()
     {
-        int fadeInTime = 1;
-        notificationImage.CrossFadeAlpha(1, fadeInTime, false);
-        StartCoroutine(FadeTextToFullAlpha(fadeInTime, notification_text));
+        soundManager.playSound("notification");
+        notificationImage.CrossFadeAlpha(1, 0.7f, false);
+        StartCoroutine(FadeTextToFullAlpha(0.7f, notification_text));
     }
 
     IEnumerator fadeOut()
