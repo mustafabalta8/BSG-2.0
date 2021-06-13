@@ -20,8 +20,6 @@ public class Notifications : MonoBehaviour
 
         timeManager = FindObjectOfType<TimeManager>();
         notificationImage.canvasRenderer.SetAlpha(0.0f);
-
-        pushNotification("test");
     }
 
     public void pushNotification(string notificationText)

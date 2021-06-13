@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[System.Obsolete]
 
 public class UIManager : MonoBehaviour
 {
@@ -11,15 +10,10 @@ public class UIManager : MonoBehaviour
 
     public void OpenPanel()
     {
-        if (!gameObject.active){
+        if (!gameObject.activeSelf){
             gameObject.SetActive(true);
         }else{
             gameObject.SetActive(false);
         }
-    }
-
-    public void ClosePanel()
-    {
-        gameObject.SetActive(false);
     }
 }

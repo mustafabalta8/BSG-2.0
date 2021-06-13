@@ -4,16 +4,12 @@ using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
-    //todo: save time to be continued by on the next launch
-
-    //3.05.2021 newsfeed codebase update
-    //why do we use this script, which has no other function but keep track of time to initiate create and destroy news objects?
-    //basically everything that has anything to do with the newsfeed logic is moved into the news script to ease debugging and maintenance in the future
-    //i believe that the sole reason of this scripts' existence should remain with time related issues
-
-
+    //TODO: save time to be continued by on the next launch
     //TODO: add time speed change Time.timeScale
     //TODO: progress bar
+
+    // hour->day->week->month
+
 
     public double elapsedTime;
     public Text TimeText;
@@ -29,10 +25,13 @@ public class TimeManager : MonoBehaviour
 
     public bool timeStopped = false;
     public int timeScale = 1;
+    public int clockTime;
 
+    public int turn;
     private void Start()
     {
         showTime(); // todo: show saved time from last save
+
     }
 
     private void Update()
@@ -41,17 +40,33 @@ public class TimeManager : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
 
-            if ((int)elapsedTime % secondsPerTurn == 0)
-            {
-                showTime();
-            }
+            //if ((int)elapsedTime % secondsPerTurn == 0)
+            //{
+            //showTime();
+            //}
+
+            showTime();
+
         }
     }
 
     private void showTime()
     {
         displayTime = (int)(elapsedTime / secondsPerTurn) + 1;
-        TimeText.text = displayTime.ToString();
+
+        if (clockTime < 24)
+        {
+            clockTime = ((int)elapsedTime / 4) + 9;
+        }
+        else
+        {
+            clockTime = 0;
+        }
+
+
+        TimeText.text = $"{clockTime}:00";
+
+
     }
 
     public void startStopTime()
