@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    [SerializeField] AudioClip buttonOnSound, buttonOffSound, notificationSound, moneySound;
+    [SerializeField] AudioClip buttonOnSound, buttonOffSound, notificationSound, moneySound, newDaySound;
     AudioSource audioSource;
     void Start()
     {
@@ -28,6 +28,10 @@ public class MusicManager : MonoBehaviour
         else if (type == "money")
         {
             audioSource.PlayOneShot(moneySound);
+        }
+        else if (type == "newDay")
+        {
+            audioSource.PlayOneShot(newDaySound);
         }
     }
 }
