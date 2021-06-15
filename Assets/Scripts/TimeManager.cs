@@ -140,4 +140,11 @@ public class TimeManager : MonoBehaviour
         return Math.Abs(monthsApart);
     }
 
+    public string getDateFromTurns(int turns)
+    {
+        DateTime calculatedDate = date.AddDays(turns);
+
+        return calculatedDate.ToString("dd/MM/yyyy");
+    }
+
 }
