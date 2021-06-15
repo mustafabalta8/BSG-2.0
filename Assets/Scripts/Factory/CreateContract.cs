@@ -13,7 +13,7 @@ public class CreateContract : MonoBehaviour
     DbManager dbManager;
     [SerializeField] GameObject ContractObj;
     [SerializeField] GameObject ContractPanel;
-    /*þirket bilgisi veritabanýndan alýnmalý. o þirket aðýrlýklý olarak ne ile uðraþýyorsa ona yönelik bir contract iþ oluþturulmalý. */
+
     //contract work'den kazanç þirketin gelirine göre deðiþmeli þirket çok kazanýyorken daha bütük iþler gelmeli, küçükken küçük iþler gelmeli
     public List<Contract> Contracts = new List<Contract>();
     // Start is called before the first frame update

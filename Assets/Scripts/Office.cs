@@ -16,12 +16,14 @@ public class Office : MonoBehaviour
     Company company;
     DbManager dbManager;
     MyOffice myOffice;
+    CreateOfficeUI createOfficeUI;
     // Start is called before the first frame update
     void Start()
     {
         company = FindObjectOfType<Company>();
         dbManager = FindObjectOfType<DbManager>();
         myOffice = FindObjectOfType<MyOffice>();
+        createOfficeUI = FindObjectOfType<CreateOfficeUI>();
 
         this.transform.Find("capacity").GetComponent<TextMeshProUGUI>().text = ""+officeCapacity.ToString();
         this.transform.Find("rent").GetComponent<TextMeshProUGUI>().text = ""+rent.ToString();
@@ -45,10 +47,11 @@ public class Office : MonoBehaviour
         company.ShowUpdateOnOfficeValues();
         myOffice.RentReaction(id);
         myOffice.CheckStatus();
+        createOfficeUI.CreateFurnitureUI();
         //company.EmployeeAnimation();
 
-        
-          
+
+
 
     }
 

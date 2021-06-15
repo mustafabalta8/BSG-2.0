@@ -23,11 +23,8 @@ public class CreateOfficeUI : MonoBehaviour
         CreateOffice();
     }
     void Start()
-    {
-        
+    {    
         CreateFurnitureUI();
-
-
     }
 
     void CreateOffice()
@@ -46,8 +43,12 @@ public class CreateOfficeUI : MonoBehaviour
         office.rent = rent;
         office.id = id;
     }
-    void CreateFurnitureUI()
+    public void CreateFurnitureUI()
     {
+        foreach (Transform child in furnitureUIPanel.transform)
+        {
+           Destroy(child.gameObject);
+        }
         //CreateSingleFurniture("WorkTable", 2, 500);
         string query01 = "SELECT * FROM office";
         IDataReader reader = dbManager.ReadRecords(query01);
