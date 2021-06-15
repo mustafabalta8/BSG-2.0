@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.09759998, a: 1}
+  m_Color: {r: 0.6509434, g: 0.015352436, b: 0.07766554, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -411,13 +411,10 @@ MonoBehaviour:
   AllSharesUI: {fileID: 0}
   ShareObject: {fileID: 0}
   companyNameText: {fileID: 0}
-  buyingPriceText: {fileID: 5949780115770519808}
-  buyingTimeText: {fileID: 735429507314906744}
-  priceNowText: {fileID: 3497854733448558820}
-  changeText: {fileID: 5415760508221224040}
   sellButton: {fileID: 0}
   shareId: 0
   sellPrice: 0
+  companyName: 
 --- !u!1 &5226671119619000889
 GameObject:
   m_ObjectHideFlags: 0
