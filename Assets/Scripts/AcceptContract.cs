@@ -6,6 +6,10 @@ using System.Data;
 using TMPro;
 public class AcceptContract : MonoBehaviour
 {
+
+    //commmit reverse 
+
+    
     public string platform;
     public string sofType;
     public string companyName;
