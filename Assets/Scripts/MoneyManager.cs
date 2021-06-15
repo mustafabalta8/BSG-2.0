@@ -16,6 +16,7 @@ public class MoneyManager : MonoBehaviour
 
     void Start()
     {
+
         company = FindObjectOfType<Company>(); //get the company script
         time = FindObjectOfType<TimeManager>(); //get the time script
         dbManager = FindObjectOfType<DbManager>(); //get the db manager script
@@ -23,6 +24,7 @@ public class MoneyManager : MonoBehaviour
         money = getBalance();
 
         moneyText.text = "$" + money.ToString(); // show the money at startup
+
     }
 
     // Update is called once per frame

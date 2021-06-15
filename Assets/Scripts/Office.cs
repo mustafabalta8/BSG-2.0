@@ -15,15 +15,19 @@ public class Office : MonoBehaviour
 
     Company company;
     DbManager dbManager;
+    MyOffice myOffice;
     // Start is called before the first frame update
     void Start()
     {
+        company = FindObjectOfType<Company>();
+        dbManager = FindObjectOfType<DbManager>();
+        myOffice = FindObjectOfType<MyOffice>();
+
         this.transform.Find("capacity").GetComponent<TextMeshProUGUI>().text = ""+officeCapacity.ToString();
         this.transform.Find("rent").GetComponent<TextMeshProUGUI>().text = ""+rent.ToString();
         transform.Find("Image").GetComponent<Image>().sprite = Resources.Load<Sprite>("shop");
 
-        company = FindObjectOfType<Company>();
-        dbManager = FindObjectOfType<DbManager>();
+
     }
     public void Rent()
     {
@@ -31,13 +35,20 @@ public class Office : MonoBehaviour
         company.OurOfficeRent = rent;
 
         //string query = string.Format("UPDATE office SET rent='" + rent + "',capacity='"+officeCapacity+"' WHERE id ='1'");
-        string query = string.Format("UPDATE office SET rent='{0}',capacity='{1}', id='{2}'", rent, officeCapacity, id);
+        string query = string.Format("UPDATE office SET id='{0}',capacity='{1}',rent='{2}' ", id, officeCapacity,rent );
 
         dbManager.InsertRecords(query);
         dbManager.CloseConnection();
-        Debug.Log("Rented");
 
-        company.ShowUpdateOnOfficeValues();     
+
+        Debug.Log("Rented");
+        company.ShowUpdateOnOfficeValues();
+        myOffice.RentReaction(id);
+        myOffice.CheckStatus();
+        //company.EmployeeAnimation();
+
+        
+          
 
     }
 

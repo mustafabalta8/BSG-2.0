@@ -21,7 +21,7 @@ public class MyOffice : MonoBehaviour
         dbManager = FindObjectOfType<DbManager>();
         CheckStatus();
     }
-    void CheckStatus()
+    public void CheckStatus()
     {
         string query01 = "SELECT * FROM office";
         IDataReader reader = dbManager.ReadRecords(query01);
@@ -33,46 +33,67 @@ public class MyOffice : MonoBehaviour
             {
                 Office01.SetActive(true);
                 Office02.SetActive(false);
+
+                if (1 == reader.GetInt32(4))
+                {
+                    ShowFurniture(0);
+                }
+                if (1 == reader.GetInt32(5))
+                {
+                    ShowFurniture(1);
+                }
+                if (1 == reader.GetInt32(6))
+                {
+                    ShowFurniture(2);
+                }
+                if (1 == reader.GetInt32(7))
+                {
+                    ShowFurniture(3);
+                }
             }
             else if (officeVal == 1)
             {
                 Office01.SetActive(false);
                 Office02.SetActive(true);
-            }
 
-           if (1 == reader.GetInt32(4))
-            {
-                ShowFurniture(0);
+                if (1 == reader.GetInt32(8))
+                {
+                    ShowFurniture(4);
+                }
+                if (1 == reader.GetInt32(9))
+                {
+                    ShowFurniture(5);
+                }
+                if (1 == reader.GetInt32(10))
+                {
+                    ShowFurniture(6);
+                }
             }
-           if (1 == reader.GetInt32(5))
-            {
-                ShowFurniture(1);
-            }
-           if (1 == reader.GetInt32(6))
-            {
-                ShowFurniture(2);
-            }
-           if (1 == reader.GetInt32(7))
-            {
-                ShowFurniture(3);
-            }
-            if (1 == reader.GetInt32(8))
-            {
-                ShowFurniture(4);
-            }
-            if (1 == reader.GetInt32(9))
-            {
-                ShowFurniture(5);
-            }
-            if (1 == reader.GetInt32(10))
-            {
-                ShowFurniture(6);
-            }
-
+                                      
         }
+
         dbManager.CloseConnection();
        
     }
+    public void RentReaction(int officeID)
+    {
+        if (officeID == 1)
+        {
+            Flowers.SetActive(false); 
+                PaintingCorner.SetActive(false); 
+                Paintings.SetActive(false); 
+                AirConditioning.SetActive(false);
+
+        }
+        if (officeID == 0)
+        {
+            FlowersMaindoor02.SetActive(false); 
+                FlowersEmployees02.SetActive(false); 
+                AirConditioning02.SetActive(false);
+        }
+
+    }
+
 
     public void ShowFurniture(int value)
     {
@@ -106,6 +127,7 @@ public class MyOffice : MonoBehaviour
             }
             else if (officeVal == 1)
             {
+
                 switch (value)
                 {
                     case 4:

@@ -16,8 +16,10 @@ public class Company : MonoBehaviour
     public int OurOfficeRent;
     public int motivation;
     [SerializeField] GameObject OurOffice;
+
     [Header("Bank")]
     public int balance;
+
     [Header("General Company Info")]
     public string companyName;
     public int companyPower = 0;
@@ -36,11 +38,13 @@ public class Company : MonoBehaviour
     [SerializeField] Sprite employee_woman1, employee_woman3, employee_woman2, employee_woman4, employee_woman5, employee_woman6, employee_woman7, employee_woman8, employee_woman9, employee_man1, employee_man2, employee_man3, employee_man4, employee_man5, employee_man6, employee_man7, employee_man8, employee_man9;
 
     [Header("Employee Animation")]
+
     [SerializeField] List<Emp_Place_Points> emp_Place_Points;
     List<Transform> Waypoints;
     [SerializeField] GameObject employee_woman1A, employee_woman2A, employee_woman3A,  employee_woman8A, employee_man1A, employee_man2A, employee_man3A, employee_man4A, employee_man5A, employee_man6A, employee_man8A;//calisan1, calisan2, ...
-    [SerializeField] GameObject EmployeeAnmHolder;
+    
     [Header("Employee Front Animation")]
+    [SerializeField] GameObject EmployeeAnmHolder;
     [SerializeField] GameObject employee_woman1FRONT, employee_woman2AFRONT, employee_woman3AFRONT, employee_woman8AFRONT, employee_man1AFRONT, employee_man2AFRONT, employee_man3AFRONT, employee_man4AFRONT, employee_man5AFRONT, employee_man6AFRONT, employee_man8AFRONT;
 
 
@@ -55,6 +59,7 @@ public class Company : MonoBehaviour
         getEmployeesFromDatabase(employeeFactory);
         getCompanyDataFromDatabase();
 
+        
         employeeFactory.createRandomEmployee(5); //create X random employees
 
         
@@ -62,7 +67,7 @@ public class Company : MonoBehaviour
     public void ShowUpdateOnOfficeValues()
     {
 
-        string query = "SELECT * FROM office WHERE id = 1";
+        string query = "SELECT * FROM office";
         IDataReader reader = dbManager.ReadRecords(query);
 
         while (reader.Read())
@@ -76,6 +81,7 @@ public class Company : MonoBehaviour
         }
         dbManager.CloseConnection();
         FillEmpployeePoints();
+        EmployeeAnimation();
     }
     public void FillEmpployeePoints()
     {
@@ -134,52 +140,90 @@ public class Company : MonoBehaviour
 
             changeProfilePicture(EmployeeObj.transform, EmployeeObj.profile_pic);
 
+            /*
+            if (officeId == 1 && i<=10)
+            {
+                if(EmployeeObj.profile_pic == employee_woman1.name)
+                    createEmpAnimation(employee_woman1FRONT, i);
+                if (EmployeeObj.profile_pic == employee_woman2.name)
+                    createEmpAnimation(employee_woman2AFRONT, i);
+                if (EmployeeObj.profile_pic == employee_woman3.name)
+                    createEmpAnimation(employee_woman3AFRONT, i);
+                if (EmployeeObj.profile_pic == employee_woman8.name)
+                    createEmpAnimation(employee_woman8AFRONT, i);
 
+                if (EmployeeObj.profile_pic == employee_man1.name)
+                    createEmpAnimation(employee_man1AFRONT, i);
+                if (EmployeeObj.profile_pic == employee_man2.name)
+                    createEmpAnimation(employee_man2AFRONT, i);
+
+                if (EmployeeObj.profile_pic == employee_man3.name)
+                    createEmpAnimation(employee_man3AFRONT, i);
+
+                if (EmployeeObj.profile_pic == employee_man4.name)
+                    createEmpAnimation(employee_man4AFRONT, i);
+
+
+                if (EmployeeObj.profile_pic == employee_man5.name)
+                    createEmpAnimation(employee_man5AFRONT, i);
+
+                if (EmployeeObj.profile_pic == employee_man6.name)
+                    createEmpAnimation(employee_man6AFRONT, i);
+
+                if (EmployeeObj.profile_pic == employee_man8.name)
+                    createEmpAnimation(employee_man8AFRONT, i);
+            }
+            else
+            {
+
+                if (EmployeeObj.profile_pic == employee_woman1.name)
+                {
+                    createEmpAnimation(employee_woman1A, i);
+                }
+                else if (EmployeeObj.profile_pic == employee_woman2.name)
+                {
+                    createEmpAnimation(employee_woman2A, i);
+                }
+                else if (EmployeeObj.profile_pic == employee_woman3.name)
+                {
+                    createEmpAnimation(employee_woman3A, i);
+                }
+                else if (EmployeeObj.profile_pic == employee_woman8.name)
+                {
+                    createEmpAnimation(employee_woman8A, i);
+                }
+                else if (EmployeeObj.profile_pic == employee_man1.name)
+                {
+                    createEmpAnimation(employee_man1A, i);
+                }
+                else if (EmployeeObj.profile_pic == employee_man2.name)
+                {
+                    createEmpAnimation(employee_man2A, i);
+                }
+                else if (EmployeeObj.profile_pic == employee_man3.name)
+                {
+                    createEmpAnimation(employee_man3A, i);
+                }
+                else if (EmployeeObj.profile_pic == employee_man4.name)
+                {
+                    createEmpAnimation(employee_man4A, i);
+                }
+                else if (EmployeeObj.profile_pic == employee_man5.name)
+                {
+                    createEmpAnimation(employee_man5A, i);
+                }
+                else if (EmployeeObj.profile_pic == employee_man6.name)
+                {
+                    createEmpAnimation(employee_man6A, i);
+                }
+                else if (EmployeeObj.profile_pic == employee_man8.name)
+                {
+                    createEmpAnimation(employee_man8A, i);
+                }
+            }*/
             
-            
-            if (EmployeeObj.profile_pic == employee_woman1.name)
-            {
-                createEmpAnimation(employee_woman1A, i);
-            }else if(EmployeeObj.profile_pic == employee_woman2.name)
-            {
-                createEmpAnimation(employee_woman2A, i);
-            }
-            else if (EmployeeObj.profile_pic == employee_woman3.name)
-            {
-                createEmpAnimation(employee_woman3A, i);
-            }
-            else if (EmployeeObj.profile_pic == employee_woman8.name)
-            {
-                createEmpAnimation(employee_woman8A, i);
-            }
-            else if (EmployeeObj.profile_pic == employee_man1.name)
-            {
-                createEmpAnimation(employee_man1A, i);
-            }
-            else if (EmployeeObj.profile_pic == employee_man2.name)
-            {
-                createEmpAnimation(employee_man2A, i);
-            }
-            else if (EmployeeObj.profile_pic == employee_man3.name)
-            {
-                createEmpAnimation(employee_man3A, i);
-            }
-            else if (EmployeeObj.profile_pic == employee_man4.name)
-            {
-                createEmpAnimation(employee_man4A, i);
-            }
-            else if (EmployeeObj.profile_pic == employee_man5.name)
-            {
-                createEmpAnimation(employee_man5A, i);
-            }
-            else if (EmployeeObj.profile_pic == employee_man6.name)
-            {
-                createEmpAnimation(employee_man6A, i);
-            }
-            else if (EmployeeObj.profile_pic == employee_man8.name)
-            {
-                createEmpAnimation(employee_man8A, i);
-            }
+
+
 
 
             i++;
@@ -188,6 +232,106 @@ public class Company : MonoBehaviour
 
         dbManager.CloseConnection();
     }
+
+    public void EmployeeAnimation()
+    {
+        foreach (Transform child in EmployeeAnmHolder.transform)
+        {
+            Debug.Log("name:" + child.name);
+            GameObject.Destroy(child.gameObject);
+        }
+        string query = "SELECT * FROM employees WHERE hired = 1";
+        IDataReader reader = dbManager.ReadRecords(query);
+        int i = 0;
+        while (reader.Read())
+        {
+            if (officeId == 1 && i <= 10)
+            {
+                if (reader.GetString(11) == employee_woman1.name)
+                    createEmpAnimation(employee_woman1FRONT, i);
+                if (reader.GetString(11) == employee_woman2.name)
+                    createEmpAnimation(employee_woman2AFRONT, i);
+                if (reader.GetString(11) == employee_woman3.name)
+                    createEmpAnimation(employee_woman3AFRONT, i);
+                if (reader.GetString(11) == employee_woman8.name)
+                    createEmpAnimation(employee_woman8AFRONT, i);
+
+                if (reader.GetString(11) == employee_man1.name)
+                    createEmpAnimation(employee_man1AFRONT, i);
+                if (reader.GetString(11) == employee_man2.name)
+                    createEmpAnimation(employee_man2AFRONT, i);
+
+                if (reader.GetString(11) == employee_man3.name)
+                    createEmpAnimation(employee_man3AFRONT, i);
+
+                if (reader.GetString(11) == employee_man4.name)
+                    createEmpAnimation(employee_man4AFRONT, i);
+
+
+                if (reader.GetString(11) == employee_man5.name)
+                    createEmpAnimation(employee_man5AFRONT, i);
+
+                if (reader.GetString(11) == employee_man6.name)
+                    createEmpAnimation(employee_man6AFRONT, i);
+
+                if (reader.GetString(11) == employee_man8.name)
+                    createEmpAnimation(employee_man8AFRONT, i);
+            }
+            else
+            {
+
+                if (reader.GetString(11) == employee_woman1.name)
+                {
+                    createEmpAnimation(employee_woman1A, i);
+                }
+                else if (reader.GetString(11) == employee_woman2.name)
+                {
+                    createEmpAnimation(employee_woman2A, i);
+                }
+                else if (reader.GetString(11) == employee_woman3.name)
+                {
+                    createEmpAnimation(employee_woman3A, i);
+                }
+                else if (reader.GetString(11) == employee_woman8.name)
+                {
+                    createEmpAnimation(employee_woman8A, i);
+                }
+                else if (reader.GetString(11) == employee_man1.name)
+                {
+                    createEmpAnimation(employee_man1A, i);
+                }
+                else if (reader.GetString(11) == employee_man2.name)
+                {
+                    createEmpAnimation(employee_man2A, i);
+                }
+                else if (reader.GetString(11) == employee_man3.name)
+                {
+                    createEmpAnimation(employee_man3A, i);
+                }
+                else if (reader.GetString(11) == employee_man4.name)
+                {
+                    createEmpAnimation(employee_man4A, i);
+                }
+                else if (reader.GetString(11) == employee_man5.name)
+                {
+                    createEmpAnimation(employee_man5A, i);
+                }
+                else if (reader.GetString(11) == employee_man6.name)
+                {
+                    createEmpAnimation(employee_man6A, i);
+                }
+                else if (reader.GetString(11) == employee_man8.name)
+                {
+                    createEmpAnimation(employee_man8A, i);
+                }
+            }
+
+
+            i++;
+        }
+        dbManager.CloseConnection();
+    }
+
     void createEmpAnimation(GameObject EmployeeAnm, int i)
     {
         GameObject EmpAnm = Instantiate(EmployeeAnm, Waypoints[i].position, Quaternion.identity);
