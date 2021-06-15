@@ -11,11 +11,13 @@ using TMPro;
 public class Company : MonoBehaviour
 {
     [Header("Office Related")]
+    int officeId;
     public int OurOfficeCapacity;
     public int OurOfficeRent;
     public int motivation;
     [SerializeField] GameObject OurOffice;
-
+    [Header("Bank")]
+    public int balance;
     [Header("General Company Info")]
     public string companyName;
     public int companyPower = 0;
@@ -38,37 +40,48 @@ public class Company : MonoBehaviour
     List<Transform> Waypoints;
     [SerializeField] GameObject employee_woman1A, employee_woman2A, employee_woman3A,  employee_woman8A, employee_man1A, employee_man2A, employee_man3A, employee_man4A, employee_man5A, employee_man6A, employee_man8A;//calisan1, calisan2, ...
     [SerializeField] GameObject EmployeeAnmHolder;
+    [Header("Employee Front Animation")]
+    [SerializeField] GameObject employee_woman1FRONT, employee_woman2AFRONT, employee_woman3AFRONT, employee_woman8AFRONT, employee_man1AFRONT, employee_man2AFRONT, employee_man3AFRONT, employee_man4AFRONT, employee_man5AFRONT, employee_man6AFRONT, employee_man8AFRONT;
 
-    [Header("Bank")]
-    public int balance;
 
     void Start()
-    {
-        Waypoints = emp_Place_Points[0].GetPoints();
+    {       
 
         dbManager = FindObjectOfType<DbManager>();
         employeeFactory = FindObjectOfType<CreateEmployee>(); //get the employee script
+        ShowUpdateOnOfficeValues();
+        FillEmpployeePoints();
 
         getEmployeesFromDatabase(employeeFactory);
         getCompanyDataFromDatabase();
 
         employeeFactory.createRandomEmployee(5); //create X random employees
 
-        ShowUpdateOnOfficeValues();
+        
     }
     public void ShowUpdateOnOfficeValues()
     {
+
         string query = "SELECT * FROM office WHERE id = 1";
         IDataReader reader = dbManager.ReadRecords(query);
 
         while (reader.Read())
         {
+            officeId = reader.GetInt32(0);
+           // Debug.Log("office: "+ officeId);
             OurOffice.transform.Find("capacity").GetComponent<TextMeshProUGUI>().text = "" + reader.GetInt32(1);
             OurOffice.transform.Find("rent").GetComponent<TextMeshProUGUI>().text = "" + reader.GetInt32(2);
-            OurOffice.transform.Find("furniture").GetComponent<TextMeshProUGUI>().text = "" + (reader.GetInt32(3)+ reader.GetInt32(4)+reader.GetInt32(5));
+            // OurOffice.transform.Find("furniture").GetComponent<TextMeshProUGUI>().text = "" + (reader.GetInt32(3)+ reader.GetInt32(4)+reader.GetInt32(5));
+
         }
         dbManager.CloseConnection();
+        FillEmpployeePoints();
     }
+    public void FillEmpployeePoints()
+    {
+        Waypoints = emp_Place_Points[officeId].GetPoints();
+    }
+   
 
     void getEmployeesFromDatabase(CreateEmployee employeeFactory) {
 
@@ -122,9 +135,6 @@ public class Company : MonoBehaviour
             changeProfilePicture(EmployeeObj.transform, EmployeeObj.profile_pic);
 
 
-           
-            /*GameObject EmpAnm = Instantiate(EmployeeAnm, Waypoints[i].position, Quaternion.identity);
-            EmpAnm.transform.SetParent(EmployeeAnmHolder.transform);*/
             
             
             if (EmployeeObj.profile_pic == employee_woman1.name)

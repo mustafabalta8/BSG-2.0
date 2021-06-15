@@ -652,6 +652,7 @@ MonoBehaviour:
   furnitureName: 
   motivationIncrease: 0
   price: 0
+  BuyBtn: {fileID: 552315868290985532}
 --- !u!1 &2159579634814338186
 GameObject:
   m_ObjectHideFlags: 0

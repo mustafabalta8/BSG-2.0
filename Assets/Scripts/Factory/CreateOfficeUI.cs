@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Data;
 
 public class CreateOfficeUI : MonoBehaviour
 {
@@ -12,33 +13,65 @@ public class CreateOfficeUI : MonoBehaviour
     [SerializeField] GameObject furnitureUIPanel;
 
     [SerializeField] int totalOfficeNum;
+
+    DbManager dbManager;
+    int officeVal;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        dbManager = FindObjectOfType<DbManager>();
+        CreateOffice();
+    }
     void Start()
     {
+        
         CreateFurnitureUI();
-        CreateOffice();
+
+
     }
 
     void CreateOffice()
     {
+        CreateSingleOffice(5, 1000,0);
+        CreateSingleOffice(15, 3200,1);
 
-        for (int i=1; i <= totalOfficeNum; i++)
-        {
-            GameObject newOffice = Instantiate(officeUI);
-            newOffice.transform.SetParent(officeUIPanel.transform);
-            Office office = newOffice.GetComponent<Office>();
+    }
+    void CreateSingleOffice(int capacity, int rent, int id)
+    {
+        GameObject newOffice = Instantiate(officeUI);
+        newOffice.transform.SetParent(officeUIPanel.transform);
+        Office office = newOffice.GetComponent<Office>();
 
-            office.officeCapacity = 5 * i;
-            office.rent = 1000 * i;
-        }
-        
+        office.officeCapacity = capacity;
+        office.rent = rent;
+        office.id = id;
     }
     void CreateFurnitureUI()
     {
-        //  WORK TABLE CREATION
-        CreateSingleFurniture("WorkTable", 2, 120);
-        CreateSingleFurniture("OfficeChair", 1, 80);
+        //CreateSingleFurniture("WorkTable", 2, 500);
+        string query01 = "SELECT * FROM office";
+        IDataReader reader = dbManager.ReadRecords(query01);
 
+        while (reader.Read())
+        {
+            officeVal = reader.GetInt32(0);
+            if (officeVal == 0)
+            {
+                CreateSingleFurniture("Flowers", 4, 800);
+                CreateSingleFurniture("Painting-Art Corner", 6, 2500);
+                CreateSingleFurniture("Paintings", 5, 2000);
+                CreateSingleFurniture("Air Conditioning", 8, 4000);
+            }
+            else if (officeVal == 1)
+            {
+                CreateSingleFurniture("FlowersMaindoor02", 4, 800);
+                CreateSingleFurniture("FlowersEmployees02", 6, 2500);
+                CreateSingleFurniture("AirConditioning02", 5, 2000);
+            }
+
+
+
+        }
 
     }
     void CreateSingleFurniture(string FurName,int motivation,int price)
