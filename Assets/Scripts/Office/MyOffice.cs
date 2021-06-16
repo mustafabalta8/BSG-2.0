@@ -10,22 +10,27 @@ public class MyOffice : MonoBehaviour
     [SerializeField] GameObject Flowers, PaintingCorner, Paintings, AirConditioning;
     [SerializeField] GameObject FlowersMaindoor02, FlowersEmployees02, AirConditioning02;
 
+    [Header("Emp. Table")]
+    [SerializeField] GameObject TableSetHolder;
+    [SerializeField] GameObject Table01, Table02, Table02Front;
+
     string furnitureName;
     Vector3 Office2 = new Vector3(7.67f, -0.150444f, 0);
     DbManager dbManager;
-
+    Company company;
     int officeVal;
     // Start is called before the first frame update
     void Start()
     {
         dbManager = FindObjectOfType<DbManager>();
+        company = FindObjectOfType<Company>();
         CheckStatus();
     }
     public void CheckStatus()
     {
         string query01 = "SELECT * FROM office";
         IDataReader reader = dbManager.ReadRecords(query01);
-
+        int i=0;
         while (reader.Read())
         {
             officeVal = reader.GetInt32(0);
@@ -50,6 +55,18 @@ public class MyOffice : MonoBehaviour
                 {
                     ShowFurniture(3);
                 }
+                foreach (Transform child in TableSetHolder.transform)
+                {
+                    Destroy(child.gameObject);
+                }
+
+                for (i = 0; i < reader.GetInt32(3); i++) 
+                {
+                    GameObject EmpTable = Instantiate(Table01, company.Waypoints[i].position, Quaternion.identity);
+                    EmpTable.transform.SetParent(TableSetHolder.transform);
+                }
+
+
             }
             else if (officeVal == 1)
             {
@@ -67,6 +84,27 @@ public class MyOffice : MonoBehaviour
                 if (1 == reader.GetInt32(10))
                 {
                     ShowFurniture(6);
+                }
+                //-2.440444  -0.5104437  -> -1.93  Y
+                //-2.670444  -0.7404437  -> -1.93  Y
+                foreach (Transform child in TableSetHolder.transform)
+                {
+                    Destroy(child.gameObject);
+                }
+
+                for (i = 0; i < reader.GetInt32(3); i++)
+                {
+                    if(i < 9)
+                    {
+                        GameObject EmpTable = Instantiate(Table02Front, company.Waypoints[i].position, Quaternion.identity);
+                        EmpTable.transform.position=new Vector3(EmpTable.transform.position.x, EmpTable.transform.position.y+(-1.93f) ,EmpTable.transform.position.z);
+                        EmpTable.transform.SetParent(TableSetHolder.transform);
+                    }else
+                    {
+                        GameObject EmpTable = Instantiate(Table02, company.Waypoints[i].position, Quaternion.identity);
+                        EmpTable.transform.SetParent(TableSetHolder.transform);
+                    }
+
                 }
             }
                                       
@@ -92,20 +130,13 @@ public class MyOffice : MonoBehaviour
                 AirConditioning02.SetActive(false);
         }
 
+
     }
 
 
     public void ShowFurniture(int value)
     {
 
-        /* string query01 = "SELECT * FROM office";
-        IDataReader reader = dbManager.ReadRecords(query01);
-
-       while (reader.Read())
-        {
-            officeVal = reader.GetInt32(0);
-        }
-        dbManager.CloseConnection();*/
 
         if (officeVal == 0)
             {

@@ -95,13 +95,22 @@ public class Employee : MonoBehaviour
 
     public void hireEmployee()
     {
-        company.AddEmployeeToCompany(this);
-        Destroy(gameObject);
+        if (company.OurOfficeCapacity > company.employees.Count)
+        {
+            company.AddEmployeeToCompany(this);
+            company.EmployeeAnimation();
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("YOU DO NOT HAVE ENOUGH CAPACITY");
+        }         
     }
 
     public void fireEmployee()
     {
         company.FireEmployee(this);
+        company.EmployeeAnimation();
         Destroy(gameObject);
     }
     public void assignEmployee()

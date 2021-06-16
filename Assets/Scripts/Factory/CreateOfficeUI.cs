@@ -10,7 +10,7 @@ public class CreateOfficeUI : MonoBehaviour
     [SerializeField] GameObject officeUI;
     [SerializeField] GameObject officeUIPanel;
 
-    [SerializeField] GameObject furnitureUI;
+    [SerializeField] GameObject furnitureUI, tableUI;
     [SerializeField] GameObject furnitureUIPanel;
 
     [SerializeField] int totalOfficeNum;
@@ -30,8 +30,8 @@ public class CreateOfficeUI : MonoBehaviour
 
     void CreateOffice()
     {
-        CreateSingleOffice(5, 1000,0);
-        CreateSingleOffice(15, 5000,1);
+        CreateSingleOffice(2, 1000,0);
+        CreateSingleOffice(10, 5000,1);
 
     }
     void CreateSingleOffice(int capacity, int rent, int id)
@@ -58,6 +58,7 @@ public class CreateOfficeUI : MonoBehaviour
 
         while (reader.Read())
         {
+            CreateTableUI("Work Table Set", 400);
             officeVal = reader.GetInt32(0);
             if (officeVal == 0)
             {
@@ -73,7 +74,7 @@ public class CreateOfficeUI : MonoBehaviour
                 CreateSingleFurniture("Air Conditioning 2", 8, 4000);
             }
 
-
+           
 
         }
 
@@ -93,5 +94,20 @@ public class CreateOfficeUI : MonoBehaviour
         newFurniture.transform.Find("price").GetComponent<TextMeshProUGUI>().text = "Price:" + price;
 
         newFurniture.transform.Find("Image").GetComponent<Image>().sprite = Resources.Load<Sprite>("furnitures/"+FurName);
+    }
+
+    void CreateTableUI(string FurName, int price)
+    {
+        GameObject newFurniture = Instantiate(tableUI);
+        newFurniture.transform.SetParent(furnitureUIPanel.transform);
+        TableSetUI furniture = newFurniture.GetComponent<TableSetUI>();
+
+        furniture.name = FurName;
+        furniture.furnitureName = FurName;
+        furniture.price = price;
+
+        newFurniture.transform.Find("name").GetComponent<TextMeshProUGUI>().text = FurName;
+        newFurniture.transform.Find("price").GetComponent<TextMeshProUGUI>().text = "Price:" + price;
+        newFurniture.transform.Find("Image").GetComponent<Image>().sprite = Resources.Load<Sprite>("furnitures/table");
     }
 }

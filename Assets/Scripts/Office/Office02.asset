@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b7454323448274faaf0db7ef69d797, type: 3}
   m_Name: Office02
   m_EditorClassIdentifier: 
-  pointPrefab: {fileID: 6996489198018243788, guid: 3a70c2f162a44d74d87baf4b07f4e64b, type: 3}
+  pointPrefab: {fileID: 1612654426181037425, guid: 5b5f5b64c763b4c48999a4d899e031d9, type: 3}
