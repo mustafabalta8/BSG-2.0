@@ -98,10 +98,10 @@ public class MyOffice : MonoBehaviour
     public void ShowFurniture(int value)
     {
 
-        string query01 = "SELECT * FROM office";
+        /* string query01 = "SELECT * FROM office";
         IDataReader reader = dbManager.ReadRecords(query01);
 
-       /* while (reader.Read())
+       while (reader.Read())
         {
             officeVal = reader.GetInt32(0);
         }

@@ -27,8 +27,6 @@ public class Office : MonoBehaviour
 
         this.transform.Find("capacity").GetComponent<TextMeshProUGUI>().text = ""+officeCapacity.ToString();
         this.transform.Find("rent").GetComponent<TextMeshProUGUI>().text = ""+rent.ToString();
-        transform.Find("Image").GetComponent<Image>().sprite = Resources.Load<Sprite>("shop");
-
 
     }
     public void Rent()

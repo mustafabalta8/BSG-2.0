@@ -140,21 +140,21 @@ public class FurnitureUI : MonoBehaviour
             else if (furnitureName == "FlowersMaindoor02")
             {
                 available = 1;
-                string query02 = string.Format("UPDATE office SET \"FlowersMaindoor02\" = '" + available + "' WHERE id ='1'");
+                string query02 = string.Format("UPDATE office SET \"Flowers Maindoor\" = '" + available + "' WHERE id ='1'");
                 dbManager.InsertRecords(query02);
                 //myOffice.ShowFurniture(3);
             }
             else if (furnitureName == "FlowersEmployees02")
             {
                 available = 1;
-                string query02 = string.Format("UPDATE office SET FlowersEmployees02 = '" + available + "' WHERE id ='1'");
+                string query02 = string.Format("UPDATE office SET \"Flowers Employees\" = '" + available + "' WHERE id ='1'");
                 dbManager.InsertRecords(query02);
                 //myOffice.ShowFurniture(3);
             }
             else if (furnitureName == "AirConditioning02")
             {
                 available = 1;
-                string query02 = string.Format("UPDATE office SET AirConditioning02 = '" + available + "' WHERE id ='1'");
+                string query02 = string.Format("UPDATE office SET \"Air Conditioning 2\"= '" + available + "' WHERE id ='1'");
                 dbManager.InsertRecords(query02);
                 //myOffice.ShowFurniture(3);
             }

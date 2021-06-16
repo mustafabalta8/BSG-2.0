@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Data;
+using UnityEngine.UI;
 
 public class CreateOfficeUI : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class CreateOfficeUI : MonoBehaviour
     void CreateOffice()
     {
         CreateSingleOffice(5, 1000,0);
-        CreateSingleOffice(15, 10,1);
+        CreateSingleOffice(15, 5000,1);
 
     }
     void CreateSingleOffice(int capacity, int rent, int id)
@@ -42,6 +43,8 @@ public class CreateOfficeUI : MonoBehaviour
         office.officeCapacity = capacity;
         office.rent = rent;
         office.id = id;
+
+        newOffice.transform.Find("Image").GetComponent<Image>().sprite = Resources.Load<Sprite>("officeImages/office"+id);
     }
     public void CreateFurnitureUI()
     {
@@ -65,9 +68,9 @@ public class CreateOfficeUI : MonoBehaviour
             }
             else if (officeVal == 1)
             {
-                CreateSingleFurniture("FlowersMaindoor02", 4, 800);
-                CreateSingleFurniture("FlowersEmployees02", 6, 2500);
-                CreateSingleFurniture("AirConditioning02", 5, 2000);
+                CreateSingleFurniture("Flowers Maindoor", 4, 800);
+                CreateSingleFurniture("Flowers Employees", 6, 2500);
+                CreateSingleFurniture("Air Conditioning 2", 8, 4000);
             }
 
 
@@ -88,5 +91,7 @@ public class CreateOfficeUI : MonoBehaviour
         newFurniture.transform.Find("name").GetComponent<TextMeshProUGUI>().text = FurName;
         newFurniture.transform.Find("motivation").GetComponent<TextMeshProUGUI>().text = "Motivation:" + motivation;
         newFurniture.transform.Find("price").GetComponent<TextMeshProUGUI>().text = "Price:" + price;
+
+        newFurniture.transform.Find("Image").GetComponent<Image>().sprite = Resources.Load<Sprite>("furnitures/"+FurName);
     }
 }
