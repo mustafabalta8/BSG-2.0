@@ -316,9 +316,26 @@ public class ProductManager : MonoBehaviour
             req_art_skill.text = string.Format("{0}", art_dif);
             req_des_skill.text = string.Format("{0}", des_dif);
 
+            
             estimated_time = (code_dif + art_dif + des_dif) / 10;
 
-            est_time.text = string.Format("{0} weeks", estimated_time);
+            if (Company.peaceful)
+            {
+                switch (Company.peaceful_level)
+                {
+                    case 1:
+                        estimated_time = (int)(estimated_time * (1 - 0.10));
+                        break;
+                    case 2:
+                        estimated_time = (int)(estimated_time * (1 - 0.25));
+                        break;
+                    case 3:
+                        estimated_time = (int)(estimated_time * (1 - 0.35));
+                        break;
+                }
+            }
+
+        est_time.text = string.Format("{0} weeks", estimated_time);
 
         assignEmp.duration = estimated_time;
     }

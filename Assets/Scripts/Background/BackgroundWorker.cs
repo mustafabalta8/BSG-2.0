@@ -8,6 +8,7 @@ public class BackgroundWorker : MonoBehaviour
     private TimeManager timeManager;
     private DbManager dbManager;
     private MusicManager soundManager;
+    private Company company;
 
     int turnNow;
 
@@ -19,6 +20,8 @@ public class BackgroundWorker : MonoBehaviour
         moneyManager = FindObjectOfType<MoneyManager>();
         dbManager = FindObjectOfType<DbManager>();
         soundManager = FindObjectOfType<MusicManager>();
+        company = FindObjectOfType<Company>();
+
 
         turnNow = timeManager.displayTime;
     }
@@ -78,6 +81,20 @@ public class BackgroundWorker : MonoBehaviour
 
         if (totalSalary > 0)
         {
+
+            if (company.capitalist)
+            {
+                switch (company.capitalist_level)
+                {
+                    case 1:
+                        totalSalary = (int)(totalSalary * (1 - 0.10));
+                        break;
+                    case 2:
+                        totalSalary = (int)(totalSalary * (1 - 0.25));
+                        break;
+                }
+            }
+
             moneyChanged = true;
             moneyManager.changeMoney(-totalSalary, "Salary");
         }
@@ -98,6 +115,22 @@ public class BackgroundWorker : MonoBehaviour
 
         if (rent > 0)
         {
+            if (company.thrifty)
+            {
+                switch (company.thrifty_level)
+                {
+                    case 1:
+                        rent = (int)(rent * (1 - 0.05));
+                        break;
+                    case 2:
+                        rent = (int)(rent * (1 - 0.10));
+                        break;
+                    case 3:
+                        rent = (int)(rent * (1 - 0.25));
+                        break;
+                }
+            }
+
             moneyChanged = true;
             moneyManager.changeMoney(-rent, "Rent");
         }
