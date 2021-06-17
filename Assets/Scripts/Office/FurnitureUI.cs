@@ -87,6 +87,23 @@ public class FurnitureUI : MonoBehaviour
             }
 
             dbManager.CloseConnection();
+
+            if (company.chafferer)
+            {
+                switch (company.chafferer_level)
+                {
+                    case 1:
+                        price = (int)(price * (1 - 0.07));
+                        break;
+                    case 2:
+                        price = (int)(price * (1 - 0.15));
+                        break;
+                    case 3:
+                        price = (int)(price * (1 - 0.25));
+                        break;
+                }
+            }
+
             moneyManager.changeMoney(-price, "Furniture");
         }  
         

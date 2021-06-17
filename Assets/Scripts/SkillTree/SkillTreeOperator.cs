@@ -16,6 +16,7 @@ public class SkillTreeOperator : MonoBehaviour
     DbManager dbManager;
     MoneyManager moneyManager;
     Notifications notificationManager;
+    Company company;
 
     [SerializeField] GameObject SkillsPanel;
 
@@ -23,6 +24,7 @@ public class SkillTreeOperator : MonoBehaviour
     {
         moneyManager = FindObjectOfType<MoneyManager>();
         notificationManager = FindObjectOfType<Notifications>();
+        company = FindObjectOfType<Company>();
     }
 
     public void buySkill()
@@ -51,5 +53,6 @@ public class SkillTreeOperator : MonoBehaviour
             throw;
         }
 
+        company.getSkills();
     }
 }
