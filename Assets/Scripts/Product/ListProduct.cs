@@ -36,9 +36,10 @@ public class ListProduct : MonoBehaviour
             int quality = reader.GetInt32(9);
            
 
-            GameObject newProduct = Instantiate(ProductUI);
-            newProduct.transform.SetParent(ProductUIPanel.transform);
-            
+            //GameObject newProduct = Instantiate(ProductUI);
+            //newProduct.transform.SetParent(ProductUIPanel.transform);
+            GameObject newProduct = Instantiate(ProductUI, ProductUIPanel.transform,false);
+
             Product productObj = newProduct.GetComponent<Product>();
 
             Products.Add(productObj);

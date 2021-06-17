@@ -105,8 +105,9 @@ public class AssignEmp : MonoBehaviour
 
             string profile_pic = reader.GetString(11);
 
-            GameObject createdEmployee = Instantiate(AssignEmpObj);
-            createdEmployee.transform.SetParent(AssignEmpPanel.transform);
+            //GameObject createdEmployee = Instantiate(AssignEmpObj);
+            //createdEmployee.transform.SetParent(AssignEmpPanel.transform);
+            GameObject createdEmployee = Instantiate(AssignEmpObj,AssignEmpPanel.transform,false);
 
             Employee EmployeeObj = createdEmployee.GetComponent<Employee>();
 

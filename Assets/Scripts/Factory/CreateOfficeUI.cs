@@ -37,10 +37,10 @@ public class CreateOfficeUI : MonoBehaviour
     }
     void CreateSingleOffice(int capacity, int rent, int id)
     {
-        GameObject newOffice = Instantiate(officeUI);
-        newOffice.transform.SetParent(officeUIPanel.transform);
-        
-       // Instantiate(officeUI, officeUIPanel.transform, false);
+        //GameObject newOffice = Instantiate(officeUI);
+        //newOffice.transform.SetParent(officeUIPanel.transform);
+
+        GameObject newOffice = Instantiate(officeUI, officeUIPanel.transform, false);
 
         Office office = newOffice.GetComponent<Office>();
 
@@ -85,8 +85,9 @@ public class CreateOfficeUI : MonoBehaviour
     }
     void CreateSingleFurniture(string FurName,int motivation,int price)
     {
-        GameObject newFurniture = Instantiate(furnitureUI);
-        newFurniture.transform.SetParent(furnitureUIPanel.transform);
+        // GameObject newFurniture = Instantiate(furnitureUI);
+        // newFurniture.transform.SetParent(furnitureUIPanel.transform);
+        GameObject newFurniture = Instantiate(furnitureUI, furnitureUIPanel.transform, false);
         FurnitureUI furniture = newFurniture.GetComponent<FurnitureUI>();
 
         furniture.name = FurName;
@@ -102,8 +103,9 @@ public class CreateOfficeUI : MonoBehaviour
 
     void CreateTableUI(string FurName, int price)
     {
-        GameObject newFurniture = Instantiate(tableUI);
-        newFurniture.transform.SetParent(furnitureUIPanel.transform);
+        //GameObject newFurniture = Instantiate(tableUI);
+        // newFurniture.transform.SetParent(furnitureUIPanel.transform);
+        GameObject newFurniture = Instantiate(tableUI, furnitureUIPanel.transform, false);
         TableSetUI furniture = newFurniture.GetComponent<TableSetUI>();
 
         furniture.name = FurName;

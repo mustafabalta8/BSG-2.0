@@ -33,12 +33,14 @@ public class CreateEmployee : MonoBehaviour
 
     public Employee createEmployee(int Id, string Name, int salary, int power, int code, int art, int design, string profile_pic, bool applicant = false)
     {
-        GameObject createdEmployee = Instantiate(ApplicantEmployee);
+       /* GameObject createdEmployee = Instantiate(ApplicantEmployee);
 
         if (applicant)
         {
             createdEmployee.transform.SetParent(ApplicantsHolder.transform);
-        }
+        }*/
+
+        GameObject createdEmployee = Instantiate(ApplicantEmployee,ApplicantsHolder.transform,false);
 
         Employee EmployeeObj = createdEmployee.GetComponent<Employee>();
 

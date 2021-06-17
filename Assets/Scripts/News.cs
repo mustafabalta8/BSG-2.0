@@ -52,11 +52,11 @@ public class News : MonoBehaviour
             {
                 news_ids.Add(news_id); // add the id to the current shown news in the newsfeed
 
-                GameObject CreateNews = Instantiate(newsObj); // create news object
-                CreateNews.transform.SetParent(newsPanel.transform); // set the created objects' parent as newsPanel
-
-                //TODO: ok, this part is quite buggy, needs some unity black magic
-                CreateNews.transform.Find("NewsTitle").GetComponent<Text>().text = title; //print the news title
+                    //GameObject CreateNews = Instantiate(newsObj); // create news object
+                    // CreateNews.transform.SetParent(newsPanel.transform); // set the created objects' parent as newsPanel
+                    GameObject CreateNews = Instantiate(newsObj,newsPanel.transform,false);
+                    //TODO: ok, this part is quite buggy, needs some unity black magic
+                    CreateNews.transform.Find("NewsTitle").GetComponent<Text>().text = title; //print the news title
                 CreateNews.transform.Find("NewsText").GetComponent<Text>().text = news; //print the news
                 CreateNews.transform.Find("newspaperName").GetComponent<Text>().text = newsPaper; //print the newspaper name
                 CreateNews.transform.Find("readersText").GetComponent<Text>().text = Random.Range(100,10000).ToString(); //print readers 

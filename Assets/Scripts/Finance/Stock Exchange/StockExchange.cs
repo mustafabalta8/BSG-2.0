@@ -40,8 +40,9 @@ public class StockExchange : MonoBehaviour
             int fans = reader.GetInt32(4);
             int shares = reader.GetInt32(5);
             
-            GameObject createdCompany = Instantiate(SEUi);
-            createdCompany.transform.SetParent(SECompanyObj.transform);
+            //GameObject createdCompany = Instantiate(SEUi);
+            //createdCompany.transform.SetParent(SECompanyObj.transform);
+            GameObject createdCompany = Instantiate(SEUi, SECompanyObj.transform,false);
 
             SC_Company companyObject = createdCompany.GetComponent<SC_Company>();
 

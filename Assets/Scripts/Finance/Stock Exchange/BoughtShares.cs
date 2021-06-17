@@ -42,8 +42,9 @@ public class BoughtShares : MonoBehaviour
             double avgBuyPrice = reader.GetDouble(1);
             double nShares = reader.GetDouble(2);
 
-            GameObject createdCompany = Instantiate(BoughtSharesUI);
-            createdCompany.transform.SetParent(BoughtSharesCompanyObject.transform);
+            //GameObject createdCompany = Instantiate(BoughtSharesUI);
+           // createdCompany.transform.SetParent(BoughtSharesCompanyObject.transform);
+            GameObject createdCompany = Instantiate(BoughtSharesUI,BoughtSharesCompanyObject.transform,false);
 
             SC_Company companyObject = createdCompany.GetComponent<SC_Company>();
             companyObject.companyName = companyName;

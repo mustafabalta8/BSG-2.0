@@ -34,9 +34,9 @@ public class CreateContract : MonoBehaviour
         int i = 0;
         while (i < 9)
         {
-            GameObject newProduct = Instantiate(ContractObj);
-            newProduct.transform.SetParent(ContractPanel.transform);
-
+            //GameObject newProduct = Instantiate(ContractObj);
+            //newProduct.transform.SetParent(ContractPanel.transform);
+            GameObject newProduct = Instantiate(ContractObj,ContractPanel.transform,false);
             Contract contractObj = newProduct.GetComponent<Contract>();
 
             Contracts.Add(contractObj);
