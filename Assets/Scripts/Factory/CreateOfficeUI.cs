@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System.Data;
 using UnityEngine.UI;
+using System;
 
 public class CreateOfficeUI : MonoBehaviour
 {
@@ -38,6 +39,9 @@ public class CreateOfficeUI : MonoBehaviour
     {
         GameObject newOffice = Instantiate(officeUI);
         newOffice.transform.SetParent(officeUIPanel.transform);
+        
+       // Instantiate(officeUI, officeUIPanel.transform, false);
+
         Office office = newOffice.GetComponent<Office>();
 
         office.officeCapacity = capacity;
