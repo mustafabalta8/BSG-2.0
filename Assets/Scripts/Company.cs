@@ -47,6 +47,9 @@ public class Company : MonoBehaviour
     [SerializeField] GameObject EmployeeAnmHolder;
     [SerializeField] GameObject employee_woman1FRONT, employee_woman2AFRONT, employee_woman3AFRONT, employee_woman8AFRONT, employee_man1AFRONT, employee_man2AFRONT, employee_man3AFRONT, employee_man4AFRONT, employee_man5AFRONT, employee_man6AFRONT, employee_man8AFRONT;
 
+    [Header("Skills")]
+    public bool thrifty = false, chafferer = false, decorator = false, fertile = false, peaceful = false, sensei = false, business_class = false, capitalist = false, dream_team = false, instructive_leader = false;
+    public int thrifty_level = 0, chafferer_level = 0, decorator_level = 0, fertile_level = 0, peaceful_level = 0, sensei_level = 0, business_class_level = 0, capitalist_level = 0, dream_team_level = 0, instructive_leader_level = 0;
 
 
 
@@ -410,4 +413,17 @@ public class Company : MonoBehaviour
 
     }
 
+    public void getSkills()
+    {
+        dbManager = FindObjectOfType<DbManager>();
+        string query = "SELECT * FROM skills";
+        IDataReader reader = dbManager.ReadRecords(query);
+
+        while (reader.Read())
+        {
+
+        }
+
+        dbManager.CloseConnection();
+    }
 }
