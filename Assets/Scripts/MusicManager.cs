@@ -1,14 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class MusicManager : MonoBehaviour
 {
     [SerializeField] AudioClip buttonOnSound, buttonOffSound, notificationSound, moneySound, newDaySound;
-    AudioSource audioSource;
+    [SerializeField] AudioSource audioSource;
+
+    public AudioMixer audioMixer;
+    void Awake()
+    {
+        SetUpSingelton();
+        audioSource = GetComponent<AudioSource>();
+    }
+    private void SetUpSingelton()
+    {
+        if (FindObjectsOfType(GetType()).Length > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        
+        audioSource.volume = 0.8f;  //not working
+    }
+    public void SetVolume(float volume)
+    {
+        //audioMixer.SetFloat("MyExposedParam",volume);
+        audioSource.volume = volume;
     }
 
     public void playSound(string type)
