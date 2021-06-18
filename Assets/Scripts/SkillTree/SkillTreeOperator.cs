@@ -29,7 +29,17 @@ public class SkillTreeOperator : MonoBehaviour
 
     public void buySkill()
     {
-        if(moneyManager.getBalance() < cost)
+        if (skillName == "dream team")
+        {
+            if (level == 3)
+            {
+                notificationManager.pushNotification("You can not buy this skill in the first office. Maximum allowed staff is 4.");
+                buyButton.interactable = false;
+                return;
+            }
+        }
+
+        if (moneyManager.getBalance() < cost)
         {
             notificationManager.pushNotification("You don't enough money to buy this skill.");
             return;

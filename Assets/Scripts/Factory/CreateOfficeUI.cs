@@ -32,7 +32,7 @@ public class CreateOfficeUI : MonoBehaviour
     void CreateOffice()
     {
         CreateSingleOffice(2, 1000,0);
-        CreateSingleOffice(10, 5000,1);
+        CreateSingleOffice(11, 5000,1);
 
     }
     void CreateSingleOffice(int capacity, int rent, int id)

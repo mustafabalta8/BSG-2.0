@@ -32,6 +32,7 @@ public class Employee : MonoBehaviour
     TimeManager timeManager;
     AssignEmp assignEmp;
     Notifications notifications;
+
     public void Start()
     {
         assignEmp = FindObjectOfType<AssignEmp>();
@@ -93,6 +94,12 @@ public class Employee : MonoBehaviour
                 position = "Designer";
 
             morale = reader.GetInt32(10);
+
+            if (morale > 100)
+            {
+                morale = 100;
+            }
+
             profile_pic = reader.GetString(11);
         }
 
@@ -118,6 +125,44 @@ public class Employee : MonoBehaviour
 
     public void hireEmployee()
     {
+
+        if (company.dream_team)
+        {
+            switch (company.dream_team_level)
+            {
+                case 1:
+                    if(company.officeId == 0)
+                    {
+                        company.OurOfficeCapacity = 3;
+                    }
+                    else
+                    {
+                        company.OurOfficeCapacity = 12;
+                    }
+                    break;
+                case 2:
+                    if (company.officeId == 0)
+                    {
+                        company.OurOfficeCapacity = 4;
+                    }
+                    else
+                    {
+                        company.OurOfficeCapacity = 13;
+                    }
+                    break;
+                case 3:
+                    if (company.officeId == 0)
+                    {
+                        company.OurOfficeCapacity = 4;
+                    }
+                    else
+                    {
+                        company.OurOfficeCapacity = 15;
+                    }
+                    break;
+            }
+        }
+
         if (company.OurOfficeCapacity > company.employees.Count)
         {
             company.AddEmployeeToCompany(this);

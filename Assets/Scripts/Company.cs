@@ -11,7 +11,7 @@ using TMPro;
 public class Company : MonoBehaviour
 {
     [Header("Office Related")]
-    int officeId;
+    public int officeId;
     public int OurOfficeCapacity;
     public int OurOfficeRent;
     public int motivation;
@@ -36,6 +36,8 @@ public class Company : MonoBehaviour
     [SerializeField] GameObject MyEmployeeHolder;
     [SerializeField] GameObject MyEmployee;
     [SerializeField] Sprite employee_woman1, employee_woman3, employee_woman2, employee_woman4, employee_woman5, employee_woman6, employee_woman7, employee_woman8, employee_woman9, employee_man1, employee_man2, employee_man3, employee_man4, employee_man5, employee_man6, employee_man7, employee_man8, employee_man9;
+    public bool motivator_activator = false;
+    public int morale_boost = 0;
 
     [Header("Employee Animation")]
 
@@ -48,8 +50,8 @@ public class Company : MonoBehaviour
     [SerializeField] GameObject employee_woman1FRONT, employee_woman2AFRONT, employee_woman3AFRONT, employee_woman8AFRONT, employee_man1AFRONT, employee_man2AFRONT, employee_man3AFRONT, employee_man4AFRONT, employee_man5AFRONT, employee_man6AFRONT, employee_man8AFRONT;
 
     [Header("Skills")]
-    public bool thrifty = false, chafferer = false, decorator = false, fertile = false, peaceful = false, sensei = false, business_class = false, capitalist = false, dream_team = false, instructive_leader = false;
-    public int thrifty_level = 0, chafferer_level = 0, decorator_level = 0, fertile_level = 0, peaceful_level = 0, sensei_level = 0, business_class_level = 0, capitalist_level = 0, dream_team_level = 0, instructive_leader_level = 0;
+    public bool thrifty = false, chafferer = false, motivator = false, fertile = false, peaceful = false, sensei = false, business_class = false, capitalist = false, dream_team = false, instructive_leader = false;
+    public int thrifty_level = 0, chafferer_level = 0, motivator_level = 0, fertile_level = 0, peaceful_level = 0, sensei_level = 0, business_class_level = 0, capitalist_level = 0, dream_team_level = 0, instructive_leader_level = 0;
 
 
 
@@ -64,7 +66,7 @@ public class Company : MonoBehaviour
         getEmployeesFromDatabase(employeeFactory);
         getCompanyDataFromDatabase();
         getSkills();
-        
+
         employeeFactory.createRandomEmployee(5); //create X random employees
 
         
@@ -84,11 +86,75 @@ public class Company : MonoBehaviour
             OurOffice.transform.Find("rent").GetComponent<TextMeshProUGUI>().text = "" + reader.GetInt32(2);
             // OurOffice.transform.Find("furniture").GetComponent<TextMeshProUGUI>().text = "" + (reader.GetInt32(3)+ reader.GetInt32(4)+reader.GetInt32(5));
 
+            if(officeId == 0)
+            { //4,5,6,7   4,6,5,8
+                if(reader.GetInt32(4) == 1)
+                {
+                    morale_boost += moraleCalculator(4);
+                }
+
+                if (reader.GetInt32(5) == 1)
+                {
+                    morale_boost += moraleCalculator(6);
+                }
+
+                if (reader.GetInt32(6) == 1)
+                {
+                    morale_boost += moraleCalculator(5);
+                }
+
+                if (reader.GetInt32(7) == 1)
+                {
+                    morale_boost += moraleCalculator(8);
+                }
+            }
+            else
+            { //8,9,10   4,6,8
+
+                if (reader.GetInt32(8) == 1)
+                {
+                    morale_boost += moraleCalculator(4);
+                }
+
+                if (reader.GetInt32(9) == 1)
+                {
+                    morale_boost += moraleCalculator(6);
+                }
+
+                if (reader.GetInt32(10) == 1)
+                {
+                    morale_boost += moraleCalculator(8);
+                }
+
+            }
+
         }
         dbManager.CloseConnection();
         FillEmpployeePoints();
         EmployeeAnimation();
     }
+
+    private int moraleCalculator(int base_morale)
+    {
+        if (motivator)
+        {
+            switch (motivator_level)
+            {
+                case 1:
+                    base_morale = (int)(base_morale * (1 + 0.10));
+                    break;
+                case 2:
+                    base_morale = (int)(base_morale * (1 + 0.15));
+                    break;
+                case 3:
+                    base_morale = (int)(base_morale * (1 + 0.30));
+                    break;
+            }
+        }
+
+        return base_morale;
+    }
+
     public void FillEmpployeePoints()
     {
         Waypoints = emp_Place_Points[officeId].GetPoints();
@@ -146,6 +212,7 @@ public class Company : MonoBehaviour
 
             changeProfilePicture(EmployeeObj.transform, EmployeeObj.profile_pic);
 
+            EmployeeObj.morale += morale_boost;
         }
 
         dbManager.CloseConnection();
@@ -254,7 +321,6 @@ public class Company : MonoBehaviour
     {
         GameObject EmpAnm = Instantiate(EmployeeAnm, Waypoints[i].position, Quaternion.identity);
         EmpAnm.transform.SetParent(EmployeeAnmHolder.transform);
-        
     }
 
     public void getCompanyDataFromDatabase()
@@ -468,9 +534,9 @@ public class Company : MonoBehaviour
                 chafferer = active;
                 chafferer_level = level;
                 break;
-            case "decorator":
-                decorator = active;
-                decorator_level = level;
+            case "motivator":
+                motivator = active;
+                motivator_level = level;
                 break;
             case "fertile":
                 fertile = active;
