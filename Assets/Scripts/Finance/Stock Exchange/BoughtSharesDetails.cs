@@ -47,8 +47,9 @@ public class BoughtSharesDetails : MonoBehaviour
 
         while (reader.Read())
         {
-            GameObject createdCompany = Instantiate(ShareObject);
-            createdCompany.transform.SetParent(AllSharesUI.transform);
+            //GameObject createdCompany = Instantiate(ShareObject);
+            //createdCompany.transform.SetParent(AllSharesUI.transform);
+            GameObject createdCompany = Instantiate(ShareObject, AllSharesUI.transform,false);
 
             BoughtSharesDetails boughtShare = createdCompany.GetComponent<BoughtSharesDetails>();
 

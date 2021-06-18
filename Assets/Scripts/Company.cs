@@ -110,9 +110,9 @@ public class Company : MonoBehaviour
  
         while (reader.Read())
         {
-            GameObject createdEmployee = Instantiate(MyEmployee);
-            createdEmployee.transform.SetParent(MyEmployeeHolder.transform);
-
+           // GameObject createdEmployee = Instantiate(MyEmployee);
+           // createdEmployee.transform.SetParent(MyEmployeeHolder.transform);
+            GameObject createdEmployee = Instantiate(MyEmployee,MyEmployeeHolder.transform,false);
             Employee EmployeeObj = createdEmployee.GetComponent<Employee>();
 
             int employeeId = reader.GetInt32(0);

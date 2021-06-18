@@ -5,11 +5,11 @@ using UnityEngine;
 public class Contract : MonoBehaviour
 {
     //necesarry contract object variables
-    [SerializeField] double requiredPower = 10;
+   /* [SerializeField] double requiredPower = 10;
     [SerializeField] double acceptedTime;
     [SerializeField] double deadLine = 10;
     [SerializeField] double contractValue = 100;
-    [SerializeField] bool completed = false;
+    [SerializeField] bool completed = false;*/
 
     [Header("Presented Variables")]
     public string platform;
@@ -45,7 +45,7 @@ public class Contract : MonoBehaviour
 
         //TODO: change to company structure, now it only reads ONE employee's power
        
-        acceptedTime = time.displayTime; // get in-game time
+        //acceptedTime = time.displayTime; // get in-game time
     }
 
     public void SelectedContract()

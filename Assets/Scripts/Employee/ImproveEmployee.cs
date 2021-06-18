@@ -37,8 +37,9 @@ public class ImproveEmployee : MonoBehaviour
 
         while (reader.Read())
         {
-            GameObject employeeObject = Instantiate(EmployeesObject);
-            employeeObject.transform.SetParent(EmployeesUI.transform);
+            //GameObject employeeObject = Instantiate(EmployeesObject);
+            //employeeObject.transform.SetParent(EmployeesUI.transform);
+            GameObject employeeObject = Instantiate(EmployeesObject, EmployeesUI.transform,false);
 
             Employee employee = employeeObject.GetComponent<Employee>();
 
