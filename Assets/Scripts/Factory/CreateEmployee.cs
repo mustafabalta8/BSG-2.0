@@ -28,7 +28,7 @@ public class CreateEmployee : MonoBehaviour
     public GameObject ApplicantEmployee;
     private void Start()
     {
-        dbManager = FindObjectOfType<DbManager>();
+        //dbManager = FindObjectOfType<DbManager>();
     }
 
     public Employee createEmployee(int Id, string Name, int salary, int power, int code, int art, int design, string profile_pic, bool applicant = false)
@@ -70,7 +70,9 @@ public class CreateEmployee : MonoBehaviour
 
     public void createRandomEmployee(int amount)
     {
-            string query = "SELECT * FROM employees WHERE hired = 0 ORDER BY random() LIMIT "+amount;
+        dbManager = FindObjectOfType<DbManager>();
+
+        string query = "SELECT * FROM employees WHERE hired = 0 ORDER BY random() LIMIT "+amount;
             IDataReader reader = dbManager.ReadRecords(query);
 
             while (reader.Read())

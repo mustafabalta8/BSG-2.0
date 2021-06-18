@@ -8,12 +8,6 @@ public class SceneController : MonoBehaviour
     public void LoadGame()
     {
         SceneManager.LoadScene(1);
-        Debug.Log("load scene");
-    }
-    public void denemedeneme()
-    {
-
-        Debug.Log("load scene");
     }
     public void Quit()
     {
