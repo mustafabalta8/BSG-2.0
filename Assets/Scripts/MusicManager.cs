@@ -43,7 +43,6 @@ public class MusicManager : MonoBehaviour
             audioSource.PlayOneShot(notificationSound);
         }else if(type == "buttonOn")
         {
-            Debug.Log("button on played");
             audioSource.PlayOneShot(buttonOnSound);
         }
         else if (type == "buttonOff")

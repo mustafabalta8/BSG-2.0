@@ -31,6 +31,7 @@ public class Employee : MonoBehaviour
     ImproveEmployee improve;
     TimeManager timeManager;
     AssignEmp assignEmp;
+    Notifications notifications;
     public void Start()
     {
         assignEmp = FindObjectOfType<AssignEmp>();
@@ -40,11 +41,16 @@ public class Employee : MonoBehaviour
         dbManager = FindObjectOfType<DbManager>();
         timeManager = FindObjectOfType<TimeManager>();
         improve = FindObjectOfType<ImproveEmployee>();
+        notifications = FindObjectOfType<Notifications>();
+
     }
 
     public void getDetails(int employeeId)
     {
         dbManager = FindObjectOfType<DbManager>();
+
+        company = FindObjectOfType<Company>();
+
         string query = string.Format($"SELECT * FROM employees WHERE employeeId = {employeeId}");
         IDataReader reader = dbManager.ReadRecords(query);
 
@@ -91,6 +97,23 @@ public class Employee : MonoBehaviour
         }
 
         dbManager.CloseConnection();
+
+        if (company.instructive_leader)
+        {
+            switch (company.instructive_leader_level)
+            {
+                case 1:
+                    code = (int)(code * (1 + 0.05));
+                    art = (int)(art * (1 + 0.05));
+                    design = (int)(design * (1 + 0.05));
+                    break;
+                case 2:
+                    code = (int)(code * (1 + 0.10));
+                    art = (int)(art * (1 + 0.10));
+                    design = (int)(design * (1 + 0.10));
+                    break;
+            }
+        }
     }
 
     public void hireEmployee()
@@ -103,7 +126,7 @@ public class Employee : MonoBehaviour
         }
         else
         {
-            Debug.Log("YOU DO NOT HAVE ENOUGH CAPACITY");
+            notifications.pushNotification($"You do not have enough capacity to hire new employees. Your current capacity is {company.OurOfficeCapacity}");
         }         
     }
 
@@ -241,7 +264,7 @@ public class Employee : MonoBehaviour
 
         improve.getEmployees();
 
-        Debug.Log("Training finished");
+        notifications.pushNotification($"Training finished for {employeeName}, employee is back to work.");
     }
 
     public void improveMorale()
@@ -289,11 +312,26 @@ public class Employee : MonoBehaviour
 
         yield return new WaitForSeconds((vacationDuration - 1) * timeManager.secondsPerTurn);
 
-        query = string.Format($"UPDATE employees SET morale={morale + 10} WHERE employeeName = \"{employeeName}\"");
+        int newMorale = morale + 10;
+
+        if (company.business_class)
+        {
+            switch (company.business_class_level)
+            {
+                case 1:
+                    newMorale = (int)(newMorale * (1 + 0.25));
+                    break;
+                case 2:
+                    newMorale = (int)(newMorale * (1 + 0.25));
+                    break;
+            }
+        }
+
+        query = string.Format($"UPDATE employees SET morale={newMorale} WHERE employeeName = \"{employeeName}\"");
         dbManager.InsertRecords(query);
         dbManager.CloseConnection();
 
-        morale += 10;
+        morale = newMorale;
 
         if (busy)
         {
@@ -312,7 +350,7 @@ public class Employee : MonoBehaviour
 
         improve.getEmployees();
 
-        Debug.Log($"Vacation finished, new morale: {morale + 10}");
+        notifications.pushNotification($"{employeeName} is back from vacation. Employee is back to work.");
     }
 
     public int calculatePotential()

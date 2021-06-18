@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9174,6 +9174,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
+--- !u!1 &863299052 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8414014224444833507, guid: 270f75486e77d5d4292226a636479be2, type: 3}
+  m_PrefabInstance: {fileID: 8414014224836531090}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &863299053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863299052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d6e4e1cefed85c4b8e3fac5d544816c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &864899253
 GameObject:
   m_ObjectHideFlags: 0
@@ -17519,7 +17536,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1712317625}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 863299053}
+        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+        m_MethodName: ReturnToMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1712317625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20722,11 +20751,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1ebcc4483e003d4bbdecc3232ce455f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkillName: 
   level: 0
   cost: 0
-  feature: 0
-  featureName: 
+  skillName: 
+  skillType: 
+  skill: {fileID: 0}
+  buyButton: {fileID: 0}
   SkillsPanel: {fileID: 556094989409365561}
 --- !u!114 &2078581960
 MonoBehaviour:
@@ -22204,11 +22234,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f959c6e242f106419399414d02195dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkillName: thrify
-  FeatureName: office rent
+  skillName: 
+  featureName: 
+  type: 
   level: 1
   cost: 0
   feature: 0
+  active: 0
+  skillButton: {fileID: 0}
   SkillInspector: {fileID: 556094988706245412}
 --- !u!114 &556094988081207322
 MonoBehaviour:
@@ -22973,11 +23006,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f959c6e242f106419399414d02195dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkillName: 
-  FeatureName: 
+  skillName: 
+  featureName: 
+  type: 
   level: 0
   cost: 0
   feature: 0
+  active: 0
+  skillButton: {fileID: 0}
   SkillInspector: {fileID: 556094988706245412}
 --- !u!222 &556094988585713746
 CanvasRenderer:
@@ -24591,11 +24627,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f959c6e242f106419399414d02195dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkillName: chafferer
-  FeatureName: 'Furniture cost '
+  skillName: 
+  featureName: 
+  type: 
   level: 1
   cost: 0
   feature: 0
+  active: 0
+  skillButton: {fileID: 0}
   SkillInspector: {fileID: 556094988706245412}
 --- !u!114 &556094989546397656
 MonoBehaviour:
@@ -33247,11 +33286,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f959c6e242f106419399414d02195dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkillName: 
-  FeatureName: 
+  skillName: 
+  featureName: 
+  type: 
   level: 0
   cost: 0
   feature: 0
+  active: 0
+  skillButton: {fileID: 0}
   SkillInspector: {fileID: 556094988706245412}
 --- !u!114 &2005201326625216122
 MonoBehaviour:
@@ -33921,11 +33963,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f959c6e242f106419399414d02195dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkillName: 
-  FeatureName: 
+  skillName: 
+  featureName: 
+  type: 
   level: 0
   cost: 0
   feature: 0
+  active: 0
+  skillButton: {fileID: 0}
   SkillInspector: {fileID: 556094988706245412}
 --- !u!114 &2005201328577812543
 MonoBehaviour:

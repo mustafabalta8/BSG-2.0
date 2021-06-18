@@ -47,6 +47,9 @@ public class Company : MonoBehaviour
     [SerializeField] GameObject EmployeeAnmHolder;
     [SerializeField] GameObject employee_woman1FRONT, employee_woman2AFRONT, employee_woman3AFRONT, employee_woman8AFRONT, employee_man1AFRONT, employee_man2AFRONT, employee_man3AFRONT, employee_man4AFRONT, employee_man5AFRONT, employee_man6AFRONT, employee_man8AFRONT;
 
+    [Header("Skills")]
+    public bool thrifty = false, chafferer = false, decorator = false, fertile = false, peaceful = false, sensei = false, business_class = false, capitalist = false, dream_team = false, instructive_leader = false;
+    public int thrifty_level = 0, chafferer_level = 0, decorator_level = 0, fertile_level = 0, peaceful_level = 0, sensei_level = 0, business_class_level = 0, capitalist_level = 0, dream_team_level = 0, instructive_leader_level = 0;
 
 
 
@@ -60,7 +63,7 @@ public class Company : MonoBehaviour
 
         getEmployeesFromDatabase(employeeFactory);
         getCompanyDataFromDatabase();
-
+        getSkills();
         
         employeeFactory.createRandomEmployee(5); //create X random employees
 
@@ -410,4 +413,93 @@ public class Company : MonoBehaviour
 
     }
 
+    public void getSkills()
+    {
+        getSkill("thrifty");
+        getSkill("chafferer");
+        getSkill("decorator");
+        getSkill("fertile");
+        getSkill("peaceful");
+        getSkill("sensei");
+        getSkill("business class");
+        getSkill("capitalist");
+        getSkill("dream team");
+        getSkill("instructive leader");
+    }
+
+    public void getSkill(string skillName)
+    {
+        bool active = false; int level = 0;
+        dbManager = FindObjectOfType<DbManager>();
+        string query = $"SELECT count(*) as nActive FROM skills WHERE skillName = \"{skillName}\"";
+        IDataReader reader = dbManager.ReadRecords(query);
+
+        while (reader.Read())
+        {
+            if(reader.GetInt32(0) > 0)
+            {
+                active = true;
+            }
+        }
+
+        dbManager.CloseConnection();
+
+        if (active)
+        {
+            dbManager = FindObjectOfType<DbManager>();
+            query = $"SELECT level FROM skills WHERE skillName = \"{skillName}\" AND active = 1 ORDER BY level DESC LIMIT 1"; 
+            reader = dbManager.ReadRecords(query);
+
+            while (reader.Read())
+            {
+                level = reader.GetInt32(0);
+            }
+
+            dbManager.CloseConnection();
+        }
+
+        switch (skillName)
+        {
+            case "thrifty":
+                thrifty = active;
+                thrifty_level = level;
+                break;
+            case "chafferer":
+                chafferer = active;
+                chafferer_level = level;
+                break;
+            case "decorator":
+                decorator = active;
+                decorator_level = level;
+                break;
+            case "fertile":
+                fertile = active;
+                fertile_level = level;
+                break;
+            case "peaceful":
+                peaceful = active;
+                peaceful_level = level;
+                break;
+            case "sensei":
+                sensei = active;
+                sensei_level = level;
+                break;
+            case "business class":
+                business_class = active;
+                business_class_level = level;
+                break;
+            case "capitalist":
+                capitalist = active;
+                capitalist_level = level;
+                break;
+            case "dream team":
+                dream_team = active;
+                dream_team_level = level;
+                break;
+            case "instructive leader":
+                instructive_leader = active;
+                instructive_leader_level = level;
+                break;
+        }
+    }
 }

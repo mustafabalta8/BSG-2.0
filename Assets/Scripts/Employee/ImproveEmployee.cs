@@ -8,11 +8,10 @@ public class ImproveEmployee : MonoBehaviour
     DbManager dbManager;
     TimeManager timeManager;
     MoneyManager moneyManager;
-
+    Company company;
 
     [SerializeField] GameObject EmployeesUI;
     [SerializeField] GameObject EmployeesObject;
-    // Start is called before the first frame update
 
     [SerializeField] Sprite green, green_half, red;
 
@@ -24,6 +23,7 @@ public class ImproveEmployee : MonoBehaviour
         dbManager = FindObjectOfType<DbManager>();
         timeManager = FindObjectOfType<TimeManager>();
         moneyManager = FindObjectOfType<MoneyManager>();
+        company = FindObjectOfType<Company>();
 
         getEmployees();
     }
@@ -182,6 +182,20 @@ public class ImproveEmployee : MonoBehaviour
         {
             price += 150;
         }
+
+        if (company.sensei)
+        {
+            switch (company.sensei_level)
+            {
+                case 1:
+                    price = (int)(price * (1 - 0.10));
+                    break;
+                case 2:
+                    price = (int)(price * (1 - 0.20));
+                    break;
+            }
+        }
+
         return price;
     }
 
@@ -229,6 +243,21 @@ public class ImproveEmployee : MonoBehaviour
         {
             price = 2500;
         }
+
+        if (company.business_class)
+        {
+            switch (company.business_class_level)
+            {
+                case 1:
+                    price = (int)(price * (1 - 0.07));
+                    break;
+                case 2:
+                    price = (int)(price * (1 - 0.10));
+                    break;
+            }
+        }
+
+
         return price;
     }
 
