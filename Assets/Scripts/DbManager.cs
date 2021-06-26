@@ -38,7 +38,7 @@ public class DbManager : MonoBehaviour
 {
     public IDbConnection CreateConnection()
     {
-        string conn = "URI=file:" + Application.dataPath + "/Database/Database.db"; //Path to database.
+        string conn = "URI=file:" + Application.dataPath + "/StreamingAssets/Database.db"; //Path to database.
         IDbConnection dbconn;
         dbconn = (IDbConnection)new SqliteConnection(conn);
         dbconn.Open(); //Open connection to the database.
