@@ -7,14 +7,14 @@ using UnityEngine.UI;
 public class Settings : MonoBehaviour
 {
     Resolution[] resolutions;
-    [SerializeField] TMP_Dropdown resolutionDropdown;
-    [SerializeField] Dropdown resDropdown;
+    TMP_Dropdown resolutionDropdown;//[SerializeField]
+    [SerializeField] Dropdown resDropdown ;
     // Start is called before the first frame update
     void Start()
     {
         resolutions = Screen.resolutions;
 
-        DefineResolutions();
+        //DefineResolutions();
 
        // SetScreenSize(3);
     }
@@ -71,8 +71,8 @@ public class Settings : MonoBehaviour
 
     }
 
-    List<int> widths = new List<int>() { 960, 1280,1366, 1920 };
-    List<int> heights = new List<int>() { 540, 800,768, 1080 };
+    List<int> widths = new List<int>() {  1280,1366, 1920 };
+    List<int> heights = new List<int>() {  800,768, 1080 };
 
     public void SetScreenSize(int index)
     {
