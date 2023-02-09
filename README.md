@@ -1,9 +1,6 @@
 # BSG-2.0
 
 
-Windows Download Link: https://rochallor.itch.io/bsg/download/HEYoVW4dO4BcXd1HMBLDfqB0n_t8yAO9ncdwU35g 
-(Project is not completed)
-
 The two sections which is below are taken from the project report.
 To reach more detail, looking to the report is suggested. 
 Report link: [Senior Project Report.pdf](https://github.com/mustafabalta8/BSG-2.0/files/7513161/Senior.Project.Report.pdf)
