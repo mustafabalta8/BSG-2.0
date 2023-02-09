@@ -1,5 +1,5 @@
-# BSG-2.0
 
+# Business Simulation Game Project
 
 The two sections which is below are taken from the project report.
 To reach more detail, looking to the report is suggested. 
